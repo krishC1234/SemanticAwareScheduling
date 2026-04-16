@@ -1,0 +1,16 @@
+loaded 189 rows across 50 unique models, 15 features (['batch_size', 'param_count', 'family_CNN', 'family_ResNet', 'family_Transformers', 'family_Diffusion', 'family_GNN', 'family_GAN', 'family_Recommender', 'family_Audio', 'family_Video', 'family_ReinforcementLearning', 'family_MultiModal', 'family_MLP', 'family_Other'])
+
+5-fold GroupKFold CV losses (grouped by model_name):
+  model                       MAE             RMSE
+  -------------- ---------------- ----------------
+  Ridge          0.1391 +/- 0.0296   0.1696 +/- 0.0346
+  RandomForest   0.1020 +/- 0.0132   0.1299 +/- 0.0167
+  GradBoosting   0.1121 +/- 0.0109   0.1430 +/- 0.0163
+  MLP_32         0.1571 +/- 0.0094   0.2128 +/- 0.0281
+
+  predict-mean   0.1247 +/- 0.0086   0.1490 +/- 0.0092   <- honest grouped-CV baseline
+  RF on shuffled 0.1339 +/- 0.0082   0.1601 +/- 0.0097   <- noise floor; RF lift over this = real signal
+
+Best model: RandomForest (CV MAE 0.1020)
+  saved best_model.joblib
+  saved feature_columns.json

@@ -1,0 +1,85 @@
+{
+  "CNN": [
+    "alexnet",
+    "densenet",
+    "densenet121",
+    "efficientnet_b0",
+    "mnasnet1_0",
+    "mobilenet_v2",
+    "mobilenet_v3_large",
+    "regnety_120",
+    "shufflenet_v2",
+    "squeezenet1_1",
+    "vgg16",
+    "vovnet"
+  ],
+  "ResNet": [
+    "resnet18",
+    "resnet50",
+    "resnet152"
+  ],
+  "Transformers": [
+    "bert_pytorch",
+    "fastNLP",
+    "hf_albert",
+    "hf_bart",
+    "hf_bert",
+    "hf_bigbird",
+    "hf_distilbert",
+    "hf_gpt2",
+    "hf_longformer",
+    "hf_reformer",
+    "hf_roberta",
+    "hf_t5",
+    "hf_t5_large",
+    "llama",
+    "llama_tp",
+    "llama_v2_7b_16h",
+    "nanogpt",
+    "speech_transformer"
+  ],
+  "Diffusion": [
+    "learning_to_paint",
+    "stable_diffusion"
+  ],
+  "GNN": [
+    "edgecnn",
+    "gin"
+  ],
+  "GAN": [
+    "dcgan",
+    "cyclegan"
+  ],
+  "Recommender": [
+    "dlrm",
+    "deep_recommender"
+  ],
+  "Audio": [
+    "hf_whisper",
+    "mozilla_tts",
+    "tacotron2"
+  ],
+  "Video": [
+    "super_slomo"
+  ],
+  "ReinforcementLearning": [
+    "drq"
+  ],
+  "MultiModal": [
+    "clip",
+    "llava",
+    "moondream",
+    "torchmultimodal_clip"
+  ],
+  "MLP": [
+    "pyhpc_equation_of_state",
+    "pyhpc_turbulent_kinetic_energy"
+  ],
+  "Other": [
+    "background_matting",
+    "maml_omniglot",
+    "milad",
+    "moco",
+    "pytorch_unet"
+  ]
+}

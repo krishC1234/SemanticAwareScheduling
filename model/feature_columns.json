@@ -1,0 +1,24 @@
+{
+  "feature_columns": [
+    "batch_size",
+    "param_count",
+    "family_CNN",
+    "family_ResNet",
+    "family_Transformers",
+    "family_Diffusion",
+    "family_GNN",
+    "family_GAN",
+    "family_Recommender",
+    "family_Audio",
+    "family_Video",
+    "family_ReinforcementLearning",
+    "family_MultiModal",
+    "family_MLP",
+    "family_Other"
+  ],
+  "numeric_cols": [
+    "batch_size",
+    "param_count"
+  ],
+  "target": "k"
+}
