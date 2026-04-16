@@ -1,0 +1,16 @@
+W0411 23:54:28.703000 128534 site-packages/torch/distributed/run.py:852] 
+W0411 23:54:28.703000 128534 site-packages/torch/distributed/run.py:852] *****************************************
+W0411 23:54:28.703000 128534 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0411 23:54:28.703000 128534 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "transformer", "batch_size": 32, "param_count": 56035632}
+###END_FEATURES###
+distilbert_32_40M | GPUs:8 | Batch:32 | Params:56,035,632
+Epoch 1/3 | time:2.44s | throughput:819.9 samples/sec
+Epoch 2/3 | time:2.05s | throughput:974.1 samples/sec
+Epoch 3/3 | time:2.10s | throughput:954.0 samples/sec
+
+==> Summary: GPUs:8 | Total time:6.59s | Avg throughput:910.2 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 56035632, "gpu_count": 8, "total_time_sec": 6.59, "avg_throughput": 910.2}
+###END_RESULTS###

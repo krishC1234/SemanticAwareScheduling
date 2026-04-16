@@ -1,0 +1,713 @@
+W0412 21:01:32.374000 232155 site-packages/torch/distributed/run.py:852] 
+W0412 21:01:32.374000 232155 site-packages/torch/distributed/run.py:852] *****************************************
+W0412 21:01:32.374000 232155 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 21:01:32.374000 232155 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "cnn", "batch_size": 64, "param_count": 78933712}
+###END_FEATURES###
+regnety_64_large | GPUs:8 | Batch:64 | Params:78,933,712
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank7]:     if __name__ == "__main__": main()
+[rank7]:                                ^^^^^^
+[rank7]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank7]:     out = model(imgs)
+[rank7]:           ^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank7]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank7]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank7]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank7]:     x = self.stages(x)
+[rank7]:         ^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank7]:     input = module(input)
+[rank7]:             ^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank7]:     input = module(input)
+[rank7]:             ^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank7]:     out = self.conv3(out)
+[rank7]:           ^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank7]:     input = module(input)
+[rank7]:             ^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank7]:     return F.batch_norm(
+[rank7]:            ^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank7]:     return torch.batch_norm(
+[rank7]:            ^^^^^^^^^^^^^^^^^
+[rank7]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 7 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696671 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank6]:     if __name__ == "__main__": main()
+[rank6]:                                ^^^^^^
+[rank6]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank6]:     out = model(imgs)
+[rank6]:           ^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank6]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank6]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank6]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank6]:     x = self.stages(x)
+[rank6]:         ^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank6]:     input = module(input)
+[rank6]:             ^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank6]:     input = module(input)
+[rank6]:             ^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank6]:     out = self.conv3(out)
+[rank6]:           ^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank6]:     input = module(input)
+[rank6]:             ^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank6]:     return F.batch_norm(
+[rank6]:            ^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank6]:     return torch.batch_norm(
+[rank6]:            ^^^^^^^^^^^^^^^^^
+[rank6]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 6 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696668 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank4]:     if __name__ == "__main__": main()
+[rank4]:                                ^^^^^^
+[rank4]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank4]:     out = model(imgs)
+[rank4]:           ^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank4]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank4]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank4]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank4]:     x = self.stages(x)
+[rank4]:         ^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank4]:     input = module(input)
+[rank4]:             ^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank4]:     input = module(input)
+[rank4]:             ^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank4]:     out = self.conv3(out)
+[rank4]:           ^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank4]:     input = module(input)
+[rank4]:             ^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank4]:     return F.batch_norm(
+[rank4]:            ^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank4]:     return torch.batch_norm(
+[rank4]:            ^^^^^^^^^^^^^^^^^
+[rank4]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 4 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696663 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank0]:     out = model(imgs)
+[rank0]:           ^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank0]:     x = self.stages(x)
+[rank0]:         ^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank0]:     out = self.conv3(out)
+[rank0]:           ^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank0]:     return F.batch_norm(
+[rank0]:            ^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank0]:     return torch.batch_norm(
+[rank0]:            ^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 0 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696659 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank5]:     if __name__ == "__main__": main()
+[rank5]:                                ^^^^^^
+[rank5]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank5]:     out = model(imgs)
+[rank5]:           ^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank5]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank5]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank5]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank5]:     x = self.stages(x)
+[rank5]:         ^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank5]:     input = module(input)
+[rank5]:             ^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank5]:     input = module(input)
+[rank5]:             ^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank5]:     out = self.conv3(out)
+[rank5]:           ^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank5]:     input = module(input)
+[rank5]:             ^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank5]:     return F.batch_norm(
+[rank5]:            ^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank5]:     return torch.batch_norm(
+[rank5]:            ^^^^^^^^^^^^^^^^^
+[rank5]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 5 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696665 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank1]:     out = model(imgs)
+[rank1]:           ^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank1]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank1]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank1]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank1]:     x = self.stages(x)
+[rank1]:         ^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank1]:     input = module(input)
+[rank1]:             ^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank1]:     input = module(input)
+[rank1]:             ^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank1]:     out = self.conv3(out)
+[rank1]:           ^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank1]:     input = module(input)
+[rank1]:             ^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank1]:     return F.batch_norm(
+[rank1]:            ^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank1]:     return torch.batch_norm(
+[rank1]:            ^^^^^^^^^^^^^^^^^
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 1 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696660 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank2]:     if __name__ == "__main__": main()
+[rank2]:                                ^^^^^^
+[rank2]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank2]:     out = model(imgs)
+[rank2]:           ^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank2]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank2]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank2]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank2]:     x = self.stages(x)
+[rank2]:         ^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank2]:     input = module(input)
+[rank2]:             ^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank2]:     input = module(input)
+[rank2]:             ^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank2]:     out = self.conv3(out)
+[rank2]:           ^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank2]:     input = module(input)
+[rank2]:             ^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank2]:     return F.batch_norm(
+[rank2]:            ^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank2]:     return torch.batch_norm(
+[rank2]:            ^^^^^^^^^^^^^^^^^
+[rank2]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 2 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696661 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 185, in <module>
+[rank3]:     if __name__ == "__main__": main()
+[rank3]:                                ^^^^^^
+[rank3]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 173, in main
+[rank3]:     out = model(imgs)
+[rank3]:           ^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank3]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank3]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank3]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 132, in forward
+[rank3]:     x = self.stages(x)
+[rank3]:         ^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank3]:     input = module(input)
+[rank3]:             ^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank3]:     input = module(input)
+[rank3]:             ^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/jobs/regnety_120/regnety_64_large.py", line 82, in forward
+[rank3]:     out = self.conv3(out)
+[rank3]:           ^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank3]:     input = module(input)
+[rank3]:             ^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+[rank3]:     return F.batch_norm(
+[rank3]:            ^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+[rank3]:     return torch.batch_norm(
+[rank3]:            ^^^^^^^^^^^^^^^^^
+[rank3]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 3 has a total capacity of 11.63 GiB of which 42.75 MiB is free. Process 1696662 has 11.58 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 109.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W412 21:01:42.262848946 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0412 21:01:42.851000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232224 closing signal SIGTERM
+W0412 21:01:42.852000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232225 closing signal SIGTERM
+W0412 21:01:42.853000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232226 closing signal SIGTERM
+W0412 21:01:42.854000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232227 closing signal SIGTERM
+W0412 21:01:42.855000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232229 closing signal SIGTERM
+W0412 21:01:42.856000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232230 closing signal SIGTERM
+W0412 21:01:42.857000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 232231 closing signal SIGTERM
+E0412 21:01:43.624000 232155 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 4 (pid: 232228) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/regnety_120/regnety_64_large.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : -15 (pid: 232224)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 232224
+[2]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 232225)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 232225
+[3]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 2 (local_rank: 2)
+  exitcode  : -15 (pid: 232226)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 232226
+[4]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 3 (local_rank: 3)
+  exitcode  : -15 (pid: 232227)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 232227
+[5]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 5 (local_rank: 5)
+  exitcode  : -15 (pid: 232229)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 232229
+[6]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 232230)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[7]:
+  time      : 2026-04-12_21:01:43
+  host      : 72d3b753fbb9
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 232231)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-12_21:01:42
+  host      : 72d3b753fbb9
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 232228)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

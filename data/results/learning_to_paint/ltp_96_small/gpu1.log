@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "rl_ddpg", "batch_size": 96, "param_count": 2853134}
+###END_FEATURES###
+ltp_96_small | GPUs:1 | Batch:96 | Params:2,853,134
+Epoch 1/3 | time:1.89s | throughput:1059.0 samples/sec
+Epoch 2/3 | time:1.68s | throughput:1189.1 samples/sec
+Epoch 3/3 | time:1.69s | throughput:1185.5 samples/sec
+
+==> Summary: GPUs:1 | Total time:5.26s | Avg throughput:1141.2 samples/sec
+###RESULTS###
+{"batch_size": 96, "param_count": 2853134, "gpu_count": 1, "total_time_sec": 5.26, "avg_throughput": 1141.2}
+###END_RESULTS###

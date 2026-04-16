@@ -1,0 +1,62 @@
+###FEATURES###
+{"model_type": "rl_drq", "batch_size": 128, "param_count": 17498853}
+###END_FEATURES###
+drq_128_large | GPUs:1 | Batch:128 | Params:17,498,853
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/drq/drq_128_large.py", line 156, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/drq/drq_128_large.py", line 136, in main
+[rank0]:     q1, q2 = agent.critic(obs_aug, action)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank0]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank0]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank0]: making sure all `forward` function outputs participate in calculating loss. 
+[rank0]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank0]: Parameter indices which did not receive grad for rank 0: 0 1 2 3 4 5 6 7
+[rank0]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank0]:[W414 00:15:45.671370061 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E0414 00:15:46.947000 302109 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 302178) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/drq/drq_128_large.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-14_00:15:46
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 302178)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

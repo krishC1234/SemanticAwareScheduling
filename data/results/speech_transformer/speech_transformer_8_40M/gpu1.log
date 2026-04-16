@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "speech_transformer", "batch_size": 8, "param_count": 63231625}
+###END_FEATURES###
+speech_transformer_8_40M | GPUs:1 | Batch:8 | Params:63,231,625
+Epoch 1/3 | time:72.05s | throughput:27.8 samples/sec
+Epoch 2/3 | time:71.87s | throughput:27.8 samples/sec
+Epoch 3/3 | time:71.86s | throughput:27.8 samples/sec
+
+==> Summary: GPUs:1 | Total time:215.78s | Avg throughput:27.8 samples/sec
+###RESULTS###
+{"batch_size": 8, "param_count": 63231625, "gpu_count": 1, "total_time_sec": 215.78, "avg_throughput": 27.8}
+###END_RESULTS###

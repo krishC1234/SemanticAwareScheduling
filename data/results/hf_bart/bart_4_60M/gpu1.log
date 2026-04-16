@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "encoder_decoder", "batch_size": 4, "param_count": 105026864}
+###END_FEATURES###
+bart_4_60M | GPUs:1 | Batch:4 | Params:105,026,864
+Epoch 1/3 | time:67.93s | throughput:29.4 samples/sec
+Epoch 2/3 | time:65.82s | throughput:30.4 samples/sec
+Epoch 3/3 | time:65.96s | throughput:30.3 samples/sec
+
+==> Summary: GPUs:1 | Total time:199.71s | Avg throughput:30.0 samples/sec
+###RESULTS###
+{"batch_size": 4, "param_count": 105026864, "gpu_count": 1, "total_time_sec": 199.71, "avg_throughput": 30.0}
+###END_RESULTS###

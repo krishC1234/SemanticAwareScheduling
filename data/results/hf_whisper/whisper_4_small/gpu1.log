@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "speech_whisper", "batch_size": 4, "param_count": 20909824}
+###END_FEATURES###
+whisper_4_small | GPUs:1 | Batch:4 | Params:20,909,824
+Epoch 1/3 | time:16.59s | throughput:30.1 samples/sec
+Epoch 2/3 | time:16.08s | throughput:31.1 samples/sec
+Epoch 3/3 | time:16.21s | throughput:30.9 samples/sec
+
+==> Summary: GPUs:1 | Total time:48.88s | Avg throughput:30.7 samples/sec
+###RESULTS###
+{"batch_size": 4, "param_count": 20909824, "gpu_count": 1, "total_time_sec": 48.88, "avg_throughput": 30.7}
+###END_RESULTS###

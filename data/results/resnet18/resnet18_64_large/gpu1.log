@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 64, "param_count": 11689512}
+###END_FEATURES###
+resnet18_64_large | GPUs:1 | Batch:64 | Params:11,689,512
+Epoch 1/3 | time:4.64s | throughput:430.7 samples/sec
+Epoch 2/3 | time:3.99s | throughput:501.7 samples/sec
+Epoch 3/3 | time:3.93s | throughput:508.8 samples/sec
+
+==> Summary: GPUs:1 | Total time:12.56s | Avg throughput:477.6 samples/sec
+###RESULTS###
+{"batch_size": 64, "param_count": 11689512, "gpu_count": 1, "total_time_sec": 12.56, "avg_throughput": 477.6}
+###END_RESULTS###

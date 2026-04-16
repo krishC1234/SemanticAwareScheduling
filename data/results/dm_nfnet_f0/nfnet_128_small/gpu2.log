@@ -1,0 +1,161 @@
+W0412 20:30:52.840000 209163 site-packages/torch/distributed/run.py:852] 
+W0412 20:30:52.840000 209163 site-packages/torch/distributed/run.py:852] *****************************************
+W0412 20:30:52.840000 209163 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 20:30:52.840000 209163 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "cnn", "batch_size": 128, "param_count": 20256820}
+###END_FEATURES###
+nfnet_128_small | GPUs:2 | Batch:128 | Params:20,256,820
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 226, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 214, in main
+[rank0]:     out = model(imgs)
+[rank0]:           ^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 172, in forward
+[rank0]:     x = self.stages(x)
+[rank0]:         ^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 106, in forward
+[rank0]:     return shortcut + self.skip_gain * out * self.alpha
+[rank0]:                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 24.00 MiB. GPU 0 has a total capacity of 11.63 GiB of which 6.81 MiB is free. Process 1649821 has 11.62 GiB memory in use. Of the allocated memory 11.38 GiB is allocated by PyTorch, and 23.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 226, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 214, in main
+[rank1]:     out = model(imgs)
+[rank1]:           ^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank1]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank1]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank1]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 172, in forward
+[rank1]:     x = self.stages(x)
+[rank1]:         ^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank1]:     input = module(input)
+[rank1]:             ^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+[rank1]:     input = module(input)
+[rank1]:             ^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py", line 106, in forward
+[rank1]:     return shortcut + self.skip_gain * out * self.alpha
+[rank1]:                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 24.00 MiB. GPU 1 has a total capacity of 11.63 GiB of which 6.81 MiB is free. Process 1649822 has 11.62 GiB memory in use. Of the allocated memory 11.38 GiB is allocated by PyTorch, and 23.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W412 20:30:59.567920082 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0412 20:31:00.447000 209163 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 209233 closing signal SIGTERM
+E0412 20:31:00.712000 209163 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 209232) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/dm_nfnet_f0/nfnet_128_small.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-12_20:31:00
+  host      : 72d3b753fbb9
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 209233)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-12_20:31:00
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 209232)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,16 @@
+W0412 00:30:45.612000 147373 site-packages/torch/distributed/run.py:852] 
+W0412 00:30:45.612000 147373 site-packages/torch/distributed/run.py:852] *****************************************
+W0412 00:30:45.612000 147373 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 00:30:45.612000 147373 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "transformer", "batch_size": 4, "param_count": 56300336}
+###END_FEATURES###
+roberta_4_40M | GPUs:2 | Batch:4 | Params:56,300,336
+Epoch 1/3 | time:24.01s | throughput:83.3 samples/sec
+Epoch 2/3 | time:23.94s | throughput:83.5 samples/sec
+Epoch 3/3 | time:23.62s | throughput:84.7 samples/sec
+
+==> Summary: GPUs:2 | Total time:71.57s | Avg throughput:83.8 samples/sec
+###RESULTS###
+{"batch_size": 4, "param_count": 56300336, "gpu_count": 2, "total_time_sec": 71.57, "avg_throughput": 83.8}
+###END_RESULTS###

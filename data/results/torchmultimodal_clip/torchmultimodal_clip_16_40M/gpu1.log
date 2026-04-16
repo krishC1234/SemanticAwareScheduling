@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "torchmultimodal_clip", "batch_size": 16, "param_count": 29418241}
+###END_FEATURES###
+torchmultimodal_clip_16_40M | GPUs:1 | Batch:16 | Params:29,418,241
+Epoch 1/3 | time:10.38s | throughput:192.8 samples/sec
+Epoch 2/3 | time:10.93s | throughput:182.9 samples/sec
+Epoch 3/3 | time:10.81s | throughput:185.0 samples/sec
+
+==> Summary: GPUs:1 | Total time:32.12s | Avg throughput:186.8 samples/sec
+###RESULTS###
+{"batch_size": 16, "param_count": 29418241, "gpu_count": 1, "total_time_sec": 32.12, "avg_throughput": 186.8}
+###END_RESULTS###

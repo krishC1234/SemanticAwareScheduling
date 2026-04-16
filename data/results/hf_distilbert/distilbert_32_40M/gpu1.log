@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "transformer", "batch_size": 32, "param_count": 56035632}
+###END_FEATURES###
+distilbert_32_40M | GPUs:1 | Batch:32 | Params:56,035,632
+Epoch 1/3 | time:15.00s | throughput:133.4 samples/sec
+Epoch 2/3 | time:14.72s | throughput:135.9 samples/sec
+Epoch 3/3 | time:14.75s | throughput:135.6 samples/sec
+
+==> Summary: GPUs:1 | Total time:44.47s | Avg throughput:134.9 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 56035632, "gpu_count": 1, "total_time_sec": 44.47, "avg_throughput": 134.9}
+###END_RESULTS###

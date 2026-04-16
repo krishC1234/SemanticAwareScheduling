@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "background_matting_gan", "batch_size": 2, "param_count": 18189894}
+###END_FEATURES###
+background_matting_2_80M | GPUs:1 | Batch:2 | Params:18,189,894
+Epoch 1/3 | time:6.65s | throughput:12.0 samples/sec
+Epoch 2/3 | time:5.96s | throughput:13.4 samples/sec
+Epoch 3/3 | time:5.97s | throughput:13.4 samples/sec
+
+==> Summary: GPUs:1 | Total time:18.58s | Avg throughput:12.9 samples/sec
+###RESULTS###
+{"batch_size": 2, "param_count": 18189894, "gpu_count": 1, "total_time_sec": 18.58, "avg_throughput": 12.9}
+###END_RESULTS###

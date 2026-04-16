@@ -1,0 +1,185 @@
+W0414 01:36:48.798000 325688 site-packages/torch/distributed/run.py:852] 
+W0414 01:36:48.798000 325688 site-packages/torch/distributed/run.py:852] *****************************************
+W0414 01:36:48.798000 325688 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0414 01:36:48.798000 325688 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "moondream", "batch_size": 2, "param_count": 82951424}
+###END_FEATURES###
+moondream_2_50M | GPUs:4 | Batch:2 | Params:82,951,424
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 179, in <module>
+[rank3]:     if __name__ == "__main__": main()
+[rank3]:                                ^^^^^^
+[rank3]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 165, in main
+[rank3]:     for img, ids, lbl in loader:
+[rank3]:                          ^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+[rank3]:     data = self._next_data()
+[rank3]:            ^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+[rank3]:     return self._process_data(data, worker_id)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+[rank3]:     data.reraise()
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/_utils.py", line 775, in reraise
+[rank3]:     raise exception
+[rank3]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank3]: Original Traceback (most recent call last):
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+[rank3]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+[rank3]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank3]:             ~~~~~~~~~~~~^^^^^
+[rank3]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 142, in __getitem__
+[rank3]:     input_ids = torch.randint(1, VOCAB_SIZE, (seq_len,))
+[rank3]:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: RuntimeError: Trying to create tensor with negative dimension -473: [-473]
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 179, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 165, in main
+[rank0]:     for img, ids, lbl in loader:
+[rank0]:                          ^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:            ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+[rank0]:     return self._process_data(data, worker_id)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+[rank0]:     data.reraise()
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/_utils.py", line 775, in reraise
+[rank0]:     raise exception
+[rank0]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank0]: Original Traceback (most recent call last):
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+[rank0]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+[rank0]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank0]:             ~~~~~~~~~~~~^^^^^
+[rank0]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 142, in __getitem__
+[rank0]:     input_ids = torch.randint(1, VOCAB_SIZE, (seq_len,))
+[rank0]:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Trying to create tensor with negative dimension -473: [-473]
+
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 179, in <module>
+[rank2]:     if __name__ == "__main__": main()
+[rank2]:                                ^^^^^^
+[rank2]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 165, in main
+[rank2]:     for img, ids, lbl in loader:
+[rank2]:                          ^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+[rank2]:     data = self._next_data()
+[rank2]:            ^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+[rank2]:     return self._process_data(data, worker_id)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+[rank2]:     data.reraise()
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/_utils.py", line 775, in reraise
+[rank2]:     raise exception
+[rank2]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank2]: Original Traceback (most recent call last):
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+[rank2]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+[rank2]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank2]:             ~~~~~~~~~~~~^^^^^
+[rank2]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 142, in __getitem__
+[rank2]:     input_ids = torch.randint(1, VOCAB_SIZE, (seq_len,))
+[rank2]:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: Trying to create tensor with negative dimension -473: [-473]
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 179, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 165, in main
+[rank1]:     for img, ids, lbl in loader:
+[rank1]:                          ^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+[rank1]:     data = self._next_data()
+[rank1]:            ^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+[rank1]:     return self._process_data(data, worker_id)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+[rank1]:     data.reraise()
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/_utils.py", line 775, in reraise
+[rank1]:     raise exception
+[rank1]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank1]: Original Traceback (most recent call last):
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+[rank1]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+[rank1]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank1]:             ~~~~~~~~~~~~^^^^^
+[rank1]:   File "/workspace/jobs/moondream/moondream_2_50M.py", line 142, in __getitem__
+[rank1]:     input_ids = torch.randint(1, VOCAB_SIZE, (seq_len,))
+[rank1]:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: Trying to create tensor with negative dimension -473: [-473]
+
+[rank0]:[W414 01:36:56.197410477 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0414 01:36:57.148000 325688 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 325757 closing signal SIGTERM
+W0414 01:36:57.149000 325688 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 325759 closing signal SIGTERM
+W0414 01:36:57.150000 325688 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 325760 closing signal SIGTERM
+E0414 01:36:57.428000 325688 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 1 (pid: 325758) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/moondream/moondream_2_50M.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-14_01:36:57
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 325757)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-04-14_01:36:57
+  host      : 72d3b753fbb9
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 325759)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-04-14_01:36:57
+  host      : 72d3b753fbb9
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 325760)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-14_01:36:57
+  host      : 72d3b753fbb9
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 325758)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

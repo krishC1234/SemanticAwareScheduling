@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 128, "param_count": 4383312}
+###END_FEATURES###
+mnasnet_128_large | GPUs:1 | Batch:128 | Params:4,383,312
+Epoch 1/3 | time:4.89s | throughput:409.3 samples/sec
+Epoch 2/3 | time:4.04s | throughput:495.3 samples/sec
+Epoch 3/3 | time:4.08s | throughput:490.4 samples/sec
+
+==> Summary: GPUs:1 | Total time:13.00s | Avg throughput:461.4 samples/sec
+###RESULTS###
+{"batch_size": 128, "param_count": 4383312, "gpu_count": 1, "total_time_sec": 13.0, "avg_throughput": 461.4}
+###END_RESULTS###

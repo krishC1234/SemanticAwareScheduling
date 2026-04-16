@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "segmentation_unet", "batch_size": 8, "param_count": 17263042}
+###END_FEATURES###
+unet_8_large | GPUs:1 | Batch:8 | Params:17,263,042
+Epoch 1/3 | time:10.97s | throughput:45.6 samples/sec
+Epoch 2/3 | time:9.97s | throughput:50.2 samples/sec
+Epoch 3/3 | time:9.97s | throughput:50.1 samples/sec
+
+==> Summary: GPUs:1 | Total time:30.92s | Avg throughput:48.5 samples/sec
+###RESULTS###
+{"batch_size": 8, "param_count": 17263042, "gpu_count": 1, "total_time_sec": 30.92, "avg_throughput": 48.5}
+###END_RESULTS###

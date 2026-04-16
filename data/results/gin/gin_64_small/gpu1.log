@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "gnn_gin", "batch_size": 64, "param_count": 59911}
+###END_FEATURES###
+gin_64_small | GPUs:1 | Batch:64 | Params:59,911
+Epoch 1/3 | time:1.66s | throughput:1206.7 samples/sec
+Epoch 2/3 | time:1.17s | throughput:1710.0 samples/sec
+Epoch 3/3 | time:1.29s | throughput:1549.0 samples/sec
+
+==> Summary: GPUs:1 | Total time:4.12s | Avg throughput:1456.6 samples/sec
+###RESULTS###
+{"batch_size": 64, "param_count": 59911, "gpu_count": 1, "total_time_sec": 4.12, "avg_throughput": 1456.6}
+###END_RESULTS###

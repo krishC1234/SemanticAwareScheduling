@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn_vovnet", "batch_size": 64, "param_count": 2305672}
+###END_FEATURES###
+vovnet_64_small | GPUs:1 | Batch:64 | Params:2,305,672
+Epoch 1/3 | time:5.25s | throughput:380.7 samples/sec
+Epoch 2/3 | time:4.60s | throughput:434.5 samples/sec
+Epoch 3/3 | time:4.58s | throughput:436.5 samples/sec
+
+==> Summary: GPUs:1 | Total time:14.44s | Avg throughput:415.5 samples/sec
+###RESULTS###
+{"batch_size": 64, "param_count": 2305672, "gpu_count": 1, "total_time_sec": 14.44, "avg_throughput": 415.5}
+###END_RESULTS###

@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "causal_lm", "batch_size": 4, "param_count": 51017216}
+###END_FEATURES###
+nanogpt_4_40M | GPUs:1 | Batch:4 | Params:51,017,216
+Epoch 1/3 | time:31.93s | throughput:62.6 samples/sec
+Epoch 2/3 | time:33.10s | throughput:60.4 samples/sec
+Epoch 3/3 | time:32.08s | throughput:62.3 samples/sec
+
+==> Summary: GPUs:1 | Total time:97.11s | Avg throughput:61.8 samples/sec
+###RESULTS###
+{"batch_size": 4, "param_count": 51017216, "gpu_count": 1, "total_time_sec": 97.11, "avg_throughput": 61.8}
+###END_RESULTS###

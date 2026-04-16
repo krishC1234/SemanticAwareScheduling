@@ -1,0 +1,16 @@
+W0412 20:44:47.326000 220895 site-packages/torch/distributed/run.py:852] 
+W0412 20:44:47.326000 220895 site-packages/torch/distributed/run.py:852] *****************************************
+W0412 20:44:47.326000 220895 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 20:44:47.326000 220895 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "cnn", "batch_size": 128, "param_count": 3504872}
+###END_FEATURES###
+mobilenetv2_128_large | GPUs:8 | Batch:128 | Params:3,504,872
+Epoch 1/3 | time:1.38s | throughput:1446.1 samples/sec
+Epoch 2/3 | time:0.52s | throughput:3879.7 samples/sec
+Epoch 3/3 | time:0.48s | throughput:4151.8 samples/sec
+
+==> Summary: GPUs:8 | Total time:2.38s | Avg throughput:2516.7 samples/sec
+###RESULTS###
+{"batch_size": 128, "param_count": 3504872, "gpu_count": 8, "total_time_sec": 2.38, "avg_throughput": 2516.7}
+###END_RESULTS###

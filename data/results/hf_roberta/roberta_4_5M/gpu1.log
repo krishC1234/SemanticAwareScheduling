@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "transformer", "batch_size": 4, "param_count": 18649136}
+###END_FEATURES###
+roberta_4_5M | GPUs:1 | Batch:4 | Params:18,649,136
+Epoch 1/3 | time:24.67s | throughput:81.1 samples/sec
+Epoch 2/3 | time:22.23s | throughput:90.0 samples/sec
+Epoch 3/3 | time:24.87s | throughput:80.4 samples/sec
+
+==> Summary: GPUs:1 | Total time:71.77s | Avg throughput:83.6 samples/sec
+###RESULTS###
+{"batch_size": 4, "param_count": 18649136, "gpu_count": 1, "total_time_sec": 71.77, "avg_throughput": 83.6}
+###END_RESULTS###

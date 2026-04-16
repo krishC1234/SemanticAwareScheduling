@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 128, "param_count": 1712522}
+###END_FEATURES###
+efficientnet_128_small | GPUs:1 | Batch:128 | Params:1,712,522
+Epoch 1/3 | time:5.32s | throughput:376.0 samples/sec
+Epoch 2/3 | time:4.30s | throughput:465.3 samples/sec
+Epoch 3/3 | time:4.29s | throughput:465.9 samples/sec
+
+==> Summary: GPUs:1 | Total time:13.91s | Avg throughput:431.2 samples/sec
+###RESULTS###
+{"batch_size": 128, "param_count": 1712522, "gpu_count": 1, "total_time_sec": 13.91, "avg_throughput": 431.2}
+###END_RESULTS###

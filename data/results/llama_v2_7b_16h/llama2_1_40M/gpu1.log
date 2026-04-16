@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "causal_lm", "batch_size": 1, "param_count": 60039680}
+###END_FEATURES###
+llama2_1_40M | GPUs:1 | Batch:1 | Params:60,039,680
+Epoch 1/3 | time:153.80s | throughput:13.0 samples/sec
+Epoch 2/3 | time:146.52s | throughput:13.7 samples/sec
+Epoch 3/3 | time:145.20s | throughput:13.8 samples/sec
+
+==> Summary: GPUs:1 | Total time:445.52s | Avg throughput:13.5 samples/sec
+###RESULTS###
+{"batch_size": 1, "param_count": 60039680, "gpu_count": 1, "total_time_sec": 445.52, "avg_throughput": 13.5}
+###END_RESULTS###

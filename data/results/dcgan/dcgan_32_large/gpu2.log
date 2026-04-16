@@ -1,0 +1,16 @@
+W0413 18:38:13.934000 241922 site-packages/torch/distributed/run.py:852] 
+W0413 18:38:13.934000 241922 site-packages/torch/distributed/run.py:852] *****************************************
+W0413 18:38:13.934000 241922 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0413 18:38:13.934000 241922 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "gan_dcgan", "batch_size": 32, "param_count": 6342272}
+###END_FEATURES###
+dcgan_32_large | GPUs:2 | Batch:32 | Params:6,342,272
+Epoch 1/3 | time:1.61s | throughput:1238.9 samples/sec
+Epoch 2/3 | time:1.20s | throughput:1664.7 samples/sec
+Epoch 3/3 | time:1.21s | throughput:1657.9 samples/sec
+
+==> Summary: GPUs:2 | Total time:4.02s | Avg throughput:1491.3 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 6342272, "gpu_count": 2, "total_time_sec": 4.02, "avg_throughput": 1491.3}
+###END_RESULTS###

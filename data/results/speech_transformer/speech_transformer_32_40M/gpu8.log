@@ -1,0 +1,170 @@
+W0414 03:02:28.611000 353381 site-packages/torch/distributed/run.py:852] 
+W0414 03:02:28.611000 353381 site-packages/torch/distributed/run.py:852] *****************************************
+W0414 03:02:28.611000 353381 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0414 03:02:28.611000 353381 site-packages/torch/distributed/run.py:852] *****************************************
+W0414 03:02:33.257000 353381 site-packages/torch/distributed/elastic/agent/server/api.py:739] Received 2 death signal, shutting down workers
+W0414 03:02:33.258000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353450 closing signal SIGINT
+W0414 03:02:33.259000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353451 closing signal SIGINT
+W0414 03:02:33.260000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353452 closing signal SIGINT
+W0414 03:02:33.261000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353453 closing signal SIGINT
+W0414 03:02:33.261000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353454 closing signal SIGINT
+W0414 03:02:33.262000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353455 closing signal SIGINT
+W0414 03:02:33.263000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353456 closing signal SIGINT
+W0414 03:02:33.264000 353381 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 353457 closing signal SIGINT
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank3]:     if __name__ == "__main__": main()
+[rank3]:                                ^^^^^^
+[rank3]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank3]:     torch.cuda.set_device(rank)
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank3]:     torch._C._cuda_setDevice(device)
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 435, in _lazy_init
+[rank3]:     queued_call()
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 278, in _check_capability
+[rank3]:     for d in range(device_count()):
+[rank3]:                    ^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1058, in device_count
+[rank3]:     nvml_count = _device_count_amdsmi() if torch.version.hip else _device_count_nvml()
+[rank3]:                                                                   ^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1007, in _device_count_nvml
+[rank3]:     raw_cnt = _raw_device_count_nvml()
+[rank3]:               ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 846, in _raw_device_count_nvml
+[rank3]:     rc = nvml_h.nvmlInit()
+[rank3]:          ^^^^^^^^^^^^^^^^^
+[rank3]: KeyboardInterrupt
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank7]:     if __name__ == "__main__": main()
+[rank7]:                                ^^^^^^
+[rank7]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank7]:     torch.cuda.set_device(rank)
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank7]:     torch._C._cuda_setDevice(device)
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 435, in _lazy_init
+[rank7]:     queued_call()
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 278, in _check_capability
+[rank7]:     for d in range(device_count()):
+[rank7]:                    ^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1058, in device_count
+[rank7]:     nvml_count = _device_count_amdsmi() if torch.version.hip else _device_count_nvml()
+[rank7]:                                                                   ^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1007, in _device_count_nvml
+[rank7]:     raw_cnt = _raw_device_count_nvml()
+[rank7]:               ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 846, in _raw_device_count_nvml
+[rank7]:     rc = nvml_h.nvmlInit()
+[rank7]:          ^^^^^^^^^^^^^^^^^
+[rank7]: KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank0]:     torch.cuda.set_device(rank)
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank0]:     torch._C._cuda_setDevice(device)
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 435, in _lazy_init
+[rank0]:     queued_call()
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 278, in _check_capability
+[rank0]:     for d in range(device_count()):
+[rank0]:                    ^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1058, in device_count
+[rank0]:     nvml_count = _device_count_amdsmi() if torch.version.hip else _device_count_nvml()
+[rank0]:                                                                   ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1007, in _device_count_nvml
+[rank0]:     raw_cnt = _raw_device_count_nvml()
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 846, in _raw_device_count_nvml
+[rank0]:     rc = nvml_h.nvmlInit()
+[rank0]:          ^^^^^^^^^^^^^^^^^
+[rank0]: KeyboardInterrupt
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank6]:     if __name__ == "__main__": main()
+[rank6]:                                ^^^^^^
+[rank6]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank6]:     torch.cuda.set_device(rank)
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank6]:     torch._C._cuda_setDevice(device)
+[rank6]: KeyboardInterrupt
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank2]:     if __name__ == "__main__": main()
+[rank2]:                                ^^^^^^
+[rank2]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank2]:     torch.cuda.set_device(rank)
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank2]:     torch._C._cuda_setDevice(device)
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 435, in _lazy_init
+[rank2]:     queued_call()
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 278, in _check_capability
+[rank2]:     for d in range(device_count()):
+[rank2]:                    ^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1058, in device_count
+[rank2]:     nvml_count = _device_count_amdsmi() if torch.version.hip else _device_count_nvml()
+[rank2]:                                                                   ^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 1007, in _device_count_nvml
+[rank2]:     raw_cnt = _raw_device_count_nvml()
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 846, in _raw_device_count_nvml
+[rank2]:     rc = nvml_h.nvmlInit()
+[rank2]:          ^^^^^^^^^^^^^^^^^
+[rank2]: KeyboardInterrupt
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank5]:     if __name__ == "__main__": main()
+[rank5]:                                ^^^^^^
+[rank5]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank5]:     torch.cuda.set_device(rank)
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank5]:     torch._C._cuda_setDevice(device)
+[rank5]: KeyboardInterrupt
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank4]:     if __name__ == "__main__": main()
+[rank4]:                                ^^^^^^
+[rank4]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank4]:     torch.cuda.set_device(rank)
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank4]:     torch._C._cuda_setDevice(device)
+[rank4]: KeyboardInterrupt
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 201, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/speech_transformer/speech_transformer_32_40M.py", line 165, in main
+[rank1]:     torch.cuda.set_device(rank)
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 584, in set_device
+[rank1]:     torch._C._cuda_setDevice(device)
+[rank1]: KeyboardInterrupt
+[rank0]:[W414 03:02:33.782160698 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 308, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/metrics/api.py", line 134, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 731, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 908, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 353381 got signal: 2

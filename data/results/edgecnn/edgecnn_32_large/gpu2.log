@@ -1,0 +1,79 @@
+W0413 18:55:52.110000 255904 site-packages/torch/distributed/run.py:852] 
+W0413 18:55:52.110000 255904 site-packages/torch/distributed/run.py:852] *****************************************
+W0413 18:55:52.110000 255904 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0413 18:55:52.110000 255904 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "gnn_edgecnn", "batch_size": 32, "param_count": 2081832}
+###END_FEATURES###
+edgecnn_32_large | GPUs:2 | Batch:32 | Params:2,081,832
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/edgecnn/edgecnn_32_large.py", line 90, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/edgecnn/edgecnn_32_large.py", line 81, in main
+[rank0]:     optim.zero_grad(); crit(model(pts), lbl).backward(); optim.step()
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/_tensor.py", line 630, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/autograd/__init__.py", line 364, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.25 GiB. GPU 0 has a total capacity of 11.63 GiB of which 1.09 GiB is free. Process 2667581 has 10.54 GiB memory in use. Of the allocated memory 9.09 GiB is allocated by PyTorch, and 1.21 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/edgecnn/edgecnn_32_large.py", line 90, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/edgecnn/edgecnn_32_large.py", line 81, in main
+[rank1]:     optim.zero_grad(); crit(model(pts), lbl).backward(); optim.step()
+[rank1]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/_tensor.py", line 630, in backward
+[rank1]:     torch.autograd.backward(
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/autograd/__init__.py", line 364, in backward
+[rank1]:     _engine_run_backward(
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+[rank1]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.25 GiB. GPU 1 has a total capacity of 11.63 GiB of which 1.09 GiB is free. Process 2667582 has 10.54 GiB memory in use. Of the allocated memory 9.09 GiB is allocated by PyTorch, and 1.21 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W413 18:55:58.935670199 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0413 18:56:00.005000 255904 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 255974 closing signal SIGTERM
+E0413 18:56:00.038000 255904 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 255973) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/edgecnn/edgecnn_32_large.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-13_18:56:00
+  host      : 72d3b753fbb9
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 255974)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-13_18:56:00
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 255973)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

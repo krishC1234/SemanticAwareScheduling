@@ -1,0 +1,401 @@
+W0413 19:47:34.930000 286590 site-packages/torch/distributed/run.py:852] 
+W0413 19:47:34.930000 286590 site-packages/torch/distributed/run.py:852] *****************************************
+W0413 19:47:34.930000 286590 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0413 19:47:34.930000 286590 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "diffusion_unet", "batch_size": 2, "param_count": 60284548}
+###END_FEATURES###
+sd_2_small | GPUs:8 | Batch:2 | Params:60,284,548
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank5]:     if __name__ == "__main__": main()
+[rank5]:                                ^^^^^^
+[rank5]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank5]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank5]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank5]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank5]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank5]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank5]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank5]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank5]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank5]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank4]:     if __name__ == "__main__": main()
+[rank4]:                                ^^^^^^
+[rank4]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank4]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank4]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank4]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank4]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank4]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank4]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank4]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank4]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank4]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank2]:     if __name__ == "__main__": main()
+[rank2]:                                ^^^^^^
+[rank2]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank2]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank2]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank2]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank2]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank2]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank2]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank2]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank2]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank2]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank3]:     if __name__ == "__main__": main()
+[rank3]:                                ^^^^^^
+[rank3]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank3]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank3]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank3]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank3]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank3]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank3]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank3]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank3]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank3]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank0]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank0]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank0]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank0]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank6]:     if __name__ == "__main__": main()
+[rank6]:                                ^^^^^^
+[rank6]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank6]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank6]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank6]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank6]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank6]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank6]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank6]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank6]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank6]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank7]:     if __name__ == "__main__": main()
+[rank7]:                                ^^^^^^
+[rank7]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank7]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank7]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank7]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank7]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank7]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank7]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank7]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank7]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank7]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 145, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 136, in main
+[rank1]:     optim.zero_grad(); mse(model(lat + noise * t[:, None, None, None], t, ctx), noise).backward(); optim.step()
+[rank1]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1666, in forward
+[rank1]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank1]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1492, in _run_ddp_forward
+[rank1]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 105, in forward
+[rank1]:     for u in self.ups: x = u(x, skips, t_emb, ctx)
+[rank1]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/jobs/stable_diffusion/sd_2_small.py", line 78, in forward
+[rank1]:     for r, a in zip(self.res, self.attn): x = r(torch.cat([x, skips.pop()], 1), t); x = a(x, ctx) if not isinstance(a, nn.Identity) else x
+[rank1]:                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 16 but got size 8 for tensor number 1 in the list.
+[rank0]:[W413 19:47:43.928196467 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0413 19:47:45.125000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286659 closing signal SIGTERM
+W0413 19:47:45.126000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286660 closing signal SIGTERM
+W0413 19:47:45.127000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286661 closing signal SIGTERM
+W0413 19:47:45.128000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286663 closing signal SIGTERM
+W0413 19:47:45.128000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286664 closing signal SIGTERM
+W0413 19:47:45.129000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286665 closing signal SIGTERM
+W0413 19:47:45.130000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 286666 closing signal SIGTERM
+E0413 19:47:45.510000 286590 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 3 (pid: 286662) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/stable_diffusion/sd_2_small.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 286659)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 286660)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 286661)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[4]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 286663)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[5]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 5 (local_rank: 5)
+  exitcode  : 1 (pid: 286664)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[6]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 286665)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[7]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 286666)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-13_19:47:45
+  host      : 72d3b753fbb9
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 286662)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

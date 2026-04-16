@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 96, "param_count": 1968680}
+###END_FEATURES###
+mobilenetv2_96_small | GPUs:1 | Batch:96 | Params:1,968,680
+Epoch 1/3 | time:3.61s | throughput:554.5 samples/sec
+Epoch 2/3 | time:2.84s | throughput:704.3 samples/sec
+Epoch 3/3 | time:2.85s | throughput:701.2 samples/sec
+
+==> Summary: GPUs:1 | Total time:9.30s | Avg throughput:645.1 samples/sec
+###RESULTS###
+{"batch_size": 96, "param_count": 1968680, "gpu_count": 1, "total_time_sec": 9.3, "avg_throughput": 645.1}
+###END_RESULTS###

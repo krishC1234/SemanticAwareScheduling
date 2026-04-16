@@ -1,0 +1,289 @@
+W0412 00:13:40.632000 139410 site-packages/torch/distributed/run.py:852] 
+W0412 00:13:40.632000 139410 site-packages/torch/distributed/run.py:852] *****************************************
+W0412 00:13:40.632000 139410 site-packages/torch/distributed/run.py:852] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 00:13:40.632000 139410 site-packages/torch/distributed/run.py:852] *****************************************
+###FEATURES###
+{"model_type": "sparse_transformer", "batch_size": 8, "param_count": 62535984}
+###END_FEATURES###
+longformer_8_40M | GPUs:8 | Batch:8 | Params:62,535,984
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank2]:     if __name__ == "__main__": main()
+[rank2]:                                ^^^^^^
+[rank2]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank2]:     logits = model(ids)
+[rank2]:              ^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank2]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank2]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank2]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank2]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank2]: making sure all `forward` function outputs participate in calculating loss. 
+[rank2]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank2]: Parameter indices which did not receive grad for rank 2: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank2]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank3]:     if __name__ == "__main__": main()
+[rank3]:                                ^^^^^^
+[rank3]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank3]:     logits = model(ids)
+[rank3]:              ^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank3]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank3]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank3]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank3]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank3]: making sure all `forward` function outputs participate in calculating loss. 
+[rank3]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank3]: Parameter indices which did not receive grad for rank 3: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank3]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank5]:     if __name__ == "__main__": main()
+[rank5]:                                ^^^^^^
+[rank5]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank5]:     logits = model(ids)
+[rank5]:              ^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank5]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank5]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank5]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank5]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank5]: making sure all `forward` function outputs participate in calculating loss. 
+[rank5]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank5]: Parameter indices which did not receive grad for rank 5: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank5]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank4]:     if __name__ == "__main__": main()
+[rank4]:                                ^^^^^^
+[rank4]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank4]:     logits = model(ids)
+[rank4]:              ^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank4]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank4]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank4]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank4]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank4]: making sure all `forward` function outputs participate in calculating loss. 
+[rank4]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank4]: Parameter indices which did not receive grad for rank 4: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank4]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank6]:     if __name__ == "__main__": main()
+[rank6]:                                ^^^^^^
+[rank6]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank6]:     logits = model(ids)
+[rank6]:              ^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank6]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank6]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank6]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank6]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank6]: making sure all `forward` function outputs participate in calculating loss. 
+[rank6]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank6]: Parameter indices which did not receive grad for rank 6: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank6]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank0]:     if __name__ == "__main__": main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank0]:     logits = model(ids)
+[rank0]:              ^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank0]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank0]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank0]: making sure all `forward` function outputs participate in calculating loss. 
+[rank0]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank0]: Parameter indices which did not receive grad for rank 0: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank0]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank1]:     if __name__ == "__main__": main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank1]:     logits = model(ids)
+[rank1]:              ^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank1]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank1]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank1]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank1]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank1]: making sure all `forward` function outputs participate in calculating loss. 
+[rank1]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank1]: Parameter indices which did not receive grad for rank 1: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank1]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 153, in <module>
+[rank7]:     if __name__ == "__main__": main()
+[rank7]:                                ^^^^^^
+[rank7]:   File "/workspace/jobs/hf_longformer/longformer_8_40M.py", line 141, in main
+[rank7]:     logits = model(ids)
+[rank7]:              ^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1662, in forward
+[rank7]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank7]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/venv/main/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1551, in _pre_forward
+[rank7]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank7]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. You can enable unused parameter detection by passing the keyword argument `find_unused_parameters=True` to `torch.nn.parallel.DistributedDataParallel`, and by 
+[rank7]: making sure all `forward` function outputs participate in calculating loss. 
+[rank7]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank7]: Parameter indices which did not receive grad for rank 7: 10 11 12 13 14 15 32 33 34 35 36 37 54 55 56 57 58 59 76 77 78 79 80 81 98 99 100 101 102 103 120 121 122 123 124 125 142 143 144 145 146 147 164 165 166 167 168 169
+[rank7]:  In addition, you can set the environment variable TORCH_DISTRIBUTED_DEBUG to either INFO or DETAIL to print out information about which particular parameters did not receive gradient on this rank as part of this error
+[rank0]:[W412 00:13:49.790253589 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0412 00:13:50.570000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139479 closing signal SIGTERM
+W0412 00:13:50.571000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139480 closing signal SIGTERM
+W0412 00:13:50.572000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139482 closing signal SIGTERM
+W0412 00:13:50.573000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139483 closing signal SIGTERM
+W0412 00:13:50.574000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139484 closing signal SIGTERM
+W0412 00:13:50.575000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139485 closing signal SIGTERM
+W0412 00:13:50.576000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 139486 closing signal SIGTERM
+E0412 00:13:51.106000 139410 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 2 (pid: 139481) of binary: /venv/main/bin/python3
+Traceback (most recent call last):
+  File "/venv/main/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/jobs/hf_longformer/longformer_8_40M.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 139479)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 139480)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 139482)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[4]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 139483)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[5]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 5 (local_rank: 5)
+  exitcode  : -15 (pid: 139484)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 139484
+[6]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 139485)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[7]:
+  time      : 2026-04-12_00:13:51
+  host      : 72d3b753fbb9
+  rank      : 7 (local_rank: 7)
+  exitcode  : -15 (pid: 139486)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 139486
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-12_00:13:50
+  host      : 72d3b753fbb9
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 139481)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

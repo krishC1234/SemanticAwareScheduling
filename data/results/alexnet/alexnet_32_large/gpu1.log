@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 32, "param_count": 61100840}
+###END_FEATURES###
+alexnet_32_large | GPUs:1 | Batch:32 | Params:61,100,840
+Epoch 1/3 | time:3.16s | throughput:633.2 samples/sec
+Epoch 2/3 | time:2.70s | throughput:741.6 samples/sec
+Epoch 3/3 | time:2.69s | throughput:742.6 samples/sec
+
+==> Summary: GPUs:1 | Total time:8.55s | Avg throughput:701.8 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 61100840, "gpu_count": 1, "total_time_sec": 8.55, "avg_throughput": 701.8}
+###END_RESULTS###

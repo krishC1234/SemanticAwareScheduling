@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 32, "param_count": 1235496}
+###END_FEATURES###
+squeezenet_32_large | GPUs:1 | Batch:32 | Params:1,235,496
+Epoch 1/3 | time:3.06s | throughput:654.6 samples/sec
+Epoch 2/3 | time:2.47s | throughput:809.5 samples/sec
+Epoch 3/3 | time:2.47s | throughput:808.4 samples/sec
+
+==> Summary: GPUs:1 | Total time:8.00s | Avg throughput:749.8 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 1235496, "gpu_count": 1, "total_time_sec": 8.0, "avg_throughput": 749.8}
+###END_RESULTS###

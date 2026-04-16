@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "vision_language_clip", "batch_size": 16, "param_count": 151276545}
+###END_FEATURES###
+clip_16_150M | GPUs:1 | Batch:16 | Params:151,276,545
+Epoch 1/3 | time:23.03s | throughput:86.8 samples/sec
+Epoch 2/3 | time:22.53s | throughput:88.8 samples/sec
+Epoch 3/3 | time:22.59s | throughput:88.5 samples/sec
+
+==> Summary: GPUs:1 | Total time:68.15s | Avg throughput:88.0 samples/sec
+###RESULTS###
+{"batch_size": 16, "param_count": 151276545, "gpu_count": 1, "total_time_sec": 68.15, "avg_throughput": 88.0}
+###END_RESULTS###

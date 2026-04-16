@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "efficient_transformer", "batch_size": 32, "param_count": 53999920}
+###END_FEATURES###
+reformer_32_40M | GPUs:1 | Batch:32 | Params:53,999,920
+Epoch 1/3 | time:29.11s | throughput:68.7 samples/sec
+Epoch 2/3 | time:28.93s | throughput:69.1 samples/sec
+Epoch 3/3 | time:28.99s | throughput:69.0 samples/sec
+
+==> Summary: GPUs:1 | Total time:87.03s | Avg throughput:68.9 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 53999920, "gpu_count": 1, "total_time_sec": 87.03, "avg_throughput": 68.9}
+###END_RESULTS###

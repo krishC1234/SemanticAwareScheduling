@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "maml_omniglot", "batch_size": 8, "param_count": 28485}
+###END_FEATURES###
+maml_omniglot_8_25K | GPUs:1 | Tasks:8 | Params:28,485
+Epoch 1/3 | time:156.96s | throughput:10.2 tasks/sec
+Epoch 2/3 | time:157.65s | throughput:10.1 tasks/sec
+Epoch 3/3 | time:151.33s | throughput:10.6 tasks/sec
+
+==> Summary: GPUs:1 | Total time:465.94s | Avg throughput:10.3 tasks/sec
+###RESULTS###
+{"batch_size": 8, "param_count": 28485, "gpu_count": 1, "total_time_sec": 465.94, "avg_throughput": 10.3}
+###END_RESULTS###

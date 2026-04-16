@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "speech_tacotron2", "batch_size": 64, "param_count": 28193153}
+###END_FEATURES###
+tacotron2_64_large | GPUs:1 | Batch:64 | Params:28,193,153
+Epoch 1/3 | time:14.69s | throughput:68.1 samples/sec
+Epoch 2/3 | time:12.72s | throughput:78.6 samples/sec
+Epoch 3/3 | time:12.69s | throughput:78.8 samples/sec
+
+==> Summary: GPUs:1 | Total time:40.10s | Avg throughput:74.8 samples/sec
+###RESULTS###
+{"batch_size": 64, "param_count": 28193153, "gpu_count": 1, "total_time_sec": 40.1, "avg_throughput": 74.8}
+###END_RESULTS###

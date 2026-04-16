@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "gan_dcgan", "batch_size": 32, "param_count": 6342272}
+###END_FEATURES###
+dcgan_32_large | GPUs:1 | Batch:32 | Params:6,342,272
+Epoch 1/3 | time:2.49s | throughput:802.0 samples/sec
+Epoch 2/3 | time:2.39s | throughput:838.0 samples/sec
+Epoch 3/3 | time:2.40s | throughput:834.5 samples/sec
+
+==> Summary: GPUs:1 | Total time:7.28s | Avg throughput:824.4 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 6342272, "gpu_count": 1, "total_time_sec": 7.28, "avg_throughput": 824.4}
+###END_RESULTS###

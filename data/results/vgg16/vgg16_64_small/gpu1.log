@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "cnn", "batch_size": 64, "param_count": 35617672}
+###END_FEATURES###
+vgg16_64_small | GPUs:1 | Batch:64 | Params:35,617,672
+Epoch 1/3 | time:8.21s | throughput:243.6 samples/sec
+Epoch 2/3 | time:7.59s | throughput:263.6 samples/sec
+Epoch 3/3 | time:7.60s | throughput:263.0 samples/sec
+
+==> Summary: GPUs:1 | Total time:23.40s | Avg throughput:256.4 samples/sec
+###RESULTS###
+{"batch_size": 64, "param_count": 35617672, "gpu_count": 1, "total_time_sec": 23.4, "avg_throughput": 256.4}
+###END_RESULTS###

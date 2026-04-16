@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "causal_lm", "batch_size": 16, "param_count": 10872320}
+###END_FEATURES###
+gpt2_16_5M | GPUs:1 | Batch:16 | Params:10,872,320
+Epoch 1/3 | time:6.18s | throughput:323.9 samples/sec
+Epoch 2/3 | time:6.16s | throughput:324.7 samples/sec
+Epoch 3/3 | time:6.09s | throughput:328.2 samples/sec
+
+==> Summary: GPUs:1 | Total time:18.43s | Avg throughput:325.6 samples/sec
+###RESULTS###
+{"batch_size": 16, "param_count": 10872320, "gpu_count": 1, "total_time_sec": 18.43, "avg_throughput": 325.6}
+###END_RESULTS###

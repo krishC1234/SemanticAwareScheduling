@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "pyhpc_tke_surrogate", "batch_size": 8, "param_count": 60769}
+###END_FEATURES###
+pyhpc_turbulent_kinetic_energy_8_50K | GPUs:1 | Batch:8 | Params:60,769
+Epoch 1/3 | time:1.30s | throughput:153.3 samples/sec
+Epoch 2/3 | time:0.86s | throughput:232.0 samples/sec
+Epoch 3/3 | time:0.86s | throughput:232.0 samples/sec
+
+==> Summary: GPUs:1 | Total time:3.03s | Avg throughput:198.1 samples/sec
+###RESULTS###
+{"batch_size": 8, "param_count": 60769, "gpu_count": 1, "total_time_sec": 3.03, "avg_throughput": 198.1}
+###END_RESULTS###

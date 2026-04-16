@@ -1,0 +1,12 @@
+###FEATURES###
+{"model_type": "transformer", "batch_size": 32, "param_count": 8601090}
+###END_FEATURES###
+fastnlp_32_5M | GPUs:1 | Batch:32 | Params:8,601,090
+Epoch 1/3 | time:2.96s | throughput:676.7 samples/sec
+Epoch 2/3 | time:2.98s | throughput:671.9 samples/sec
+Epoch 3/3 | time:2.90s | throughput:689.0 samples/sec
+
+==> Summary: GPUs:1 | Total time:8.84s | Avg throughput:678.9 samples/sec
+###RESULTS###
+{"batch_size": 32, "param_count": 8601090, "gpu_count": 1, "total_time_sec": 8.84, "avg_throughput": 678.9}
+###END_RESULTS###
