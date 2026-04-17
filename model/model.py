@@ -23,7 +23,7 @@ from sklearn.preprocessing import FunctionTransformer, StandardScaler
 from sklearn.compose import ColumnTransformer
 
 HERE = Path(__file__).parent
-CSV = HERE.parent / "data" / "scaling_dataset.csv"
+CSV = HERE.parent / "train_data" / "scaling_dataset.csv"
 RESULTS_TXT = HERE / "results.txt"
 FEATURES_JSON = HERE / "feature_columns.json"
 N_SPLITS = 5
@@ -166,7 +166,6 @@ def main():
 
     RESULTS_TXT.write_text("\n".join(lines) + "\n")
     print(f"\nresults written to {RESULTS_TXT}")
-
 
 if __name__ == "__main__":
     main()

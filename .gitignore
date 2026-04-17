@@ -1,1 +1,6 @@
-/data/results
+/train_data/results
+.venv
+.env
+venv
+__pycache__/
+temp.py
