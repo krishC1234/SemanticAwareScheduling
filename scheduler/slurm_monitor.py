@@ -44,6 +44,7 @@ def get_used_gpus():
 
 def get_available_gpus():
     """Return number of idle GPUs on the cluster."""
+    global total_gpus
     if total_gpus is None: total_gpus = get_total_gpus()
     return total_gpus - get_used_gpus()
 
