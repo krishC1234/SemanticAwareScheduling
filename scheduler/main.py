@@ -129,6 +129,7 @@ class Scheduler:
 
 
 def main():
+    global PORT
     import argparse
     parser = argparse.ArgumentParser(description="Semantic-Aware GPU Scheduler Server")
     parser.add_argument("--lam", type=float, default=0.001, help="Starvation factor")
@@ -139,7 +140,6 @@ def main():
     queue = Queue(lam=args.lam)
     intake = Intake(queue)
     scheduler = Scheduler(queue, intake, poll_interval=args.poll)
-    global PORT
     PORT = args.port
     scheduler.run()
 
