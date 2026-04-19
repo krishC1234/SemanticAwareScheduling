@@ -1,7 +1,7 @@
 import heapq
 import time
 from scheduler.scorer import marginal_gain
-from scheduler.poller import get_total_gpus
+from scheduler.slurm_monitor import get_total_gpus
 
 MAX_GPU_PER_JOB = get_total_gpus()
 
