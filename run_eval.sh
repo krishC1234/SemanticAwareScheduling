@@ -11,6 +11,14 @@ SEED=${1:-42}
 MAX_DELAY=${2:-600}
 PORT=${3:-9321}
 
+# Ensure we're in the project root (so .env and modules resolve correctly)
+cd "$(dirname "$0")"
+
+# Load .env if present
+if [ -f .env ]; then
+    export $(grep -v '^#' .env | xargs)
+fi
+
 echo "============================================================"
 echo "  FULL EVALUATION SUITE"
 echo "  seed=$SEED  max_delay=${MAX_DELAY}s  port=$PORT"
