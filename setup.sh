@@ -1,9 +1,12 @@
 #!/bin/bash
 set -e
 
-echo "==> Installing SLURM and dependencies..."
+echo "==> Installing system packages and SLURM..."
 apt-get update
 apt-get install -y munge slurm-wlm slurm-wlm-basic-plugins
+
+echo "==> Installing Python dependencies..."
+pip install -r requirements.txt
 
 # Create required directories
 mkdir -p /var/spool/slurmd /var/spool/slurmctld /var/log/slurm /var/run/munge /etc/slurm
