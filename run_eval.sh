@@ -30,12 +30,13 @@ echo "############################################################"
 echo "  Starting scheduler server on port $PORT..."
 echo "############################################################"
 
-python3 -m scheduler.main --port "$PORT" &
+python3 -m scheduler.main --port "$PORT" > logs/scheduler_stdout.log 2>&1 &
 SCHEDULER_PID=$!
-sleep 3
+sleep 5
 
 if ! kill -0 "$SCHEDULER_PID" 2>/dev/null; then
-    echo "ERROR: scheduler failed to start"
+    echo "ERROR: scheduler failed to start. Server output:"
+    cat logs/scheduler_stdout.log
     exit 1
 fi
 echo "Scheduler server started (PID $SCHEDULER_PID)"
