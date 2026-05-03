@@ -26,7 +26,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 50000
+NUM_SAMPLES = 1000
 LATENT_SIZE = 64       # SD2 VAE encodes 512x512 → 64x64
 LATENT_CH = 4          # VAE latent channels
 CONTEXT_DIM = 1024     # SD2 uses OpenCLIP ViT-H (1024-d)

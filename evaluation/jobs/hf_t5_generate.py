@@ -19,7 +19,7 @@ BATCH_SIZE = 4
 
 # === FIXED ===
 EPOCHS = 5
-NUM_SAMPLES = 200000
+NUM_SAMPLES = 4000
 VOCAB_SIZE = 32128
 ENC_SEQ_LEN = 512
 DEC_SEQ_LEN = 256      # longer decoder for generation workload

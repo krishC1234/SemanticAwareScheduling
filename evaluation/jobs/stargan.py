@@ -21,7 +21,7 @@ BATCH_SIZE = 16
 
 # === FIXED ===
 EPOCHS = 30
-NUM_SAMPLES = 100000
+NUM_SAMPLES = 2000
 IMG_SIZE = 128
 NUM_DOMAINS = 5          # CelebA attributes (e.g. black hair, blond, brown, male, young)
 G_CONV_DIM = 64

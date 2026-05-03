@@ -21,7 +21,7 @@ BATCH_SIZE = 128
 
 # === FIXED ===
 EPOCHS = 20
-NUM_SAMPLES = 300000
+NUM_SAMPLES = 6000
 NUM_CLASSES = 1000
 IMG_SIZE = 192        # NFNet-F0 default resolution
 

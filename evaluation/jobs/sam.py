@@ -20,7 +20,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 5
-NUM_SAMPLES = 20000
+NUM_SAMPLES = 400
 IMG_SIZE = 1024          # SAM input resolution
 PATCH_SIZE = 16          # ViT patch size → 64×64 patches
 EMBED_DIM = 1280         # ViT-H

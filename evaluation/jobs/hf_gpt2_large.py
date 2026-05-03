@@ -18,7 +18,7 @@ BATCH_SIZE = 4
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 200000
+NUM_SAMPLES = 4000
 VOCAB_SIZE = 50257      # GPT-2 BPE vocab
 SEQ_LEN = 1024          # GPT-2 default context length
 NUM_LAYERS = 36

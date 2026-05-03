@@ -20,7 +20,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 5
-NUM_SAMPLES = 50000      # fewer samples due to long seq_len
+NUM_SAMPLES = 1000       # fewer samples due to long seq_len
 VOCAB_SIZE = 50257
 SEQ_LEN = 6144           # long context
 NUM_LAYERS = 12

@@ -26,7 +26,7 @@ IN_FEATURES = 128
 HIDDEN = 256
 OUT_CLASSES = 40
 NUM_LAYERS = 2
-NUM_SAMPLES = 100000     # one pass per epoch = all nodes
+NUM_SAMPLES = 2000       # one pass per epoch = all nodes
 NEIGHBOR_SAMPLES = 25     # neighbors sampled per node per layer
 
 # ---------------------------------------------------------------------------

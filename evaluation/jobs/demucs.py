@@ -21,7 +21,7 @@ BATCH_SIZE = 64
 
 # === FIXED ===
 EPOCHS = 20
-NUM_SAMPLES = 100000
+NUM_SAMPLES = 2000
 AUDIO_CHANNELS = 2       # stereo
 SOURCES = 4              # vocals, drums, bass, other
 SAMPLE_LENGTH = 80000    # ~5 seconds at 16kHz
