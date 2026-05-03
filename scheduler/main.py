@@ -88,7 +88,8 @@ class Scheduler:
                 "completed": [
                     {"name": j.model_name, "gpus": j.assigned_gpus,
                      "run_time": round(j.run_time, 1),
-                     "wait_time": round(j.wait_time, 1)}
+                     "wait_time": round(j.wait_time, 1),
+                     "k": round(j.k, 4)}
                     for j in self.completed
                 ],
                 "running": [j.model_name for j in self.running.values()],

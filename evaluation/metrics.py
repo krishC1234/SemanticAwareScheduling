@@ -15,6 +15,8 @@ class MetricsCollector:
         self.jobs = []
         self.pending = 0
         self._seen_jobs = set()
+        self._first_submit_time = None
+        self._last_completion_time = None
         self._start_time = None
         self._stop_event = threading.Event()
         self._thread = None
@@ -36,13 +38,21 @@ class MetricsCollector:
         logger.info("MetricsCollector: stopped GPU sampling")
         return self._summarize(wall_time)
 
-    def record_job(self, name, gpus, run_time, wait_time):
+    def record_submission(self, submit_time=None):
+        """Record that a job was submitted. Call once per job at submission."""
+        t = submit_time or time.time()
+        if self._first_submit_time is None or t < self._first_submit_time:
+            self._first_submit_time = t
+
+    def record_job(self, name, gpus, run_time, wait_time, k=None):
         """Record a completed job's stats."""
+        self._last_completion_time = time.time()
         self.jobs.append({
             "name": name,
             "gpus": gpus,
             "run_time": run_time,
             "wait_time": wait_time,
+            "k": k,
         })
         self._seen_jobs.add(name)
         self.pending -= 1
@@ -91,8 +101,15 @@ class MetricsCollector:
 
     def _summarize(self, wall_time):
         """Build the full summary dict."""
+        # Makespan: first submission to last completion
+        if self._first_submit_time and self._last_completion_time:
+            makespan = round(self._last_completion_time - self._first_submit_time, 1)
+        else:
+            makespan = None
+
         summary = {
             "wall_time": round(wall_time, 1),
+            "makespan": makespan,
             "num_jobs": len(self.jobs),
             "jobs": self.jobs,
         }
