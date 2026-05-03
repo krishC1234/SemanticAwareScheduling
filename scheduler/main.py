@@ -46,8 +46,10 @@ class Scheduler:
         logger.info(f"queued: {job}")
         return job
 
-    def listen(self, host=HOST, port=PORT):
+    def listen(self, host=HOST, port=None):
         """Listen for submit requests over TCP."""
+        if port is None:
+            port = PORT
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         server.bind((host, port))
