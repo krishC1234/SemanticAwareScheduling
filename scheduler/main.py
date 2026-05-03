@@ -4,7 +4,7 @@ Usage:
     python3 -m scheduler.main                      # start server
     python3 -m scheduler.main --poll 10 --lam 0.01 # tune params
 
-Listens on localhost:9100 for job submissions from the submit client.
+Listens on localhost:9321 for job submissions from the submit client.
 Ctrl-C to shut down gracefully.
 """
 
@@ -12,34 +12,38 @@ import json
 import socket
 import threading
 import time
+import argparse
 from pathlib import Path
 
-from scheduler.job_profiler import Intake
+from scheduler.job_profiler import JobProfiler
+from scheduler.logger import logger
 from scheduler.queue import Queue
 from scheduler.slurm_monitor import get_available_gpus, get_running_job_ids
 from scheduler.sbatch_wrapper import submit_allocation
 
-POLL_INTERVAL = 5
+POLL_INTERVAL = 60
 HOST = "localhost"
-PORT = 9100
-
+PORT = 9321
 
 class Scheduler:
-    def __init__(self, queue, intake, poll_interval=POLL_INTERVAL):
+    def __init__(self, queue, job_profiler, poll_interval=POLL_INTERVAL):
         self.queue = queue
-        self.intake = intake
+        self.job_profiler = job_profiler
         self.poll_interval = poll_interval
         self.running = {}       # {slurm_id: job}
         self.completed = []
         self.lock = threading.Lock()
         self._stop = threading.Event()
+        self._next_batch_id = 0
+        self._batches = {}      # {batch_id: {"total": N, "done": 0, "total_time": 0, "start": time}}
 
-    def submit_script(self, path):
+    def submit_script(self, path, batch_id=None):
         """Classify and enqueue a single script. Thread-safe."""
         path = Path(path)
         with self.lock:
-            job = self.intake.submit(path)
-        print(f"  queued: {job}")
+            job = self.job_profiler.submit(path)
+            job.batch_id = batch_id
+        logger.info(f"queued: {job}")
         return job
 
     def listen(self, host=HOST, port=PORT):
@@ -49,7 +53,7 @@ class Scheduler:
         server.bind((host, port))
         server.listen(10)
         server.settimeout(1)  # so we can check _stop periodically
-        print(f"  listening on {host}:{port}")
+        logger.info(f"listening on {host}:{port}")
 
         while not self._stop.is_set():
             try:
@@ -62,23 +66,62 @@ class Scheduler:
         server.close()
 
     def _handle_client(self, conn):
-        """Handle a single submit request."""
+        """Handle a single submit or status query request."""
         try:
             data = conn.recv(4096).decode().strip()
             msg = json.loads(data)
-            paths = msg.get("scripts", [])
-            results = []
-            for p in paths:
-                try:
-                    job = self.submit_script(p)
-                    results.append({"path": p, "status": "queued", "k": round(job.k, 4)})
-                except Exception as e:
-                    results.append({"path": p, "status": "error", "error": str(e)})
-            conn.sendall(json.dumps(results).encode())
+
+            if "query" in msg:
+                self._handle_query(conn, msg)
+            else:
+                self._handle_submit(conn, msg)
         except Exception as e:
+            logger.error(f"client handler error: {e}")
             conn.sendall(json.dumps({"error": str(e)}).encode())
         finally:
             conn.close()
+
+    def _handle_query(self, conn, msg):
+        """Handle status queries from eval harness."""
+        if msg["query"] == "status":
+            response = {
+                "completed": [
+                    {"name": j.model_name, "gpus": j.assigned_gpus,
+                     "run_time": round(j.run_time, 1),
+                     "wait_time": round(j.wait_time, 1)}
+                    for j in self.completed
+                ],
+                "running": [j.model_name for j in self.running.values()],
+                "queued": len(self.queue),
+            }
+            conn.sendall(json.dumps(response).encode())
+        else:
+            conn.sendall(json.dumps({"error": f"unknown query: {msg['query']}"}).encode())
+
+    def _handle_submit(self, conn, msg):
+        """Handle job submission requests."""
+        paths = msg.get("scripts", [])
+        logger.info(f"received submission: {len(paths)} script(s)")
+
+        batch_id = self._next_batch_id
+        self._next_batch_id += 1
+        self._batches[batch_id] = {
+            "total": len(paths),
+            "done": 0,
+            "total_time": 0.0,
+            "start": time.time(),
+        }
+        logger.info(f"created batch {batch_id} with {len(paths)} job(s)")
+
+        results = []
+        for p in paths:
+            try:
+                job = self.submit_script(p, batch_id=batch_id)
+                results.append({"path": p, "status": "queued", "k": round(job.k, 4)})
+            except Exception as e:
+                logger.error(f"failed to submit {p}: {e}")
+                results.append({"path": p, "status": "error", "error": str(e)})
+        conn.sendall(json.dumps(results).encode())
 
     def scheduler_loop(self):
         """Main loop: poll SLURM, check completions, allocate, submit."""
@@ -87,29 +130,54 @@ class Scheduler:
             if self.running:
                 active_ids = get_running_job_ids()
                 finished = [sid for sid in self.running if sid not in active_ids]
+                if finished:
+                    logger.debug(f"poll: {len(finished)} job(s) finished, " f"{len(active_ids)} still active")
                 for sid in finished:
                     job = self.running.pop(sid)
-                    elapsed = time.time() - job.submit_time
+                    job.run_time = time.time() - job.submit_time
+                    job.wait_time = job.submit_time - job.start_time
                     self.completed.append(job)
-                    print(f"  completed: {job.model_name} (SLURM {sid}, "
-                          f"{job.assigned_gpus} GPUs, {elapsed:.1f}s)")
+                    logger.info(f"completed: {job.model_name} (SLURM {sid}, "
+                               f"{job.assigned_gpus} GPUs, {job.run_time:.1f}s, "
+                               f"waited {job.wait_time:.1f}s in queue)")
+
+                    if job.batch_id is not None and job.batch_id in self._batches:
+                        batch = self._batches[job.batch_id]
+                        batch["done"] += 1
+                        batch["total_time"] += job.run_time
+                        logger.debug(f"batch {job.batch_id}: {batch['done']}/{batch['total']} done")
+                        if batch["done"] == batch["total"]:
+                            wall = time.time() - batch["start"]
+                            logger.info(f"=== Batch {job.batch_id} complete ({batch['total']} jobs) ===")
+                            logger.info(f"  Sum of job times: {batch['total_time']:.1f}s")
+                            logger.info(f"  Wall-clock time:  {wall:.1f}s")
+                            logger.info(f"===========================")
+                            del self._batches[job.batch_id]
 
             # Allocate idle GPUs to waiting jobs
             with self.lock:
-                if len(self.queue) > 0:
+                queue_len = len(self.queue)
+                if queue_len > 0:
                     available = get_available_gpus()
+                    logger.debug(f"allocation check: {queue_len} queued, "
+                                 f"{available} GPUs free, {len(self.running)} running")
                     if available > 0:
-                        print(f"\n  {available} GPU(s) available, allocating...")
+                        logger.info(f"{available} GPU(s) available, allocating...")
                         allocation = self.queue.allocate(available)
                         if allocation:
+                            for job, gpus in allocation:
+                                logger.info(f"allocated {gpus} GPU(s) to {job.model_name} (k={job.k:.3f})")
                             submitted = submit_allocation(allocation)
                             self.running.update(submitted)
+                            logger.info(f"state: {len(self.running)} running, "
+                                       f"{len(self.queue)} queued, "
+                                       f"{len(self.completed)} completed")
 
             self._stop.wait(self.poll_interval)
 
     def run(self):
         """Start the scheduler. Blocks until Ctrl-C."""
-        print(f"=== Scheduler running (poll={self.poll_interval}s) ===\n")
+        logger.info(f"=== Scheduler running (poll={self.poll_interval}s) ===")
 
         # Start TCP listener for job submissions
         listener = threading.Thread(
@@ -121,25 +189,25 @@ class Scheduler:
         try:
             self.scheduler_loop()
         except KeyboardInterrupt:
-            print("\n\n=== Shutting down ===")
+            logger.info("=== Shutting down ===")
             self._stop.set()
-            print(f"  {len(self.completed)} job(s) completed")
-            print(f"  {len(self.running)} job(s) still running in SLURM")
-            print(f"  {len(self.queue)} job(s) still in queue")
+            logger.info(f"{len(self.completed)} job(s) completed")
+            logger.info(f"{len(self.running)} job(s) still running in SLURM")
+            logger.info(f"{len(self.queue)} job(s) still in queue")
 
 
 def main():
     global PORT
-    import argparse
     parser = argparse.ArgumentParser(description="Semantic-Aware GPU Scheduler Server")
     parser.add_argument("--lam", type=float, default=0.001, help="Starvation factor")
     parser.add_argument("--poll", type=int, default=POLL_INTERVAL, help="Poll interval (sec)")
     parser.add_argument("--port", type=int, default=PORT, help="Listen port")
     args = parser.parse_args()
 
+    logger.info(f"config: lam={args.lam}, poll={args.poll}s, port={args.port}")
     queue = Queue(lam=args.lam)
-    intake = Intake(queue)
-    scheduler = Scheduler(queue, intake, poll_interval=args.poll)
+    job_profiler = JobProfiler(queue)
+    scheduler = Scheduler(queue, job_profiler, poll_interval=args.poll)
     PORT = args.port
     scheduler.run()
 

@@ -19,14 +19,14 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 512
 
 # === FIXED ===
-EPOCHS = 20
-NUM_NODES = 50000
+EPOCHS = 50
+NUM_NODES = 100000
 NUM_EDGES = 500000
 IN_FEATURES = 128
 HIDDEN = 256
 OUT_CLASSES = 40
 NUM_LAYERS = 2
-NUM_SAMPLES = NUM_NODES  # one pass per epoch = all nodes
+NUM_SAMPLES = 100000     # one pass per epoch = all nodes
 NEIGHBOR_SAMPLES = 25     # neighbors sampled per node per layer
 
 # ---------------------------------------------------------------------------

@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 4
 
 # === FIXED ===
-EPOCHS = 10
-NUM_SAMPLES = 20000
+EPOCHS = 3
+NUM_SAMPLES = 300000
 VOCAB_SIZE = 30522       # bert-base/large-uncased vocab
 SEQ_LEN = 512
 NUM_LAYERS = 24

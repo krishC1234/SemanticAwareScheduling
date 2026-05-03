@@ -20,8 +20,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 1
 
 # === FIXED ===
-EPOCHS = 15
-NUM_SAMPLES = 5000
+EPOCHS = 30
+NUM_SAMPLES = 20000
 N_WAY = 5
 K_SHOT = 5              # 5-shot (vs 1-shot in maml_omniglot)
 K_QUERY = 15

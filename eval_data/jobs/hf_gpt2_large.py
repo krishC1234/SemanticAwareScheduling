@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 4
 
 # === FIXED ===
-EPOCHS = 10
-NUM_SAMPLES = 20000
+EPOCHS = 3
+NUM_SAMPLES = 200000
 VOCAB_SIZE = 50257      # GPT-2 BPE vocab
 SEQ_LEN = 1024          # GPT-2 default context length
 NUM_LAYERS = 36

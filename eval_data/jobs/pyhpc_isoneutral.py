@@ -22,8 +22,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 256
 
 # === FIXED ===
-EPOCHS = 20
-NUM_SAMPLES = 50000
+EPOCHS = 50
+NUM_SAMPLES = 500000
 INPUT_DIM = 23           # physical state: masks, coords, temp, salt, etc.
 HIDDEN = 128
 OUTPUT_DIM = 4           # diffusion coefficients (Ai_ez, Ai_nz, Ai_bx, Ai_by)

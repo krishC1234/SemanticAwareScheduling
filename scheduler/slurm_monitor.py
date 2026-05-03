@@ -3,6 +3,7 @@
 import subprocess
 import re
 import time
+from scheduler.logger import logger
 
 total_gpus = None
 
@@ -10,19 +11,19 @@ total_gpus = None
 def get_total_gpus():
     """Query sinfo for total GPU count on the node."""
     try:
-        out = subprocess.run(
-            ["sinfo", "--Node", "--Format=gres:50", "--noheader"],
-            capture_output=True, text=True, timeout=10,
-        )
+        out = subprocess.run(["sinfo", "--Node", "--Format=gres:50", "--noheader"], capture_output=True, text=True, timeout=10,)
         # Parse lines like "gpu:8" or "gpu:nvidia:8"
-        total = 0 
+        total = 0
         for line in out.stdout.strip().splitlines():
             m = re.search(r"gpu(?::\w+)?:(\d+)", line)
             if m:
-                total += int(m.group(1)) 
-        return total if total > 0 else 8  # fallback
-    except Exception:
-        return 8  # default if sinfo unavailable
+                total += int(m.group(1))
+        result = total if total > 0 else 8
+        logger.info(f"SLURM: detected {result} total GPUs")
+        return result
+    except Exception as e:
+        logger.warning(f"SLURM: sinfo failed ({e}), defaulting to 8 GPUs")
+        return 8
 
 
 def get_used_gpus():

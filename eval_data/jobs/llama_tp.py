@@ -19,8 +19,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 1
 
 # === FIXED ===
-EPOCHS = 5
-NUM_SAMPLES = 2000       # small due to massive model
+EPOCHS = 3
+NUM_SAMPLES = 20000      # small due to massive model
 VOCAB_SIZE = 32000       # LLaMA tokenizer
 SEQ_LEN = 512            # shortened for memory (full is 2048)
 NUM_LAYERS = 32

@@ -19,7 +19,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 10
-NUM_SAMPLES = 10000
+NUM_SAMPLES = 100000
 VOCAB_SIZE = 128         # small vocab for speech tokens
 SEQ_LEN = 64
 EMBED_DIM = 1536         # large embedding dimension

@@ -21,8 +21,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 256
 
 # === FIXED ===
-EPOCHS = 20
-NUM_SAMPLES = 50000
+EPOCHS = 50
+NUM_SAMPLES = 200000
 OBS_DIM = 17            # MuJoCo Humanoid-like observation space
 ACT_DIM = 6             # continuous action space
 HIDDEN = 256

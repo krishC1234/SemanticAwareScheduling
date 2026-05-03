@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 HOST = "localhost"
-PORT = 9100
+PORT = 9321
 
 
 def collect_scripts(paths):

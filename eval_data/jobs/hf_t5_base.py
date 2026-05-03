@@ -19,8 +19,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 8
 
 # === FIXED ===
-EPOCHS = 10
-NUM_SAMPLES = 20000
+EPOCHS = 5
+NUM_SAMPLES = 300000
 VOCAB_SIZE = 32128       # T5 SentencePiece vocab
 ENC_SEQ_LEN = 512
 DEC_SEQ_LEN = 128

@@ -19,8 +19,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 8
 
 # === FIXED ===
-EPOCHS = 15
-NUM_SAMPLES = 50000
+EPOCHS = 30
+NUM_SAMPLES = 300000
 NUM_CLASSES = 1000
 IMG_SIZE = 224
 CARDINALITY = 32

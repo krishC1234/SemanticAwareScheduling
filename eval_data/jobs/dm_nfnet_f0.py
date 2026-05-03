@@ -20,8 +20,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 128
 
 # === FIXED ===
-EPOCHS = 15
-NUM_SAMPLES = 50000
+EPOCHS = 20
+NUM_SAMPLES = 300000
 NUM_CLASSES = 1000
 IMG_SIZE = 192        # NFNet-F0 default resolution
 

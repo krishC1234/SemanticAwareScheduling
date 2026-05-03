@@ -2,6 +2,7 @@
 
 import subprocess
 import time
+from scheduler.logger import logger
 
 
 def submit_job(job, gpu_count):
@@ -26,14 +27,13 @@ def submit_job(job, gpu_count):
         )
         if result.returncode == 0:
             slurm_id = result.stdout.strip()
-            print(f"  submitted {job.model_name} -> SLURM job {slurm_id} "
-                  f"({gpu_count} GPUs, k={job.k:.3f})")
+            logger.info(f"submitted {job.model_name} -> SLURM job {slurm_id} " f"({gpu_count} GPUs, k={job.k:.3f})")
             return slurm_id
         else:
-            print(f"  sbatch failed for {job.model_name}: {result.stderr.strip()}")
+            logger.error(f"sbatch failed for {job.model_name}: {result.stderr.strip()}")
             return None
     except Exception as e:
-        print(f"  sbatch error for {job.model_name}: {e}")
+        logger.error(f"sbatch error for {job.model_name}: {e}")
         return None
 
 

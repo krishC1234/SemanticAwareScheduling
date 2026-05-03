@@ -19,8 +19,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 1
 
 # === FIXED ===
-EPOCHS = 10
-NUM_SAMPLES = 5000       # fewer samples due to long seq_len
+EPOCHS = 5
+NUM_SAMPLES = 50000      # fewer samples due to long seq_len
 VOCAB_SIZE = 50257
 SEQ_LEN = 6144           # long context
 NUM_LAYERS = 12

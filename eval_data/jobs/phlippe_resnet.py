@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 128
 
 # === FIXED ===
-EPOCHS = 30
-NUM_SAMPLES = 50000
+EPOCHS = 100
+NUM_SAMPLES = 200000
 NUM_CLASSES = 10
 IMG_SIZE = 32          # CIFAR-10 resolution
 C_HIDDEN = [16, 32, 64]

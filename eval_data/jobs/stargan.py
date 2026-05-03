@@ -20,8 +20,8 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 16
 
 # === FIXED ===
-EPOCHS = 15
-NUM_SAMPLES = 20000
+EPOCHS = 30
+NUM_SAMPLES = 100000
 IMG_SIZE = 128
 NUM_DOMAINS = 5          # CelebA attributes (e.g. black hair, blond, brown, male, young)
 G_CONV_DIM = 64
