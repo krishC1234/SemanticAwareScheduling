@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 BATCH_SIZE = 1           # meta-batch = 1 (but each sample = 32 tasks)
 
 # === FIXED ===
-EPOCHS = 30
+EPOCHS = 3
 NUM_SAMPLES = 400        # number of meta-batches
 N_WAY = 5
 K_SHOT = 1
