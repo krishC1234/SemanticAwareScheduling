@@ -34,7 +34,8 @@ mkdir -p logs
 # Kill any leftover scheduler processes and free the port
 pkill -9 -f "scheduler.main" 2>/dev/null || true
 fuser -k "$PORT"/tcp 2>/dev/null || true
-sleep 2
+fuser -k 9321/tcp 2>/dev/null || true
+sleep 5
 python3 -m scheduler.main --port "$PORT" > logs/scheduler_stdout.log 2>&1 &
 SCHEDULER_PID=$!
 sleep 5
