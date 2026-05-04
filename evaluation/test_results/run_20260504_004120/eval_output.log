@@ -1,0 +1,89 @@
+============================================================
+  FULL EVALUATION SUITE
+  seed=42  max_delay=120s  port=9100
+============================================================
+
+############################################################
+  Starting scheduler server on port 9100...
+############################################################
+Scheduler server started (PID 157880)
+
+############################################################
+  Running: scheduler eval
+############################################################
+=== Eval workload: 22 jobs, delays 0-120.0s ===
+
+Submission order:
+   1. stargan
+   2. hf_t5_base
+   3. gnn_sage
+   4. resnet50_qat
+   5. maml_omniglot
+   6. phlippe_resnet
+   7. resnext50_32x4d
+   8. speech_transformer
+   9. hf_t5_generate
+  10. pyhpc_isoneutral
+  11. soft_actor_critic
+  12. resnest
+  13. mobilenet_v2_qat
+  14. dm_nfnet_f0
+  15. modded_nanogpt
+  16. hf_gpt2_large
+  17. sam
+  18. llama_tp
+  19. maml
+  20. demucs
+  21. hf_bert
+  22. stable_diffusion
+
+[1/22] Submitting stargan... queued (k=0.839)
+         waiting 67.3s before next submission...
+[2/22] Submitting hf_t5_base... queued (k=0.816)
+         waiting 85.9s before next submission...
+[3/22] Submitting gnn_sage... queued (k=0.583)
+         waiting 84.2s before next submission...
+[4/22] Submitting resnet50_qat... queued (k=0.892)
+         waiting 50.3s before next submission...
+[5/22] Submitting maml_omniglot... queued (k=0.883)
+         waiting 53.9s before next submission...
+[6/22] Submitting phlippe_resnet... queued (k=0.584)
+         waiting 33.4s before next submission...
+[7/22] Submitting resnext50_32x4d... queued (k=0.870)
+         waiting 104.3s before next submission...
+[8/22] Submitting speech_transformer... queued (k=0.689)
+         waiting 91.1s before next submission...
+[9/22] Submitting hf_t5_generate... queued (k=0.661)
+         waiting 19.2s before next submission...
+[10/22] Submitting pyhpc_isoneutral... queued (k=0.584)
+         waiting 50.7s before next submission...
+[11/22] Submitting soft_actor_critic... queued (k=0.595)
+         waiting 33.3s before next submission...
+[12/22] Submitting resnest... queued (k=0.874)
+         waiting 25.8s before next submission...
+[13/22] Submitting mobilenet_v2_qat... queued (k=0.785)
+         waiting 91.6s before next submission...
+[14/22] Submitting dm_nfnet_f0... queued (k=0.749)
+         waiting 12.3s before next submission...
+[15/22] Submitting modded_nanogpt... queued (k=0.701)
+         waiting 45.6s before next submission...
+[16/22] Submitting hf_gpt2_large... queued (k=0.699)
+         waiting 43.1s before next submission...
+[17/22] Submitting sam... queued (k=0.678)
+         waiting 41.3s before next submission...
+[18/22] Submitting llama_tp... queued (k=0.678)
+         waiting 31.7s before next submission...
+[19/22] Submitting maml... queued (k=0.887)
+         waiting 5.2s before next submission...
+[20/22] Submitting demucs... queued (k=1.016)
+         waiting 55.1s before next submission...
+[21/22] Submitting hf_bert... queued (k=0.699)
+         waiting 15.0s before next submission...
+[22/22] Submitting stable_diffusion... queued (k=0.716)
+
+=== All 22 jobs submitted, polling for completions ===
+
+  [0 pending, 2 running, 4 queued]
+
+Results saved to /workspace/SemanticAwareScheduling/evaluation/test_results/scheduler_20260504_034953.txt
+Stopping scheduler server (PID 157880)...

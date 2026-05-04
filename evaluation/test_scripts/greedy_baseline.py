@@ -61,28 +61,6 @@ def get_active_job_ids():
         return set()
 
 
-def get_job_runtime(slurm_id):
-    """Query sacct for elapsed wall time of a completed SLURM job."""
-    try:
-        out = subprocess.run(
-            ["sacct", "-j", slurm_id, "--format=Elapsed",
-             "--noheader", "--parsable2"],
-            capture_output=True, text=True, timeout=10,
-        )
-        for line in out.stdout.strip().splitlines():
-            line = line.strip()
-            if not line or line == "Elapsed":
-                continue
-            parts = line.split("-")
-            if len(parts) == 2:
-                days, hms = int(parts[0]), parts[1]
-            else:
-                days, hms = 0, parts[0]
-            h, m, s = hms.split(":")
-            return days * 86400 + int(h) * 3600 + int(m) * 60 + int(s)
-    except Exception:
-        pass
-    return 0.0
 
 
 def main():
@@ -146,9 +124,7 @@ def main():
         active = get_active_job_ids()
         for slurm_id, info in list(tracked.items()):
             if slurm_id not in active and slurm_id not in seen:
-                run_time = get_job_runtime(slurm_id)
-                if run_time == 0.0:
-                    continue
+                run_time = time.time() - info["submit_time"]
                 wait_time = info["submit_time"] - info["enqueue_time"]
                 collector.record_job(
                     name=info["name"],

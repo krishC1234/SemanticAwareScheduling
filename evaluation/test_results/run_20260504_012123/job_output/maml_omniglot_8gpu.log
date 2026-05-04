@@ -1,0 +1,128 @@
+W0504 04:59:27.772000 14505 torch/distributed/run.py:793] 
+W0504 04:59:27.772000 14505 torch/distributed/run.py:793] *****************************************
+W0504 04:59:27.772000 14505 torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0504 04:59:27.772000 14505 torch/distributed/run.py:793] *****************************************
+###FEATURES###
+{"model_type": "other", "batch_size": 1, "param_count": 112261}
+###END_FEATURES###
+maml_omniglot | GPUs:8 | Batch:1 | Params:112,261
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank0]:     main()
+[rank0]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank0]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank0]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank3]:     main()
+[rank3]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank3]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank3]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank3]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank7]:     main()
+[rank7]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank7]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank7]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank7]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank2]:     main()
+[rank2]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank2]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank2]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank2]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank6]:     main()
+[rank6]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank6]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank6]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank6]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank1]:     main()
+[rank1]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank1]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank1]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank4]:     main()
+[rank4]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank4]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank4]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank4]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 188, in <module>
+[rank5]:     main()
+[rank5]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 155, in main
+[rank5]:     logits = model.module.functional_forward(spt_x[t], params)
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py", line 87, in functional_forward
+[rank5]:     x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+[rank5]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
+W0504 04:59:33.580000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14574 closing signal SIGTERM
+W0504 04:59:33.582000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14575 closing signal SIGTERM
+W0504 04:59:33.583000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14576 closing signal SIGTERM
+W0504 04:59:33.584000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14578 closing signal SIGTERM
+W0504 04:59:33.585000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14579 closing signal SIGTERM
+W0504 04:59:33.587000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14580 closing signal SIGTERM
+W0504 04:59:33.588000 14505 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 14581 closing signal SIGTERM
+E0504 04:59:34.282000 14505 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 3 (pid: 14577) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/workspace/SemanticAwareScheduling/evaluation/jobs/maml_omniglot.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-05-04_04:59:33
+  host      : bf25a43d01ee
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 14577)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,27 @@
+W0504 03:35:50.696000 167394 torch/distributed/run.py:793] 
+W0504 03:35:50.696000 167394 torch/distributed/run.py:793] *****************************************
+W0504 03:35:50.696000 167394 torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0504 03:35:50.696000 167394 torch/distributed/run.py:793] *****************************************
+###FEATURES###
+{"model_type": "cnn", "batch_size": 8, "param_count": 25028904}
+###END_FEATURES###
+resnext50_32x4d | GPUs:8 | Batch:8 | Params:25,028,904
+Epoch 1/30 | time:8.77s | throughput:683.9 samples/sec
+Epoch 2/30 | time:7.82s | throughput:767.3 samples/sec
+Epoch 3/30 | time:7.73s | throughput:775.7 samples/sec
+Epoch 4/30 | time:7.78s | throughput:770.9 samples/sec
+Epoch 5/30 | time:7.73s | throughput:776.2 samples/sec
+Epoch 6/30 | time:7.85s | throughput:764.2 samples/sec
+Epoch 7/30 | time:7.78s | throughput:771.3 samples/sec
+Epoch 8/30 | time:7.74s | throughput:774.8 samples/sec
+Epoch 9/30 | time:7.74s | throughput:775.5 samples/sec
+Epoch 10/30 | time:7.77s | throughput:771.8 samples/sec
+Epoch 11/30 | time:7.74s | throughput:774.9 samples/sec
+Epoch 12/30 | time:7.65s | throughput:784.6 samples/sec
+Epoch 13/30 | time:7.58s | throughput:791.1 samples/sec
+Epoch 14/30 | time:7.69s | throughput:780.5 samples/sec
+Epoch 15/30 | time:7.74s | throughput:775.2 samples/sec
+Epoch 16/30 | time:7.69s | throughput:780.5 samples/sec
+Epoch 17/30 | time:7.85s | throughput:764.5 samples/sec
+Epoch 18/30 | time:7.70s | throughput:779.1 samples/sec
+Epoch 19/30 | time:7.87s | throughput:762.2 samples/sec
