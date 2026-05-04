@@ -8,7 +8,9 @@ Listens on localhost:9321 for job submissions from the submit client.
 Ctrl-C to shut down gracefully.
 """
 
+import csv
 import json
+import re
 import socket
 import threading
 import time
@@ -20,6 +22,9 @@ from scheduler.logger import logger
 from scheduler.queue import Queue
 from scheduler.slurm_monitor import get_available_gpus, get_running_job_ids
 from scheduler.sbatch_wrapper import submit_allocation
+
+ROOT = Path(__file__).resolve().parent.parent
+BENCHMARK_CSV = ROOT / "train_data" / "benchmark.csv"
 
 POLL_INTERVAL = 60
 HOST = "localhost"
@@ -143,6 +148,7 @@ class Scheduler:
                     logger.info(f"completed: {job.model_name} (SLURM {sid}, "
                                f"{job.assigned_gpus} GPUs, {job.run_time:.1f}s, "
                                f"waited {job.wait_time:.1f}s in queue)")
+                    self._append_benchmark(job)
 
                     if job.batch_id is not None and job.batch_id in self._batches:
                         batch = self._batches[job.batch_id]
@@ -177,6 +183,75 @@ class Scheduler:
                                        f"{len(self.completed)} completed")
 
             self._stop.wait(self.poll_interval)
+
+    def _append_benchmark(self, job):
+        """Parse job output log and append a row to benchmark.csv."""
+        log_file = getattr(job, "log_file", None)
+        if not log_file or not Path(log_file).exists():
+            logger.warning(f"benchmark: no log file for {job.model_name}, skipping CSV append")
+            return
+
+        try:
+            text = Path(log_file).read_text()
+        except Exception as e:
+            logger.error(f"benchmark: failed to read {log_file}: {e}")
+            return
+
+        # Parse ###RESULTS### JSON block
+        match = re.search(r"###RESULTS###\s*\n(.+?)\n\s*###END_RESULTS###", text)
+        if not match:
+            logger.warning(f"benchmark: no RESULTS block in {log_file}")
+            return
+
+        try:
+            results = json.loads(match.group(1))
+        except json.JSONDecodeError as e:
+            logger.error(f"benchmark: bad JSON in {log_file}: {e}")
+            return
+
+        # Parse per-job GPU stats
+        peak_vram, avg_sm, avg_mem_bw = 0, 0, 0
+        gpu_stats_file = getattr(job, "gpu_stats_file", None)
+        if gpu_stats_file and Path(gpu_stats_file).exists():
+            try:
+                lines = Path(gpu_stats_file).read_text().strip().splitlines()
+                if lines:
+                    vrams, sms, mem_bws = [], [], []
+                    for line in lines:
+                        parts = [p.strip() for p in line.split(",")]
+                        if len(parts) >= 3:
+                            vrams.append(float(parts[0]))
+                            sms.append(float(parts[1]))
+                            mem_bws.append(float(parts[2]))
+                    if vrams:
+                        peak_vram = round(max(vrams))
+                        avg_sm = round(sum(sms) / len(sms), 1)
+                        avg_mem_bw = round(sum(mem_bws) / len(mem_bws), 1)
+            except Exception as e:
+                logger.warning(f"benchmark: failed to parse GPU stats for {job.model_name}: {e}")
+
+        row = {
+            "model": job.model_name,
+            "config": job.model_name,
+            "batch_size": results.get("batch_size", 0),
+            "param_count": results.get("param_count", 0),
+            "gpu_count": job.assigned_gpus,
+            "total_time_sec": results.get("total_time_sec", round(job.run_time, 2)),
+            "avg_throughput": results.get("avg_throughput", 0),
+            "peak_vram_mb": peak_vram,
+            "avg_sm_util_pct": avg_sm,
+            "avg_mem_bw_pct": avg_mem_bw,
+        }
+
+        header = list(row.keys())
+        write_header = not BENCHMARK_CSV.exists() or BENCHMARK_CSV.stat().st_size == 0
+        with BENCHMARK_CSV.open("a", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=header)
+            if write_header:
+                w.writeheader()
+            w.writerow(row)
+        logger.info(f"benchmark: appended {job.model_name} ({job.assigned_gpus} GPUs, "
+                     f"{row['total_time_sec']}s) to {BENCHMARK_CSV.name}")
 
     def run(self):
         """Start the scheduler. Blocks until Ctrl-C."""

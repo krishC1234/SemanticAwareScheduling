@@ -10,7 +10,7 @@ Research project ("Semantic-Aware RL Batch Job Scheduling on Clusters") whose cu
 
 - `data/jobs/<model>/<config>.py` — 57 model families × 4 configs each (~228 PyTorch DDP training scripts using synthetic data). Each script is a self-contained `torchrun`-launchable workload.
 - `setup.sh` — provisions a single-node SLURM cluster (munge + slurmctld + slurmd) on a fresh Ubuntu host and auto-detects CPUs/RAM/GPUs to write `slurm.conf` and `gres.conf`.
-- `data/run_benchmark.sh` — iterates every config × `GPU_COUNTS=(1 2 4 8)`, runs it via `torchrun --standalone --nproc_per_node=$N`, samples `nvidia-smi` once per second in parallel, and appends one CSV row per run.
+- `shell_scripts/run_benchmark.sh` — iterates every config × `GPU_COUNTS=(1 2 4 8)`, runs it via `torchrun --standalone --nproc_per_node=$N`, samples `nvidia-smi` once per second in parallel, and appends one CSV row per run.
 - `data/benchmark.csv` — aggregated results (one row per model/config/gpu_count). Columns: `model,config,batch_size,param_count,gpu_count,total_time_sec,avg_throughput,peak_vram_mb,avg_sm_util_pct,avg_mem_bw_pct`.
 - `data/results/` — per-run logs (`gpuN.log`) and raw GPU samples (`gpu_stats_N.csv`). Gitignored.
 
@@ -20,7 +20,7 @@ Both shell scripts hardcode `/workspace/jobs` and `/workspace/results` — they 
 
 ```bash
 bash setup.sh           # one-time SLURM bring-up (needs root, apt, nvidia-smi)
-bash data/run_benchmark.sh   # full sweep; safe to re-run — appends to existing CSV
+bash shell_scripts/run_benchmark.sh   # full sweep; safe to re-run — appends to existing CSV
 ```
 
 To run a single workload directly (the inner loop the runner executes):

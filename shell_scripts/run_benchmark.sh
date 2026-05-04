@@ -1,10 +1,13 @@
 #!/bin/bash
 set -e
 
+# Ensure we're in the project root
+cd "$(dirname "$0")/.."
+
 # Configuration
-JOBS_DIR="/workspace/jobs"
-RESULTS_DIR="/workspace/results"
-CSV_FILE="$RESULTS_DIR/benchmark.csv"
+JOBS_DIR="train_data/jobs"
+RESULTS_DIR="train_data/results"
+CSV_FILE="train_data/benchmark.csv"
 GPU_COUNTS=(1 2 4 8)
 
 mkdir -p "$RESULTS_DIR"

@@ -12,7 +12,7 @@ MAX_DELAY=${2:-600}
 PORT=${3:-9321}
 
 # Ensure we're in the project root (so .env and modules resolve correctly)
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.."
 
 # Load .env if present
 if [ -f .env ]; then
@@ -55,7 +55,7 @@ python3 -m evaluation.test_scripts.scheulder_eval \
 
 echo "Stopping scheduler server (PID $SCHEDULER_PID)..."
 kill -INT "$SCHEDULER_PID" 2>/dev/null
-wait "$SCHEDULER_PID" 2>/dev/null
+wait "$SCHEDULER_PID" 2>/dev/null || true
 echo "Scheduler server stopped."
 
 # --- 2. Baselines (no server needed) ---
