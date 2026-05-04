@@ -54,8 +54,6 @@ SlurmdLogFile=/var/log/slurm/slurmd.log
 SlurmdSpoolDir=/var/spool/slurmd
 StateSaveLocation=/var/spool/slurmctld
 
-AccountingStorageType=accounting_storage/none
-
 GresTypes=gpu
 
 NodeName=$HOST CPUs=$CPUS RealMemory=$RAM_MB Gres=gpu:$GPU_COUNT State=UNKNOWN
@@ -84,9 +82,10 @@ munge -n | unmunge | head -3
 
 # Start SLURM
 echo "==> Starting SLURM..."
-pkill slurmctld 2>/dev/null || true
-pkill slurmd 2>/dev/null || true
-sleep 1
+pkill -9 slurmctld 2>/dev/null || true
+pkill -9 slurmd 2>/dev/null || true
+rm -rf /var/spool/slurmctld/*
+sleep 2
 
 slurmctld
 sleep 3
