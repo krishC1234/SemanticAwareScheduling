@@ -89,7 +89,7 @@ class SyntheticGraphDataset(Dataset):
         neigh1_idx = torch.randint(0, self.num_nodes, (self.k,))
         neigh1 = self.node_feats[neigh1_idx]
         # 2-hop: sample neighbors of neighbors (random for synthetic)
-        neigh2 = torch.randn(self.k, IN_FEATURES)  # placeholder for 2-hop aggregated
+        neigh2 = torch.randn(self.k, HIDDEN)  # placeholder for 2-hop aggregated
         return x, neigh1, neigh2, label
 
 

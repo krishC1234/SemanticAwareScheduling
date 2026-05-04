@@ -43,7 +43,7 @@ META_LR = 1e-3
 class ConvBlock(nn.Module):
     def __init__(self, in_ch, out_ch):
         super().__init__()
-        self.conv = nn.Conv2d(in_ch, out_ch, 3, stride=2, padding=0)
+        self.conv = nn.Conv2d(in_ch, out_ch, 3, stride=2, padding=1)
         self.bn = nn.BatchNorm2d(out_ch)
 
     def forward(self, x):
@@ -59,7 +59,7 @@ class MAMLModel(nn.Module):
         self.conv2 = ConvBlock(CONV_DIM, CONV_DIM)
         self.conv3 = ConvBlock(CONV_DIM, CONV_DIM)
         self.conv4 = ConvBlock(CONV_DIM, CONV_DIM)
-        self.classifier = nn.Linear(CONV_DIM, N_WAY)
+        self.classifier = nn.Linear(CONV_DIM * 2 * 2, N_WAY)
 
     def forward(self, x):
         x = self.conv1(x)
@@ -72,19 +72,19 @@ class MAMLModel(nn.Module):
     def functional_forward(self, x, params):
         """Forward pass using external params (for inner-loop adaptation)."""
         # Conv1
-        x = F.conv2d(x, params['conv1.conv.weight'], params['conv1.conv.bias'], stride=2)
+        x = F.conv2d(x, params['conv1.conv.weight'], params['conv1.conv.bias'], stride=2, padding=1)
         x = F.batch_norm(x, None, None, params['conv1.bn.weight'], params['conv1.bn.bias'], training=True)
         x = F.relu(x)
         # Conv2
-        x = F.conv2d(x, params['conv2.conv.weight'], params['conv2.conv.bias'], stride=2)
+        x = F.conv2d(x, params['conv2.conv.weight'], params['conv2.conv.bias'], stride=2, padding=1)
         x = F.batch_norm(x, None, None, params['conv2.bn.weight'], params['conv2.bn.bias'], training=True)
         x = F.relu(x)
         # Conv3
-        x = F.conv2d(x, params['conv3.conv.weight'], params['conv3.conv.bias'], stride=2)
+        x = F.conv2d(x, params['conv3.conv.weight'], params['conv3.conv.bias'], stride=2, padding=1)
         x = F.batch_norm(x, None, None, params['conv3.bn.weight'], params['conv3.bn.bias'], training=True)
         x = F.relu(x)
         # Conv4
-        x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2)
+        x = F.conv2d(x, params['conv4.conv.weight'], params['conv4.conv.bias'], stride=2, padding=1)
         x = F.batch_norm(x, None, None, params['conv4.bn.weight'], params['conv4.bn.bias'], training=True)
         x = F.relu(x)
         # Classifier

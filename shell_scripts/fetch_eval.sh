@@ -15,13 +15,13 @@ mkdir -p "$RUN_DIR"
 
 echo "Fetching into $RUN_DIR ..."
 
-echo "Fetching logs..."
-scp -P "$SSH_PORT" -r "$SSH_USER@$SSH_HOST:$REMOTE_DIR/logs/*" "$RUN_DIR/"
-
 echo "Fetching eval output log..."
 scp -P "$SSH_PORT" "$SSH_USER@$SSH_HOST:$REMOTE_DIR/eval_output.log" "$RUN_DIR/"
 
 echo "Fetching eval results..."
 scp -P "$SSH_PORT" -r "$SSH_USER@$SSH_HOST:$REMOTE_DIR/evaluation/test_results/*" "$RUN_DIR/"
+
+echo "Fetching scheduler log..."
+scp -P "$SSH_PORT" "$SSH_USER@$SSH_HOST:$REMOTE_DIR/logs/scheduler.log" "$RUN_DIR/"
 
 echo "Done. Results in $RUN_DIR"

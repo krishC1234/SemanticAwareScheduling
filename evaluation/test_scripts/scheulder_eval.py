@@ -119,7 +119,7 @@ def main():
 
     # Phase 3: Stop collection and report
     summary = collector.stop()
-    report(summary, "scheduler")
+    report(summary, "scheduler", max_delay=args.max_delay)
 
 
 if __name__ == "__main__":

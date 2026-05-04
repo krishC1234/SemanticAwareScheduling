@@ -23,13 +23,19 @@ EVAL_JOBS_DIR = Path(__file__).parent.parent / "jobs"
 POLL_INTERVAL = 30
 
 
+LOGS_DIR = EVAL_JOBS_DIR.parent.parent / "logs" / "greedy_output"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+
 def sbatch_submit(script_path, gpu_count):
     """Submit a DDP script to SLURM via sbatch + torchrun."""
+    log_file = LOGS_DIR / f"{script_path.stem}_{gpu_count}gpu.log"
     sbatch_script = (
         "#!/bin/bash\n"
         f"#SBATCH --gres=gpu:{gpu_count}\n"
         f"#SBATCH --job-name={script_path.stem}\n"
-        "#SBATCH --output=/dev/null\n"
+        f"#SBATCH --output={log_file}\n"
+        f"#SBATCH --error={log_file}\n"
         f"torchrun --standalone --nproc_per_node={gpu_count} {script_path.resolve()}\n"
     )
     try:
@@ -54,6 +60,19 @@ def get_active_job_ids():
         out = subprocess.run(
             ["squeue", "--Format=jobid", "--noheader",
              "--states=RUNNING,PENDING"],
+            capture_output=True, text=True, timeout=10,
+        )
+        return {line.strip() for line in out.stdout.strip().splitlines() if line.strip()}
+    except Exception:
+        return set()
+
+
+def get_running_job_ids():
+    """Return set of SLURM job IDs that are actually RUNNING (not pending)."""
+    try:
+        out = subprocess.run(
+            ["squeue", "--Format=jobid", "--noheader",
+             "--states=RUNNING"],
             capture_output=True, text=True, timeout=10,
         )
         return {line.strip() for line in out.stdout.strip().splitlines() if line.strip()}
@@ -120,12 +139,21 @@ def main():
     print(f"\n=== All jobs submitted, polling for completions ===\n")
 
     seen = set()
+    start_times = {}  # {slurm_id: time when job started running}
     while collector.pending > 0:
         active = get_active_job_ids()
+        running = get_running_job_ids()
+
+        # Track when jobs transition to RUNNING
+        for slurm_id in running:
+            if slurm_id in tracked and slurm_id not in start_times:
+                start_times[slurm_id] = time.time()
+
         for slurm_id, info in list(tracked.items()):
             if slurm_id not in active and slurm_id not in seen:
-                run_time = time.time() - info["submit_time"]
-                wait_time = info["submit_time"] - info["enqueue_time"]
+                start = start_times.get(slurm_id, info["submit_time"])
+                run_time = time.time() - start
+                wait_time = start - info["enqueue_time"]
                 collector.record_job(
                     name=info["name"],
                     gpus=info["gpus"],
@@ -141,7 +169,7 @@ def main():
             time.sleep(POLL_INTERVAL)
 
     summary = collector.stop()
-    report(summary, f"greedy_baseline_{total_gpus}gpu")
+    report(summary, f"greedy_baseline_{total_gpus}gpu", max_delay=args.max_delay)
 
 
 if __name__ == "__main__":

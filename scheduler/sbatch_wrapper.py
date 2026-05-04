@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 from scheduler.logger import logger
 
-LOGS_DIR = Path(__file__).resolve().parent.parent / "logs" / "job_output"
+LOGS_DIR = Path(__file__).resolve().parent.parent / "logs" / "scheduler_jobs"
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 

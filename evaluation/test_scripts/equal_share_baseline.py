@@ -65,28 +65,17 @@ def get_active_job_ids():
         return set()
 
 
-def get_job_runtime(slurm_id):
-    """Query sacct for elapsed wall time of a completed SLURM job."""
+def get_running_job_ids():
+    """Return set of SLURM job IDs that are actually RUNNING (not pending)."""
     try:
         out = subprocess.run(
-            ["sacct", "-j", slurm_id, "--format=Elapsed",
-             "--noheader", "--parsable2"],
+            ["squeue", "--Format=jobid", "--noheader",
+             "--states=RUNNING"],
             capture_output=True, text=True, timeout=10,
         )
-        for line in out.stdout.strip().splitlines():
-            line = line.strip()
-            if not line or line == "Elapsed":
-                continue
-            parts = line.split("-")
-            if len(parts) == 2:
-                days, hms = int(parts[0]), parts[1]
-            else:
-                days, hms = 0, parts[0]
-            h, m, s = hms.split(":")
-            return days * 86400 + int(h) * 3600 + int(m) * 60 + int(s)
+        return {line.strip() for line in out.stdout.strip().splitlines() if line.strip()}
     except Exception:
-        pass
-    return 0.0
+        return set()
 
 
 def main():
@@ -123,6 +112,7 @@ def main():
     wait_queue = deque()
     tracked = {}
     seen = set()
+    start_times = {}
 
     # Pre-compute arrival delays
     arrival_delays = [0.0] + [rng.uniform(0, args.max_delay) for _ in range(total_jobs - 1)]
@@ -151,14 +141,19 @@ def main():
             arrivals_done = True
             print(f"\n=== All {total_jobs} jobs arrived, draining queue ===\n")
 
-        # Check for completed jobs
+        # Track when jobs transition to RUNNING
         active = get_active_job_ids()
+        running = get_running_job_ids()
+        for slurm_id in running:
+            if slurm_id in tracked and slurm_id not in start_times:
+                start_times[slurm_id] = time.time()
+
+        # Check for completed jobs
         for slurm_id, info in list(tracked.items()):
             if slurm_id not in active and slurm_id not in seen:
-                run_time = get_job_runtime(slurm_id)
-                if run_time == 0.0:
-                    continue
-                wait_time = info["submit_time"] - info["enqueue_time"]
+                start = start_times.get(slurm_id, info["submit_time"])
+                run_time = time.time() - start
+                wait_time = start - info["enqueue_time"]
                 collector.record_job(
                     name=info["name"],
                     gpus=info["gpus"],
@@ -202,7 +197,7 @@ def main():
             time.sleep(POLL_INTERVAL)
 
     summary = collector.stop()
-    report(summary, "equal_share_baseline")
+    report(summary, "equal_share_baseline", max_delay=args.max_delay)
 
 
 if __name__ == "__main__":

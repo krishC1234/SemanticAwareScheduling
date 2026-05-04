@@ -10,13 +10,14 @@ from pathlib import Path
 RESULTS_DIR = Path(__file__).parent / "test_results"
 
 
-def report(summary, label):
+def report(summary, label, max_delay=None):
     """Print and save an eval summary.
 
     Args:
         summary: dict returned by MetricsCollector.stop()
         label: identifier used in the header and filename
                (e.g. "scheduler", "greedy_baseline", "polite_baseline")
+        max_delay: max delay between submissions (used for folder naming)
     """
     lines = []
 
@@ -103,13 +104,17 @@ def report(summary, label):
         if j.get("k") is not None and j["gpus"] > 0:
             eff = j["gpus"] ** (j["k"] - 1)
             eff_str = f"  eff={eff:.0%}"
-        emit(f"    {j['name']:30s}  {j['gpus']} GPUs  "
-             f"run={j['run_time']:7.1f}s  wait={j['wait_time']:6.1f}s"
-             f"with eff: {eff_str}")
+        line = (f"    {j['name']:30s}  {j['gpus']} GPUs  "
+                f"run={j['run_time']:7.1f}s  wait={j['wait_time']:6.1f}s")
+        if eff_str:
+            line += f"  {eff_str}"
+        emit(line)
     emit(f"{'='*50}")
 
-    RESULTS_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_path = RESULTS_DIR / f"{label}_{timestamp}.txt"
+    delay_str = f"{int(max_delay)}s" if max_delay is not None else "unknown"
+    run_dir = RESULTS_DIR / f"{delay_str}_{timestamp}"
+    run_dir.mkdir(parents=True, exist_ok=True)
+    out_path = run_dir / f"{label}.txt"
     out_path.write_text("\n".join(lines) + "\n")
     print(f"\nResults saved to {out_path}")
