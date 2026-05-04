@@ -54,6 +54,8 @@ SlurmdLogFile=/var/log/slurm/slurmd.log
 SlurmdSpoolDir=/var/spool/slurmd
 StateSaveLocation=/var/spool/slurmctld
 
+AccountingStorageType=accounting_storage/none
+
 GresTypes=gpu
 
 NodeName=$HOST CPUs=$CPUS RealMemory=$RAM_MB Gres=gpu:$GPU_COUNT State=UNKNOWN
