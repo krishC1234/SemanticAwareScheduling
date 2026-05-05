@@ -1,0 +1,526 @@
+2026-05-04 19:19:54  INFO      SLURM: detected 8 total GPUs
+2026-05-04 19:19:54  INFO      MetricsCollector: started GPU sampling
+2026-05-04 19:37:14  INFO      MetricsCollector: recorded stargan (gpus=8, run=1040.5s, wait=0.0s) — 21 pending
+2026-05-04 19:37:14  INFO      MetricsCollector: recorded hf_t5_base (gpus=8, run=973.2s, wait=0.0s) — 20 pending
+2026-05-04 19:37:14  INFO      MetricsCollector: recorded gnn_sage (gpus=8, run=887.3s, wait=0.0s) — 19 pending
+2026-05-04 19:37:14  INFO      MetricsCollector: recorded resnet50_qat (gpus=8, run=803.1s, wait=0.0s) — 18 pending
+2026-05-04 19:37:14  INFO      MetricsCollector: recorded maml_omniglot (gpus=8, run=752.7s, wait=0.0s) — 17 pending
+2026-05-04 19:37:14  INFO      MetricsCollector: recorded phlippe_resnet (gpus=8, run=698.8s, wait=0.0s) — 16 pending
+2026-05-04 19:39:44  INFO      MetricsCollector: recorded resnext50_32x4d (gpus=8, run=150.1s, wait=665.4s) — 15 pending
+2026-05-04 19:43:14  INFO      MetricsCollector: recorded speech_transformer (gpus=8, run=180.1s, wait=741.2s) — 14 pending
+2026-05-04 19:45:44  INFO      MetricsCollector: recorded hf_t5_generate (gpus=8, run=150.1s, wait=830.2s) — 13 pending
+2026-05-04 19:46:14  INFO      MetricsCollector: recorded pyhpc_isoneutral (gpus=8, run=30.0s, wait=961.1s) — 12 pending
+2026-05-04 19:46:44  INFO      MetricsCollector: recorded soft_actor_critic (gpus=8, run=30.0s, wait=940.4s) — 11 pending
+2026-05-04 19:47:44  INFO      MetricsCollector: recorded resnest (gpus=8, run=60.0s, wait=937.0s) — 10 pending
+2026-05-04 19:48:44  INFO      MetricsCollector: recorded mobilenet_v2_qat (gpus=8, run=60.0s, wait=971.2s) — 9 pending
+2026-05-04 19:49:14  INFO      MetricsCollector: recorded dm_nfnet_f0 (gpus=8, run=30.0s, wait=939.6s) — 8 pending
+2026-05-04 19:49:44  INFO      MetricsCollector: recorded modded_nanogpt (gpus=8, run=30.0s, wait=957.4s) — 7 pending
+2026-05-04 19:50:14  INFO      MetricsCollector: recorded hf_gpt2_large (gpus=8, run=30.0s, wait=941.8s) — 6 pending
+2026-05-04 19:50:44  INFO      MetricsCollector: recorded sam (gpus=8, run=30.0s, wait=928.7s) — 5 pending
+2026-05-04 19:51:45  INFO      MetricsCollector: recorded llama_tp (gpus=8, run=60.3s, wait=917.4s) — 4 pending
+2026-05-04 19:53:15  INFO      MetricsCollector: recorded maml (gpus=8, run=90.0s, wait=945.9s) — 3 pending
+2026-05-04 19:54:15  INFO      MetricsCollector: recorded demucs (gpus=8, run=60.0s, wait=1030.8s) — 2 pending
+2026-05-04 19:54:45  INFO      MetricsCollector: recorded hf_bert (gpus=8, run=30.0s, wait=1035.7s) — 1 pending
+2026-05-04 19:55:15  INFO      MetricsCollector: recorded stable_diffusion (gpus=8, run=30.0s, wait=1050.7s) — 0 pending
+2026-05-04 19:55:15  INFO      MetricsCollector: stopped GPU sampling
+2026-05-04 22:34:39  INFO      SLURM: detected 8 total GPUs
+2026-05-04 22:34:39  INFO      MetricsCollector: started GPU sampling
+2026-05-04 22:34:39  INFO      SLURM: detected 8 total GPUs
+2026-05-04 22:37:19  INFO      MetricsCollector: recorded stargan (gpus=8, run=150.2s, wait=10.0s) — 21 pending
+2026-05-04 22:37:39  INFO      MetricsCollector: recorded hf_t5_base (gpus=8, run=20.0s, wait=90.1s) — 20 pending
+2026-05-04 22:39:10  INFO      MetricsCollector: recorded gnn_sage (gpus=8, run=80.1s, wait=30.1s) — 19 pending
+2026-05-04 22:41:00  INFO      MetricsCollector: recorded resnet50_qat (gpus=8, run=100.2s, wait=30.1s) — 18 pending
+2026-05-04 22:49:11  INFO      MetricsCollector: recorded maml_omniglot (gpus=8, run=470.8s, wait=90.2s) — 17 pending
+2026-05-04 22:49:51  INFO      MetricsCollector: recorded phlippe_resnet (gpus=8, run=30.0s, wait=510.9s) — 16 pending
+2026-05-04 22:53:51  INFO      MetricsCollector: recorded resnext50_32x4d (gpus=8, run=240.4s, wait=500.9s) — 15 pending
+2026-05-04 22:57:12  INFO      MetricsCollector: recorded speech_transformer (gpus=8, run=170.3s, wait=661.2s) — 14 pending
+2026-05-04 22:59:32  INFO      MetricsCollector: recorded hf_t5_generate (gpus=8, run=130.2s, wait=741.4s) — 13 pending
+2026-05-04 23:00:12  INFO      MetricsCollector: recorded pyhpc_isoneutral (gpus=8, run=20.0s, wait=871.6s) — 12 pending
+2026-05-04 23:00:42  INFO      MetricsCollector: recorded soft_actor_critic (gpus=8, run=20.0s, wait=841.5s) — 11 pending
+2026-05-04 23:01:52  INFO      MetricsCollector: recorded resnest (gpus=8, run=60.1s, wait=831.5s) — 10 pending
+2026-05-04 23:02:42  INFO      MetricsCollector: recorded mobilenet_v2_qat (gpus=8, run=50.1s, wait=861.5s) — 9 pending
+2026-05-04 23:03:02  INFO      MetricsCollector: recorded dm_nfnet_f0 (gpus=8, run=10.0s, wait=821.4s) — 8 pending
+2026-05-04 23:03:32  INFO      MetricsCollector: recorded modded_nanogpt (gpus=8, run=10.0s, wait=831.5s) — 7 pending
+2026-05-04 23:04:22  INFO      MetricsCollector: recorded hf_gpt2_large (gpus=8, run=30.0s, wait=811.4s) — 6 pending
+2026-05-04 23:04:42  INFO      MetricsCollector: recorded sam (gpus=8, run=20.0s, wait=791.4s) — 5 pending
+2026-05-04 23:05:43  INFO      MetricsCollector: recorded llama_tp (gpus=8, run=50.3s, wait=771.3s) — 4 pending
+2026-05-04 23:07:13  INFO      MetricsCollector: recorded maml (gpus=8, run=80.1s, wait=791.6s) — 3 pending
+2026-05-04 23:08:13  INFO      MetricsCollector: recorded demucs (gpus=8, run=50.1s, wait=871.7s) — 2 pending
+2026-05-04 23:08:43  INFO      MetricsCollector: recorded hf_bert (gpus=8, run=20.0s, wait=871.7s) — 1 pending
+2026-05-04 23:09:13  INFO      MetricsCollector: recorded stable_diffusion (gpus=8, run=20.0s, wait=881.7s) — 0 pending
+2026-05-04 23:09:13  INFO      MetricsCollector: stopped GPU sampling
+2026-05-04 23:09:19  INFO      SLURM: detected 8 total GPUs
+2026-05-04 23:09:19  INFO      config: lam=0.001, poll=60s, port=9100
+2026-05-04 23:09:21  INFO      === Scheduler running (poll=60s) ===
+2026-05-04 23:09:21  INFO      listening on localhost:9100
+2026-05-04 23:09:23  INFO      received submission: 1 script(s)
+2026-05-04 23:09:23  INFO      created batch 0 with 1 job(s)
+2026-05-04 23:09:23  INFO      intake: reading stargan.py
+2026-05-04 23:09:23  DEBUG     intake: stargan.py is 8113 chars, 216 lines
+2026-05-04 23:09:23  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:09:29  INFO      LLM: response in 6.0s — {"family": "GAN", "batch_size": 16, "param_count": 53000000}
+2026-05-04 23:09:29  INFO      LLM: extracted family=GAN, batch_size=16, param_count=53000000
+2026-05-04 23:09:29  INFO      predict_k: family=GAN, batch_size=16, param_count=53,000,000 -> k=0.8392
+2026-05-04 23:09:29  INFO      profiled: Job(stargan, k=0.84, family=GAN, batch_size=16, params=53,000,000, gpus=0)batch_id=None
+2026-05-04 23:09:29  INFO      queued: Job(stargan, k=0.84, family=GAN, batch_size=16, params=53,000,000, gpus=0)batch_id=0
+2026-05-04 23:10:21  INFO      SLURM: detected 8 total GPUs
+2026-05-04 23:10:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:10:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:10:21  INFO      allocated 8 GPU(s) to stargan (k=0.839)
+2026-05-04 23:10:21  INFO      submitted stargan -> SLURM job 157 (8 GPUs, k=0.839)
+2026-05-04 23:10:21  INFO      state: 1 running, 0 queued, 0 completed
+2026-05-04 23:10:37  INFO      received submission: 1 script(s)
+2026-05-04 23:10:37  INFO      created batch 1 with 1 job(s)
+2026-05-04 23:10:37  INFO      intake: reading hf_t5_base.py
+2026-05-04 23:10:37  DEBUG     intake: hf_t5_base.py is 9751 chars, 270 lines
+2026-05-04 23:10:37  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:10:41  INFO      LLM: response in 4.1s — {"family": "Transformers", "batch_size": 8, "param_count": 220000000}
+2026-05-04 23:10:41  INFO      LLM: extracted family=Transformers, batch_size=8, param_count=220000000
+2026-05-04 23:10:41  INFO      predict_k: family=Transformers, batch_size=8, param_count=220,000,000 -> k=0.8155
+2026-05-04 23:10:41  INFO      profiled: Job(hf_t5_base, k=0.82, family=Transformers, batch_size=8, params=220,000,000, gpus=0)batch_id=None
+2026-05-04 23:10:41  INFO      queued: Job(hf_t5_base, k=0.82, family=Transformers, batch_size=8, params=220,000,000, gpus=0)batch_id=1
+2026-05-04 23:11:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 1 running
+2026-05-04 23:11:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:11:21  INFO      allocated 8 GPU(s) to hf_t5_base (k=0.816)
+2026-05-04 23:11:21  INFO      submitted hf_t5_base -> SLURM job 158 (8 GPUs, k=0.816)
+2026-05-04 23:11:21  INFO      state: 2 running, 0 queued, 0 completed
+2026-05-04 23:12:07  INFO      received submission: 1 script(s)
+2026-05-04 23:12:07  INFO      created batch 2 with 1 job(s)
+2026-05-04 23:12:07  INFO      intake: reading gnn_sage.py
+2026-05-04 23:12:07  DEBUG     intake: gnn_sage.py is 5669 chars, 153 lines
+2026-05-04 23:12:07  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:12:11  INFO      LLM: response in 4.4s — {"family": "GNN", "batch_size": 512, "param_count": 300000}
+2026-05-04 23:12:11  INFO      LLM: extracted family=GNN, batch_size=512, param_count=300000
+2026-05-04 23:12:11  INFO      predict_k: family=GNN, batch_size=512, param_count=300,000 -> k=0.5825
+2026-05-04 23:12:11  INFO      profiled: Job(gnn_sage, k=0.58, family=GNN, batch_size=512, params=300,000, gpus=0)batch_id=None
+2026-05-04 23:12:11  INFO      queued: Job(gnn_sage, k=0.58, family=GNN, batch_size=512, params=300,000, gpus=0)batch_id=2
+2026-05-04 23:12:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:12:21  INFO      completed: hf_t5_base (SLURM 158, 8 GPUs, 60.0s, waited 40.2s in queue)
+2026-05-04 23:12:21  WARNING   benchmark: no log file for hf_t5_base, skipping CSV append
+2026-05-04 23:12:21  DEBUG     batch 1: 1/1 done
+2026-05-04 23:12:21  INFO      === Batch 1 complete (1 jobs) ===
+2026-05-04 23:12:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:12:21  INFO        Wall-clock time:  104.5s
+2026-05-04 23:12:21  INFO      ===========================
+2026-05-04 23:12:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 1 running
+2026-05-04 23:12:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:12:21  INFO      allocated 8 GPU(s) to gnn_sage (k=0.583)
+2026-05-04 23:12:21  INFO      submitted gnn_sage -> SLURM job 159 (8 GPUs, k=0.583)
+2026-05-04 23:12:21  INFO      state: 2 running, 0 queued, 1 completed
+2026-05-04 23:13:21  DEBUG     poll: 2 job(s) finished, 0 still active
+2026-05-04 23:13:21  INFO      completed: stargan (SLURM 157, 8 GPUs, 180.1s, waited 51.8s in queue)
+2026-05-04 23:13:21  INFO      benchmark: appended stargan (8 GPUs, 141.6s) to benchmark.csv
+2026-05-04 23:13:21  DEBUG     batch 0: 1/1 done
+2026-05-04 23:13:21  INFO      === Batch 0 complete (1 jobs) ===
+2026-05-04 23:13:21  INFO        Sum of job times: 180.1s
+2026-05-04 23:13:21  INFO        Wall-clock time:  238.0s
+2026-05-04 23:13:21  INFO      ===========================
+2026-05-04 23:13:21  INFO      completed: gnn_sage (SLURM 159, 8 GPUs, 60.0s, waited 9.8s in queue)
+2026-05-04 23:13:21  WARNING   benchmark: no log file for gnn_sage, skipping CSV append
+2026-05-04 23:13:21  DEBUG     batch 2: 1/1 done
+2026-05-04 23:13:21  INFO      === Batch 2 complete (1 jobs) ===
+2026-05-04 23:13:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:13:21  INFO        Wall-clock time:  74.3s
+2026-05-04 23:13:21  INFO      ===========================
+2026-05-04 23:13:35  INFO      received submission: 1 script(s)
+2026-05-04 23:13:35  INFO      created batch 3 with 1 job(s)
+2026-05-04 23:13:35  INFO      intake: reading resnet50_qat.py
+2026-05-04 23:13:35  DEBUG     intake: resnet50_qat.py is 6324 chars, 169 lines
+2026-05-04 23:13:35  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:13:39  INFO      LLM: response in 3.8s — {"family": "ResNet", "batch_size": 32, "param_count": 25600000}
+2026-05-04 23:13:39  INFO      LLM: extracted family=ResNet, batch_size=32, param_count=25600000
+2026-05-04 23:13:39  INFO      predict_k: family=ResNet, batch_size=32, param_count=25,600,000 -> k=0.8924
+2026-05-04 23:13:39  INFO      profiled: Job(resnet50_qat, k=0.89, family=ResNet, batch_size=32, params=25,600,000, gpus=0)batch_id=None
+2026-05-04 23:13:39  INFO      queued: Job(resnet50_qat, k=0.89, family=ResNet, batch_size=32, params=25,600,000, gpus=0)batch_id=3
+2026-05-04 23:14:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:14:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:14:21  INFO      allocated 8 GPU(s) to resnet50_qat (k=0.892)
+2026-05-04 23:14:21  INFO      submitted resnet50_qat -> SLURM job 160 (8 GPUs, k=0.892)
+2026-05-04 23:14:21  INFO      state: 1 running, 0 queued, 3 completed
+2026-05-04 23:14:30  INFO      received submission: 1 script(s)
+2026-05-04 23:14:30  INFO      created batch 4 with 1 job(s)
+2026-05-04 23:14:30  INFO      intake: reading maml_omniglot.py
+2026-05-04 23:14:30  DEBUG     intake: maml_omniglot.py is 7394 chars, 188 lines
+2026-05-04 23:14:30  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:14:32  INFO      LLM: response in 2.8s — {"family": "CNN", "batch_size": 1, "param_count": 110000}
+2026-05-04 23:14:32  INFO      LLM: extracted family=CNN, batch_size=1, param_count=110000
+2026-05-04 23:14:33  INFO      predict_k: family=CNN, batch_size=1, param_count=110,000 -> k=0.8830
+2026-05-04 23:14:33  INFO      profiled: Job(maml_omniglot, k=0.88, family=CNN, batch_size=1, params=110,000, gpus=0)batch_id=None
+2026-05-04 23:14:33  INFO      queued: Job(maml_omniglot, k=0.88, family=CNN, batch_size=1, params=110,000, gpus=0)batch_id=4
+2026-05-04 23:15:21  DEBUG     poll: 1 job(s) finished, 0 still active
+2026-05-04 23:15:21  INFO      completed: resnet50_qat (SLURM 160, 8 GPUs, 60.0s, waited 41.8s in queue)
+2026-05-04 23:15:21  WARNING   benchmark: no log file for resnet50_qat, skipping CSV append
+2026-05-04 23:15:21  DEBUG     batch 3: 1/1 done
+2026-05-04 23:15:21  INFO      === Batch 3 complete (1 jobs) ===
+2026-05-04 23:15:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:15:21  INFO        Wall-clock time:  105.7s
+2026-05-04 23:15:21  INFO      ===========================
+2026-05-04 23:15:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:15:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:15:21  INFO      allocated 8 GPU(s) to maml_omniglot (k=0.883)
+2026-05-04 23:15:21  INFO      submitted maml_omniglot -> SLURM job 161 (8 GPUs, k=0.883)
+2026-05-04 23:15:21  INFO      state: 1 running, 0 queued, 4 completed
+2026-05-04 23:15:26  INFO      received submission: 1 script(s)
+2026-05-04 23:15:26  INFO      created batch 5 with 1 job(s)
+2026-05-04 23:15:26  INFO      intake: reading phlippe_resnet.py
+2026-05-04 23:15:26  DEBUG     intake: phlippe_resnet.py is 5705 chars, 155 lines
+2026-05-04 23:15:26  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:15:29  INFO      LLM: response in 2.4s — {"family": "ResNet", "batch_size": 128, "param_count": 270000}
+2026-05-04 23:15:29  INFO      LLM: extracted family=ResNet, batch_size=128, param_count=270000
+2026-05-04 23:15:29  INFO      predict_k: family=ResNet, batch_size=128, param_count=270,000 -> k=0.5838
+2026-05-04 23:15:29  INFO      profiled: Job(phlippe_resnet, k=0.58, family=ResNet, batch_size=128, params=270,000, gpus=0)batch_id=None
+2026-05-04 23:15:29  INFO      queued: Job(phlippe_resnet, k=0.58, family=ResNet, batch_size=128, params=270,000, gpus=0)batch_id=5
+2026-05-04 23:16:02  INFO      received submission: 1 script(s)
+2026-05-04 23:16:02  INFO      created batch 6 with 1 job(s)
+2026-05-04 23:16:02  INFO      intake: reading resnext50_32x4d.py
+2026-05-04 23:16:02  DEBUG     intake: resnext50_32x4d.py is 6725 chars, 179 lines
+2026-05-04 23:16:02  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:16:05  INFO      LLM: response in 2.4s — {"family": "ResNet", "batch_size": 8, "param_count": 25000000}
+2026-05-04 23:16:05  INFO      LLM: extracted family=ResNet, batch_size=8, param_count=25000000
+2026-05-04 23:16:05  INFO      predict_k: family=ResNet, batch_size=8, param_count=25,000,000 -> k=0.8702
+2026-05-04 23:16:05  INFO      profiled: Job(resnext50_32x4d, k=0.87, family=ResNet, batch_size=8, params=25,000,000, gpus=0)batch_id=None
+2026-05-04 23:16:05  INFO      queued: Job(resnext50_32x4d, k=0.87, family=ResNet, batch_size=8, params=25,000,000, gpus=0)batch_id=6
+2026-05-04 23:16:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:16:21  INFO      completed: maml_omniglot (SLURM 161, 8 GPUs, 60.0s, waited 48.5s in queue)
+2026-05-04 23:16:21  WARNING   benchmark: no log file for maml_omniglot, skipping CSV append
+2026-05-04 23:16:21  DEBUG     batch 4: 1/1 done
+2026-05-04 23:16:21  INFO      === Batch 4 complete (1 jobs) ===
+2026-05-04 23:16:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:16:21  INFO        Wall-clock time:  111.4s
+2026-05-04 23:16:21  INFO      ===========================
+2026-05-04 23:16:21  DEBUG     allocation check: 2 queued, 8 GPUs free, 0 running
+2026-05-04 23:16:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:16:21  INFO      allocated 3 GPU(s) to resnext50_32x4d (k=0.870)
+2026-05-04 23:16:21  INFO      allocated 5 GPU(s) to phlippe_resnet (k=0.584)
+2026-05-04 23:16:21  INFO      submitted resnext50_32x4d -> SLURM job 162 (3 GPUs, k=0.870)
+2026-05-04 23:16:21  INFO      submitted phlippe_resnet -> SLURM job 163 (5 GPUs, k=0.584)
+2026-05-04 23:16:21  INFO      state: 2 running, 2 queued, 5 completed
+2026-05-04 23:17:21  DEBUG     poll: 2 job(s) finished, 0 still active
+2026-05-04 23:17:21  INFO      completed: resnext50_32x4d (SLURM 162, 3 GPUs, 60.0s, waited 16.3s in queue)
+2026-05-04 23:17:21  WARNING   benchmark: no log file for resnext50_32x4d, skipping CSV append
+2026-05-04 23:17:21  DEBUG     batch 6: 1/1 done
+2026-05-04 23:17:21  INFO      === Batch 6 complete (1 jobs) ===
+2026-05-04 23:17:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:17:21  INFO        Wall-clock time:  78.8s
+2026-05-04 23:17:21  INFO      ===========================
+2026-05-04 23:17:21  INFO      completed: phlippe_resnet (SLURM 163, 5 GPUs, 60.0s, waited 52.2s in queue)
+2026-05-04 23:17:21  WARNING   benchmark: no log file for phlippe_resnet, skipping CSV append
+2026-05-04 23:17:21  DEBUG     batch 5: 1/1 done
+2026-05-04 23:17:21  INFO      === Batch 5 complete (1 jobs) ===
+2026-05-04 23:17:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:17:21  INFO        Wall-clock time:  114.7s
+2026-05-04 23:17:21  INFO      ===========================
+2026-05-04 23:17:21  DEBUG     allocation check: 2 queued, 8 GPUs free, 0 running
+2026-05-04 23:17:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:17:49  INFO      received submission: 1 script(s)
+2026-05-04 23:17:49  INFO      created batch 7 with 1 job(s)
+2026-05-04 23:17:49  INFO      intake: reading speech_transformer.py
+2026-05-04 23:17:49  DEBUG     intake: speech_transformer.py is 7723 chars, 216 lines
+2026-05-04 23:17:49  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:17:54  INFO      LLM: response in 4.5s — {"family": "Transformers", "batch_size": 1, "param_count": 120000000}
+2026-05-04 23:17:54  INFO      LLM: extracted family=Transformers, batch_size=1, param_count=120000000
+2026-05-04 23:17:54  INFO      predict_k: family=Transformers, batch_size=1, param_count=120,000,000 -> k=0.6891
+2026-05-04 23:17:54  INFO      profiled: Job(speech_transformer, k=0.69, family=Transformers, batch_size=1, params=120,000,000, gpus=0)batch_id=None
+2026-05-04 23:17:54  INFO      queued: Job(speech_transformer, k=0.69, family=Transformers, batch_size=1, params=120,000,000, gpus=0)batch_id=7
+2026-05-04 23:18:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:18:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:18:21  INFO      allocated 8 GPU(s) to speech_transformer (k=0.689)
+2026-05-04 23:18:21  INFO      submitted speech_transformer -> SLURM job 164 (8 GPUs, k=0.689)
+2026-05-04 23:18:21  INFO      state: 1 running, 0 queued, 7 completed
+2026-05-04 23:19:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:19:21  INFO      completed: speech_transformer (SLURM 164, 8 GPUs, 60.0s, waited 27.5s in queue)
+2026-05-04 23:19:21  WARNING   benchmark: no log file for speech_transformer, skipping CSV append
+2026-05-04 23:19:21  DEBUG     batch 7: 1/1 done
+2026-05-04 23:19:21  INFO      === Batch 7 complete (1 jobs) ===
+2026-05-04 23:19:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:19:21  INFO        Wall-clock time:  92.1s
+2026-05-04 23:19:21  INFO      ===========================
+2026-05-04 23:19:25  INFO      received submission: 1 script(s)
+2026-05-04 23:19:25  INFO      created batch 8 with 1 job(s)
+2026-05-04 23:19:25  INFO      intake: reading hf_t5_generate.py
+2026-05-04 23:19:25  DEBUG     intake: hf_t5_generate.py is 9375 chars, 256 lines
+2026-05-04 23:19:25  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:19:28  INFO      LLM: response in 3.4s — {"family": "Transformers", "batch_size": 4, "param_count": 60000000}
+2026-05-04 23:19:28  INFO      LLM: extracted family=Transformers, batch_size=4, param_count=60000000
+2026-05-04 23:19:28  INFO      predict_k: family=Transformers, batch_size=4, param_count=60,000,000 -> k=0.6612
+2026-05-04 23:19:28  INFO      profiled: Job(hf_t5_generate, k=0.66, family=Transformers, batch_size=4, params=60,000,000, gpus=0)batch_id=None
+2026-05-04 23:19:28  INFO      queued: Job(hf_t5_generate, k=0.66, family=Transformers, batch_size=4, params=60,000,000, gpus=0)batch_id=8
+2026-05-04 23:19:47  INFO      received submission: 1 script(s)
+2026-05-04 23:19:47  INFO      created batch 9 with 1 job(s)
+2026-05-04 23:19:47  INFO      intake: reading pyhpc_isoneutral.py
+2026-05-04 23:19:47  DEBUG     intake: pyhpc_isoneutral.py is 4845 chars, 133 lines
+2026-05-04 23:19:47  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:19:59  INFO      LLM: response in 11.7s — {"family": "MLP", "batch_size": 256, "param_count": 50000}
+2026-05-04 23:19:59  INFO      LLM: extracted family=MLP, batch_size=256, param_count=50000
+2026-05-04 23:19:59  INFO      predict_k: family=MLP, batch_size=256, param_count=50,000 -> k=0.5836
+2026-05-04 23:19:59  INFO      profiled: Job(pyhpc_isoneutral, k=0.58, family=MLP, batch_size=256, params=50,000, gpus=0)batch_id=None
+2026-05-04 23:19:59  INFO      queued: Job(pyhpc_isoneutral, k=0.58, family=MLP, batch_size=256, params=50,000, gpus=0)batch_id=9
+2026-05-04 23:20:21  DEBUG     allocation check: 2 queued, 8 GPUs free, 0 running
+2026-05-04 23:20:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:20:21  INFO      allocated 5 GPU(s) to hf_t5_generate (k=0.661)
+2026-05-04 23:20:21  INFO      allocated 3 GPU(s) to pyhpc_isoneutral (k=0.584)
+2026-05-04 23:20:21  INFO      submitted hf_t5_generate -> SLURM job 165 (5 GPUs, k=0.661)
+2026-05-04 23:20:21  INFO      submitted pyhpc_isoneutral -> SLURM job 166 (3 GPUs, k=0.584)
+2026-05-04 23:20:21  INFO      state: 2 running, 2 queued, 8 completed
+2026-05-04 23:20:50  INFO      received submission: 1 script(s)
+2026-05-04 23:20:50  INFO      created batch 10 with 1 job(s)
+2026-05-04 23:20:50  INFO      intake: reading soft_actor_critic.py
+2026-05-04 23:20:50  DEBUG     intake: soft_actor_critic.py is 7949 chars, 217 lines
+2026-05-04 23:20:50  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:20:54  INFO      LLM: response in 4.1s — {"family": "ReinforcementLearning", "batch_size": 256, "param_count": 400000}
+2026-05-04 23:20:54  INFO      LLM: extracted family=ReinforcementLearning, batch_size=256, param_count=400000
+2026-05-04 23:20:54  INFO      predict_k: family=ReinforcementLearning, batch_size=256, param_count=400,000 -> k=0.5950
+2026-05-04 23:20:54  INFO      profiled: Job(soft_actor_critic, k=0.59, family=ReinforcementLearning, batch_size=256, params=400,000, gpus=0)batch_id=None
+2026-05-04 23:20:54  INFO      queued: Job(soft_actor_critic, k=0.59, family=ReinforcementLearning, batch_size=256, params=400,000, gpus=0)batch_id=10
+2026-05-04 23:21:21  DEBUG     poll: 2 job(s) finished, 1 still active
+2026-05-04 23:21:21  INFO      completed: hf_t5_generate (SLURM 165, 5 GPUs, 60.0s, waited 53.0s in queue)
+2026-05-04 23:21:21  WARNING   benchmark: no log file for hf_t5_generate, skipping CSV append
+2026-05-04 23:21:21  DEBUG     batch 8: 1/1 done
+2026-05-04 23:21:21  INFO      === Batch 8 complete (1 jobs) ===
+2026-05-04 23:21:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:21:21  INFO        Wall-clock time:  116.5s
+2026-05-04 23:21:21  INFO      ===========================
+2026-05-04 23:21:21  INFO      completed: pyhpc_isoneutral (SLURM 166, 3 GPUs, 60.0s, waited 22.1s in queue)
+2026-05-04 23:21:21  WARNING   benchmark: no log file for pyhpc_isoneutral, skipping CSV append
+2026-05-04 23:21:21  DEBUG     batch 9: 1/1 done
+2026-05-04 23:21:21  INFO      === Batch 9 complete (1 jobs) ===
+2026-05-04 23:21:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:21:21  INFO        Wall-clock time:  93.9s
+2026-05-04 23:21:21  INFO      ===========================
+2026-05-04 23:21:21  DEBUG     allocation check: 3 queued, 8 GPUs free, 0 running
+2026-05-04 23:21:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:21:21  INFO      allocated 8 GPU(s) to soft_actor_critic (k=0.595)
+2026-05-04 23:21:21  INFO      submitted soft_actor_critic -> SLURM job 167 (8 GPUs, k=0.595)
+2026-05-04 23:21:21  INFO      state: 1 running, 0 queued, 10 completed
+2026-05-04 23:21:27  INFO      received submission: 1 script(s)
+2026-05-04 23:21:27  INFO      created batch 11 with 1 job(s)
+2026-05-04 23:21:27  INFO      intake: reading resnest.py
+2026-05-04 23:21:27  DEBUG     intake: resnest.py is 8935 chars, 220 lines
+2026-05-04 23:21:27  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:21:32  INFO      LLM: response in 4.7s — {"family": "ResNet", "batch_size": 32, "param_count": 10600000}
+2026-05-04 23:21:32  INFO      LLM: extracted family=ResNet, batch_size=32, param_count=10600000
+2026-05-04 23:21:32  INFO      predict_k: family=ResNet, batch_size=32, param_count=10,600,000 -> k=0.8741
+2026-05-04 23:21:32  INFO      profiled: Job(resnest, k=0.87, family=ResNet, batch_size=32, params=10,600,000, gpus=0)batch_id=None
+2026-05-04 23:21:32  INFO      queued: Job(resnest, k=0.87, family=ResNet, batch_size=32, params=10,600,000, gpus=0)batch_id=11
+2026-05-04 23:21:58  INFO      received submission: 1 script(s)
+2026-05-04 23:21:58  INFO      created batch 12 with 1 job(s)
+2026-05-04 23:21:58  INFO      intake: reading mobilenet_v2_qat.py
+2026-05-04 23:21:58  DEBUG     intake: mobilenet_v2_qat.py is 6646 chars, 186 lines
+2026-05-04 23:21:58  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:22:14  ERROR     failed to submit /workspace/SemanticAwareScheduling/evaluation/jobs/mobilenet_v2_qat.py: Request timed out or interrupted. This could be due to a network timeout, dropped connection, or request cancellation. See https://docs.anthropic.com/en/api/errors#long-requests for more details.
+2026-05-04 23:22:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:22:21  INFO      completed: soft_actor_critic (SLURM 167, 8 GPUs, 60.0s, waited 27.2s in queue)
+2026-05-04 23:22:21  WARNING   benchmark: no log file for soft_actor_critic, skipping CSV append
+2026-05-04 23:22:21  DEBUG     batch 10: 1/1 done
+2026-05-04 23:22:21  INFO      === Batch 10 complete (1 jobs) ===
+2026-05-04 23:22:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:22:21  INFO        Wall-clock time:  91.4s
+2026-05-04 23:22:21  INFO      ===========================
+2026-05-04 23:22:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:22:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:22:21  INFO      allocated 8 GPU(s) to resnest (k=0.874)
+2026-05-04 23:22:21  INFO      submitted resnest -> SLURM job 168 (8 GPUs, k=0.874)
+2026-05-04 23:22:21  INFO      state: 1 running, 0 queued, 11 completed
+2026-05-04 23:23:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:23:21  INFO      completed: resnest (SLURM 168, 8 GPUs, 60.0s, waited 49.0s in queue)
+2026-05-04 23:23:21  WARNING   benchmark: no log file for resnest, skipping CSV append
+2026-05-04 23:23:21  DEBUG     batch 11: 1/1 done
+2026-05-04 23:23:21  INFO      === Batch 11 complete (1 jobs) ===
+2026-05-04 23:23:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:23:21  INFO        Wall-clock time:  113.9s
+2026-05-04 23:23:21  INFO      ===========================
+2026-05-04 23:23:46  INFO      received submission: 1 script(s)
+2026-05-04 23:23:46  INFO      created batch 13 with 1 job(s)
+2026-05-04 23:23:46  INFO      intake: reading dm_nfnet_f0.py
+2026-05-04 23:23:46  DEBUG     intake: dm_nfnet_f0.py is 8077 chars, 222 lines
+2026-05-04 23:23:46  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:23:54  INFO      LLM: response in 8.1s — {"family": "CNN", "batch_size": 128, "param_count": 71500000}
+2026-05-04 23:23:54  INFO      LLM: extracted family=CNN, batch_size=128, param_count=71500000
+2026-05-04 23:23:54  INFO      predict_k: family=CNN, batch_size=128, param_count=71,500,000 -> k=0.7488
+2026-05-04 23:23:54  INFO      profiled: Job(dm_nfnet_f0, k=0.75, family=CNN, batch_size=128, params=71,500,000, gpus=0)batch_id=None
+2026-05-04 23:23:54  INFO      queued: Job(dm_nfnet_f0, k=0.75, family=CNN, batch_size=128, params=71,500,000, gpus=0)batch_id=13
+2026-05-04 23:24:06  INFO      received submission: 1 script(s)
+2026-05-04 23:24:06  INFO      created batch 14 with 1 job(s)
+2026-05-04 23:24:06  INFO      intake: reading modded_nanogpt.py
+2026-05-04 23:24:06  DEBUG     intake: modded_nanogpt.py is 6761 chars, 193 lines
+2026-05-04 23:24:06  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:24:10  INFO      LLM: response in 3.6s — {"family": "Transformers", "batch_size": 1, "param_count": 85000000}
+2026-05-04 23:24:10  INFO      LLM: extracted family=Transformers, batch_size=1, param_count=85000000
+2026-05-04 23:24:10  INFO      predict_k: family=Transformers, batch_size=1, param_count=85,000,000 -> k=0.7011
+2026-05-04 23:24:10  INFO      profiled: Job(modded_nanogpt, k=0.70, family=Transformers, batch_size=1, params=85,000,000, gpus=0)batch_id=None
+2026-05-04 23:24:10  INFO      queued: Job(modded_nanogpt, k=0.70, family=Transformers, batch_size=1, params=85,000,000, gpus=0)batch_id=14
+2026-05-04 23:24:21  DEBUG     allocation check: 2 queued, 8 GPUs free, 0 running
+2026-05-04 23:24:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:24:21  INFO      allocated 4 GPU(s) to dm_nfnet_f0 (k=0.749)
+2026-05-04 23:24:21  INFO      allocated 4 GPU(s) to modded_nanogpt (k=0.701)
+2026-05-04 23:24:21  INFO      submitted dm_nfnet_f0 -> SLURM job 169 (4 GPUs, k=0.749)
+2026-05-04 23:24:21  INFO      submitted modded_nanogpt -> SLURM job 170 (4 GPUs, k=0.701)
+2026-05-04 23:24:21  INFO      state: 2 running, 2 queued, 12 completed
+2026-05-04 23:24:56  INFO      received submission: 1 script(s)
+2026-05-04 23:24:56  INFO      created batch 15 with 1 job(s)
+2026-05-04 23:24:56  INFO      intake: reading hf_gpt2_large.py
+2026-05-04 23:24:56  DEBUG     intake: hf_gpt2_large.py is 7199 chars, 201 lines
+2026-05-04 23:24:56  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:24:58  INFO      LLM: response in 2.5s — {"family": "Transformers", "batch_size": 4, "param_count": 774000000}
+2026-05-04 23:24:58  INFO      LLM: extracted family=Transformers, batch_size=4, param_count=774000000
+2026-05-04 23:24:58  INFO      predict_k: family=Transformers, batch_size=4, param_count=774,000,000 -> k=0.6987
+2026-05-04 23:24:58  INFO      profiled: Job(hf_gpt2_large, k=0.70, family=Transformers, batch_size=4, params=774,000,000, gpus=0)batch_id=None
+2026-05-04 23:24:58  INFO      queued: Job(hf_gpt2_large, k=0.70, family=Transformers, batch_size=4, params=774,000,000, gpus=0)batch_id=15
+2026-05-04 23:25:21  DEBUG     poll: 2 job(s) finished, 1 still active
+2026-05-04 23:25:21  INFO      completed: dm_nfnet_f0 (SLURM 169, 4 GPUs, 60.0s, waited 27.1s in queue)
+2026-05-04 23:25:21  WARNING   benchmark: no log file for dm_nfnet_f0, skipping CSV append
+2026-05-04 23:25:21  DEBUG     batch 13: 1/1 done
+2026-05-04 23:25:21  INFO      === Batch 13 complete (1 jobs) ===
+2026-05-04 23:25:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:25:21  INFO        Wall-clock time:  95.3s
+2026-05-04 23:25:21  INFO      ===========================
+2026-05-04 23:25:21  INFO      completed: modded_nanogpt (SLURM 170, 4 GPUs, 60.0s, waited 11.1s in queue)
+2026-05-04 23:25:21  WARNING   benchmark: no log file for modded_nanogpt, skipping CSV append
+2026-05-04 23:25:21  DEBUG     batch 14: 1/1 done
+2026-05-04 23:25:21  INFO      === Batch 14 complete (1 jobs) ===
+2026-05-04 23:25:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:25:21  INFO        Wall-clock time:  74.9s
+2026-05-04 23:25:21  INFO      ===========================
+2026-05-04 23:25:21  DEBUG     allocation check: 3 queued, 8 GPUs free, 0 running
+2026-05-04 23:25:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:25:21  INFO      allocated 8 GPU(s) to hf_gpt2_large (k=0.699)
+2026-05-04 23:25:21  INFO      submitted hf_gpt2_large -> SLURM job 171 (8 GPUs, k=0.699)
+2026-05-04 23:25:21  INFO      state: 1 running, 0 queued, 14 completed
+2026-05-04 23:25:41  INFO      received submission: 1 script(s)
+2026-05-04 23:25:41  INFO      created batch 16 with 1 job(s)
+2026-05-04 23:25:41  INFO      intake: reading sam.py
+2026-05-04 23:25:41  DEBUG     intake: sam.py is 8082 chars, 220 lines
+2026-05-04 23:25:41  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:25:44  INFO      LLM: response in 2.8s — {"family": "Transformers", "batch_size": 1, "param_count": 641000000}
+2026-05-04 23:25:44  INFO      LLM: extracted family=Transformers, batch_size=1, param_count=641000000
+2026-05-04 23:25:44  INFO      predict_k: family=Transformers, batch_size=1, param_count=641,000,000 -> k=0.6776
+2026-05-04 23:25:44  INFO      profiled: Job(sam, k=0.68, family=Transformers, batch_size=1, params=641,000,000, gpus=0)batch_id=None
+2026-05-04 23:25:44  INFO      queued: Job(sam, k=0.68, family=Transformers, batch_size=1, params=641,000,000, gpus=0)batch_id=16
+2026-05-04 23:26:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:26:21  INFO      completed: hf_gpt2_large (SLURM 171, 8 GPUs, 60.0s, waited 23.0s in queue)
+2026-05-04 23:26:21  WARNING   benchmark: no log file for hf_gpt2_large, skipping CSV append
+2026-05-04 23:26:21  DEBUG     batch 15: 1/1 done
+2026-05-04 23:26:21  INFO      === Batch 15 complete (1 jobs) ===
+2026-05-04 23:26:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:26:21  INFO        Wall-clock time:  85.5s
+2026-05-04 23:26:21  INFO      ===========================
+2026-05-04 23:26:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:26:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:26:21  INFO      allocated 8 GPU(s) to sam (k=0.678)
+2026-05-04 23:26:21  INFO      submitted sam -> SLURM job 172 (8 GPUs, k=0.678)
+2026-05-04 23:26:21  INFO      state: 1 running, 0 queued, 15 completed
+2026-05-04 23:26:26  INFO      received submission: 1 script(s)
+2026-05-04 23:26:26  INFO      created batch 17 with 1 job(s)
+2026-05-04 23:26:26  INFO      intake: reading llama_tp.py
+2026-05-04 23:26:26  DEBUG     intake: llama_tp.py is 7780 chars, 220 lines
+2026-05-04 23:26:26  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:26:29  INFO      LLM: response in 3.1s — {"family": "Transformers", "batch_size": 1, "param_count": 6700000000}
+2026-05-04 23:26:29  INFO      LLM: extracted family=Transformers, batch_size=1, param_count=6700000000
+2026-05-04 23:26:29  INFO      predict_k: family=Transformers, batch_size=1, param_count=6,700,000,000 -> k=0.6776
+2026-05-04 23:26:29  INFO      profiled: Job(llama_tp, k=0.68, family=Transformers, batch_size=1, params=6,700,000,000, gpus=0)batch_id=None
+2026-05-04 23:26:29  INFO      queued: Job(llama_tp, k=0.68, family=Transformers, batch_size=1, params=6,700,000,000, gpus=0)batch_id=17
+2026-05-04 23:27:01  INFO      received submission: 1 script(s)
+2026-05-04 23:27:01  INFO      created batch 18 with 1 job(s)
+2026-05-04 23:27:01  INFO      intake: reading maml.py
+2026-05-04 23:27:01  DEBUG     intake: maml.py is 6746 chars, 177 lines
+2026-05-04 23:27:01  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:27:05  INFO      LLM: response in 4.0s — {"family": "CNN", "batch_size": 1, "param_count": 30000}
+2026-05-04 23:27:05  INFO      LLM: extracted family=CNN, batch_size=1, param_count=30000
+2026-05-04 23:27:05  INFO      predict_k: family=CNN, batch_size=1, param_count=30,000 -> k=0.8869
+2026-05-04 23:27:05  INFO      profiled: Job(maml, k=0.89, family=CNN, batch_size=1, params=30,000, gpus=0)batch_id=None
+2026-05-04 23:27:05  INFO      queued: Job(maml, k=0.89, family=CNN, batch_size=1, params=30,000, gpus=0)batch_id=18
+2026-05-04 23:27:10  INFO      received submission: 1 script(s)
+2026-05-04 23:27:10  INFO      created batch 19 with 1 job(s)
+2026-05-04 23:27:10  INFO      intake: reading demucs.py
+2026-05-04 23:27:10  DEBUG     intake: demucs.py is 7038 chars, 201 lines
+2026-05-04 23:27:10  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:27:14  INFO      LLM: response in 4.1s — {"family": "Audio", "batch_size": 64, "param_count": 64000000}
+2026-05-04 23:27:14  INFO      LLM: extracted family=Audio, batch_size=64, param_count=64000000
+2026-05-04 23:27:14  INFO      predict_k: family=Audio, batch_size=64, param_count=64,000,000 -> k=1.0155
+2026-05-04 23:27:14  INFO      profiled: Job(demucs, k=1.02, family=Audio, batch_size=64, params=64,000,000, gpus=0)batch_id=None
+2026-05-04 23:27:14  INFO      queued: Job(demucs, k=1.02, family=Audio, batch_size=64, params=64,000,000, gpus=0)batch_id=19
+2026-05-04 23:27:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:27:21  INFO      completed: sam (SLURM 172, 8 GPUs, 60.0s, waited 37.0s in queue)
+2026-05-04 23:27:21  WARNING   benchmark: no log file for sam, skipping CSV append
+2026-05-04 23:27:21  DEBUG     batch 16: 1/1 done
+2026-05-04 23:27:21  INFO      === Batch 16 complete (1 jobs) ===
+2026-05-04 23:27:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:27:21  INFO        Wall-clock time:  99.9s
+2026-05-04 23:27:21  INFO      ===========================
+2026-05-04 23:27:21  DEBUG     allocation check: 3 queued, 8 GPUs free, 0 running
+2026-05-04 23:27:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:27:21  INFO      allocated 3 GPU(s) to maml (k=0.887)
+2026-05-04 23:27:21  INFO      allocated 2 GPU(s) to demucs (k=1.016)
+2026-05-04 23:27:21  INFO      allocated 3 GPU(s) to llama_tp (k=0.678)
+2026-05-04 23:27:21  INFO      submitted maml -> SLURM job 173 (3 GPUs, k=0.887)
+2026-05-04 23:27:21  INFO      submitted demucs -> SLURM job 174 (2 GPUs, k=1.016)
+2026-05-04 23:27:21  INFO      submitted llama_tp -> SLURM job 175 (3 GPUs, k=0.678)
+2026-05-04 23:27:21  INFO      state: 3 running, 3 queued, 16 completed
+2026-05-04 23:28:09  INFO      received submission: 1 script(s)
+2026-05-04 23:28:09  INFO      created batch 20 with 1 job(s)
+2026-05-04 23:28:09  INFO      intake: reading hf_bert.py
+2026-05-04 23:28:09  DEBUG     intake: hf_bert.py is 7548 chars, 207 lines
+2026-05-04 23:28:09  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:28:12  INFO      LLM: response in 2.5s — {"family": "Transformers", "batch_size": 4, "param_count": 336000000}
+2026-05-04 23:28:12  INFO      LLM: extracted family=Transformers, batch_size=4, param_count=336000000
+2026-05-04 23:28:12  INFO      predict_k: family=Transformers, batch_size=4, param_count=336,000,000 -> k=0.6987
+2026-05-04 23:28:12  INFO      profiled: Job(hf_bert, k=0.70, family=Transformers, batch_size=4, params=336,000,000, gpus=0)batch_id=None
+2026-05-04 23:28:12  INFO      queued: Job(hf_bert, k=0.70, family=Transformers, batch_size=4, params=336,000,000, gpus=0)batch_id=20
+2026-05-04 23:28:21  DEBUG     poll: 3 job(s) finished, 1 still active
+2026-05-04 23:28:21  INFO      completed: maml (SLURM 173, 3 GPUs, 60.0s, waited 16.6s in queue)
+2026-05-04 23:28:21  WARNING   benchmark: no log file for maml, skipping CSV append
+2026-05-04 23:28:21  DEBUG     batch 18: 1/1 done
+2026-05-04 23:28:21  INFO      === Batch 18 complete (1 jobs) ===
+2026-05-04 23:28:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:28:21  INFO        Wall-clock time:  80.7s
+2026-05-04 23:28:21  INFO      ===========================
+2026-05-04 23:28:21  INFO      completed: demucs (SLURM 174, 2 GPUs, 60.0s, waited 7.2s in queue)
+2026-05-04 23:28:21  WARNING   benchmark: no log file for demucs, skipping CSV append
+2026-05-04 23:28:21  DEBUG     batch 19: 1/1 done
+2026-05-04 23:28:21  INFO      === Batch 19 complete (1 jobs) ===
+2026-05-04 23:28:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:28:21  INFO        Wall-clock time:  71.4s
+2026-05-04 23:28:21  INFO      ===========================
+2026-05-04 23:28:21  INFO      completed: llama_tp (SLURM 175, 3 GPUs, 60.0s, waited 52.5s in queue)
+2026-05-04 23:28:21  WARNING   benchmark: no log file for llama_tp, skipping CSV append
+2026-05-04 23:28:21  DEBUG     batch 17: 1/1 done
+2026-05-04 23:28:21  INFO      === Batch 17 complete (1 jobs) ===
+2026-05-04 23:28:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:28:21  INFO        Wall-clock time:  115.8s
+2026-05-04 23:28:21  INFO      ===========================
+2026-05-04 23:28:21  DEBUG     allocation check: 4 queued, 8 GPUs free, 0 running
+2026-05-04 23:28:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:28:21  INFO      allocated 8 GPU(s) to hf_bert (k=0.699)
+2026-05-04 23:28:21  INFO      submitted hf_bert -> SLURM job 176 (8 GPUs, k=0.699)
+2026-05-04 23:28:21  INFO      state: 1 running, 0 queued, 19 completed
+2026-05-04 23:28:27  INFO      received submission: 1 script(s)
+2026-05-04 23:28:27  INFO      created batch 21 with 1 job(s)
+2026-05-04 23:28:27  INFO      intake: reading stable_diffusion.py
+2026-05-04 23:28:27  DEBUG     intake: stable_diffusion.py is 12344 chars, 337 lines
+2026-05-04 23:28:27  DEBUG     LLM: sending feature extraction request...
+2026-05-04 23:28:29  INFO      LLM: response in 2.7s — {"family": "Diffusion", "batch_size": 1, "param_count": 865000000}
+2026-05-04 23:28:29  INFO      LLM: extracted family=Diffusion, batch_size=1, param_count=865000000
+2026-05-04 23:28:30  INFO      predict_k: family=Diffusion, batch_size=1, param_count=865,000,000 -> k=0.7155
+2026-05-04 23:28:30  INFO      profiled: Job(stable_diffusion, k=0.72, family=Diffusion, batch_size=1, params=865,000,000, gpus=0)batch_id=None
+2026-05-04 23:28:30  INFO      queued: Job(stable_diffusion, k=0.72, family=Diffusion, batch_size=1, params=865,000,000, gpus=0)batch_id=21
+2026-05-04 23:29:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:29:21  INFO      completed: hf_bert (SLURM 176, 8 GPUs, 60.0s, waited 9.5s in queue)
+2026-05-04 23:29:21  WARNING   benchmark: no log file for hf_bert, skipping CSV append
+2026-05-04 23:29:21  DEBUG     batch 20: 1/1 done
+2026-05-04 23:29:21  INFO      === Batch 20 complete (1 jobs) ===
+2026-05-04 23:29:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:29:21  INFO        Wall-clock time:  72.1s
+2026-05-04 23:29:21  INFO      ===========================
+2026-05-04 23:29:21  DEBUG     allocation check: 1 queued, 8 GPUs free, 0 running
+2026-05-04 23:29:21  INFO      8 GPU(s) available, allocating...
+2026-05-04 23:29:21  INFO      allocated 8 GPU(s) to stable_diffusion (k=0.715)
+2026-05-04 23:29:21  INFO      submitted stable_diffusion -> SLURM job 177 (8 GPUs, k=0.715)
+2026-05-04 23:29:21  INFO      state: 1 running, 0 queued, 20 completed
+2026-05-04 23:30:21  DEBUG     poll: 1 job(s) finished, 1 still active
+2026-05-04 23:30:21  INFO      completed: stable_diffusion (SLURM 177, 8 GPUs, 60.0s, waited 51.8s in queue)
+2026-05-04 23:30:21  WARNING   benchmark: no log file for stable_diffusion, skipping CSV append
+2026-05-04 23:30:21  DEBUG     batch 21: 1/1 done
+2026-05-04 23:30:21  INFO      === Batch 21 complete (1 jobs) ===
+2026-05-04 23:30:21  INFO        Sum of job times: 60.0s
+2026-05-04 23:30:21  INFO        Wall-clock time:  114.6s
+2026-05-04 23:30:21  INFO      ===========================

@@ -1,0 +1,51 @@
+
+==================================================
+  POLITE_BASELINE_1GPU SUMMARY
+==================================================
+  Jobs completed:    22
+  Wall-clock time:   9564.1s (159.4m)
+  Makespan:          9564.1s (159.4m)
+  Total run time:    58228.1s
+  Total wait time:   81141.4s
+  Avg run time:      2646.7s
+  Avg wait time:     3688.2s
+  Avg Job Completion Time:           6334.9s
+  Max wait time:     8353.6s
+  Jain's fairness:   0.5309
+  Avg slowdown:      37.70x
+  Max slowdown:      246.34x
+
+  GPU Utilization:
+    Avg GPU util:    5.0%
+    Avg mem util:    2.8%
+    Peak mem used:   1262 MB
+    Avg mem used:    271 MB
+    Avg power draw:  30.3 W
+    Samples:         4532
+
+  GPU-hours wasted:  15.37h (16.17h allocated, 0.81h useful)
+
+  Per-job breakdown:
+    stargan                         1 GPUs  run= 1040.6s  wait=   0.0s
+    hf_t5_base                      1 GPUs  run=  973.2s  wait=   0.0s
+    gnn_sage                        1 GPUs  run=  180.1s  wait= 887.3s
+    resnet50_qat                    1 GPUs  run=  540.2s  wait=1013.2s
+    maml_omniglot                   1 GPUs  run= 3691.6s  wait=1503.1s
+    phlippe_resnet                  1 GPUs  run=  120.1s  wait=5170.7s
+    resnext50_32x4d                 1 GPUs  run= 1530.6s  wait=5287.4s
+    speech_transformer              1 GPUs  run=  180.1s  wait=6743.7s
+    hf_t5_generate                  1 GPUs  run=  480.2s  wait=6862.8s
+    pyhpc_isoneutral                1 GPUs  run=   30.0s  wait=7353.8s
+    soft_actor_critic               1 GPUs  run=   30.0s  wait=7363.1s
+    resnest                         1 GPUs  run=  270.1s  wait=7359.7s
+    mobilenet_v2_qat                1 GPUs  run=  210.1s  wait=7634.0s
+    dm_nfnet_f0                     1 GPUs  run= 7782.5s  wait=   0.0s
+    modded_nanogpt                  1 GPUs  run= 7800.2s  wait=   0.0s
+    hf_gpt2_large                   1 GPUs  run= 7784.6s  wait=   0.0s
+    sam                             1 GPUs  run= 7771.6s  wait=   0.0s
+    llama_tp                        1 GPUs  run=   90.0s  wait=7760.3s
+    maml                            1 GPUs  run=  510.2s  wait=7848.6s
+    demucs                          1 GPUs  run=  180.1s  wait=8353.6s
+    hf_bert                         1 GPUs  run= 8508.5s  wait=   0.0s
+    stable_diffusion                1 GPUs  run= 8523.6s  wait=   0.0s
+==================================================

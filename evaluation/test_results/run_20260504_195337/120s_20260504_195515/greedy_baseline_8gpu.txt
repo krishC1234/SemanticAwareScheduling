@@ -1,0 +1,51 @@
+
+==================================================
+  GREEDY_BASELINE_8GPU SUMMARY
+==================================================
+  Jobs completed:    22
+  Wall-clock time:   2121.2s (35.4m)
+  Makespan:          2121.2s (35.4m)
+  Total run time:    6206.3s
+  Total wait time:   14794.6s
+  Avg run time:      282.1s
+  Avg wait time:     672.5s
+  Avg Job Completion Time:           954.6s
+  Max wait time:     1050.7s
+  Jain's fairness:   0.7191
+  Avg slowdown:      16.78x
+  Max slowdown:      36.00x
+
+  GPU Utilization:
+    Avg GPU util:    42.2%
+    Avg mem util:    12.5%
+    Peak mem used:   10009 MB
+    Avg mem used:    2078 MB
+    Avg power draw:  109.3 W
+    Samples:         993
+
+  GPU-hours wasted:  7.97h (13.79h allocated, 5.82h useful)
+
+  Per-job breakdown:
+    stargan                         8 GPUs  run= 1040.5s  wait=   0.0s
+    hf_t5_base                      8 GPUs  run=  973.2s  wait=   0.0s
+    gnn_sage                        8 GPUs  run=  887.3s  wait=   0.0s
+    resnet50_qat                    8 GPUs  run=  803.1s  wait=   0.0s
+    maml_omniglot                   8 GPUs  run=  752.7s  wait=   0.0s
+    phlippe_resnet                  8 GPUs  run=  698.8s  wait=   0.0s
+    resnext50_32x4d                 8 GPUs  run=  150.1s  wait= 665.4s
+    speech_transformer              8 GPUs  run=  180.1s  wait= 741.2s
+    hf_t5_generate                  8 GPUs  run=  150.1s  wait= 830.2s
+    pyhpc_isoneutral                8 GPUs  run=   30.0s  wait= 961.1s
+    soft_actor_critic               8 GPUs  run=   30.0s  wait= 940.4s
+    resnest                         8 GPUs  run=   60.0s  wait= 937.0s
+    mobilenet_v2_qat                8 GPUs  run=   60.0s  wait= 971.2s
+    dm_nfnet_f0                     8 GPUs  run=   30.0s  wait= 939.6s
+    modded_nanogpt                  8 GPUs  run=   30.0s  wait= 957.4s
+    hf_gpt2_large                   8 GPUs  run=   30.0s  wait= 941.8s
+    sam                             8 GPUs  run=   30.0s  wait= 928.7s
+    llama_tp                        8 GPUs  run=   60.3s  wait= 917.4s
+    maml                            8 GPUs  run=   90.0s  wait= 945.9s
+    demucs                          8 GPUs  run=   60.0s  wait=1030.8s
+    hf_bert                         8 GPUs  run=   30.0s  wait=1035.7s
+    stable_diffusion                8 GPUs  run=   30.0s  wait=1050.7s
+==================================================

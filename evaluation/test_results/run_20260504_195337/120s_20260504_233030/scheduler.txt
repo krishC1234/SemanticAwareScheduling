@@ -1,0 +1,52 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    21
+  Wall-clock time:   1266.5s (21.1m)
+  Makespan:          1266.5s (21.1m)
+  Total run time:    1380.1s
+  Total wait time:   675.2s
+  Avg run time:      65.7s
+  Avg wait time:     32.2s
+  Avg Job Completion Time:           97.9s
+  Max wait time:     53.0s
+  Jain's fairness:   0.7954
+  Avg slowdown:      1.51x
+  Max slowdown:      1.88x
+
+  GPU Utilization:
+    Avg GPU util:    33.5%
+    Avg mem util:    10.1%
+    Peak mem used:   9344 MB
+    Avg mem used:    1227 MB
+    Avg power draw:  95.4 W
+    Samples:         597
+
+  GPU-hours wasted:  1.60h (2.40h allocated, 0.80h useful)
+
+  Avg GPU efficiency: 65.77%
+
+  Per-job breakdown:
+    hf_t5_base                      8 GPUs  run=   60.0s  wait=  40.2s    eff=68%
+    stargan                         8 GPUs  run=  180.1s  wait=  51.8s    eff=72%
+    gnn_sage                        8 GPUs  run=   60.0s  wait=   9.8s    eff=42%
+    resnet50_qat                    8 GPUs  run=   60.0s  wait=  41.8s    eff=80%
+    maml_omniglot                   8 GPUs  run=   60.0s  wait=  48.5s    eff=78%
+    resnext50_32x4d                 3 GPUs  run=   60.0s  wait=  16.3s    eff=87%
+    phlippe_resnet                  5 GPUs  run=   60.0s  wait=  52.2s    eff=51%
+    speech_transformer              8 GPUs  run=   60.0s  wait=  27.5s    eff=52%
+    hf_t5_generate                  5 GPUs  run=   60.0s  wait=  53.0s    eff=58%
+    pyhpc_isoneutral                3 GPUs  run=   60.0s  wait=  22.1s    eff=63%
+    soft_actor_critic               8 GPUs  run=   60.0s  wait=  27.2s    eff=43%
+    resnest                         8 GPUs  run=   60.0s  wait=  49.0s    eff=77%
+    dm_nfnet_f0                     4 GPUs  run=   60.0s  wait=  27.1s    eff=71%
+    modded_nanogpt                  4 GPUs  run=   60.0s  wait=  11.1s    eff=66%
+    hf_gpt2_large                   8 GPUs  run=   60.0s  wait=  23.0s    eff=53%
+    sam                             8 GPUs  run=   60.0s  wait=  37.0s    eff=51%
+    maml                            3 GPUs  run=   60.0s  wait=  16.6s    eff=88%
+    demucs                          2 GPUs  run=   60.0s  wait=   7.2s    eff=101%
+    llama_tp                        3 GPUs  run=   60.0s  wait=  52.5s    eff=70%
+    hf_bert                         8 GPUs  run=   60.0s  wait=   9.5s    eff=53%
+    stable_diffusion                8 GPUs  run=   60.0s  wait=  51.8s    eff=55%
+==================================================
