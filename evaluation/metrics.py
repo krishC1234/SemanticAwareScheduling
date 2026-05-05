@@ -1,11 +1,34 @@
 """Metrics collector for eval runs — GPU sampling + job timing in one place."""
 
+import json
 import logging
+import re
 import subprocess
 import threading
 import time
+from pathlib import Path
 
 logger = logging.getLogger("scheduler")
+
+
+def parse_job_runtime(log_path):
+    """Parse total_time_sec from a job's ###RESULTS### JSON block.
+
+    Returns the runtime in seconds, or None if the log doesn't exist
+    or doesn't contain a valid RESULTS block.
+    """
+    log_path = Path(log_path)
+    if not log_path.exists():
+        return None
+    try:
+        text = log_path.read_text()
+        match = re.search(r"###RESULTS###\s*\n(.+?)\n\s*###END_RESULTS###", text)
+        if match:
+            results = json.loads(match.group(1))
+            return float(results.get("total_time_sec", 0))
+    except Exception:
+        pass
+    return None
 
 
 class MetricsCollector:

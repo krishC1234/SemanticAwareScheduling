@@ -17,7 +17,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # === VARYING ===
-BATCH_SIZE = 128
+BATCH_SIZE = 16
 
 # === FIXED ===
 EPOCHS = 20

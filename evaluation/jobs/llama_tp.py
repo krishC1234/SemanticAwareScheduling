@@ -22,11 +22,11 @@ BATCH_SIZE = 1
 EPOCHS = 3
 NUM_SAMPLES = 400        # small due to massive model
 VOCAB_SIZE = 32000       # LLaMA tokenizer
-SEQ_LEN = 512            # shortened for memory (full is 2048)
-NUM_LAYERS = 32
-HIDDEN = 4096
-NUM_HEADS = 32
-FFN_HIDDEN = 11008       # SwiGLU: 2/3 * 4 * 4096, rounded
+SEQ_LEN = 512            # shortened for memory
+NUM_LAYERS = 12          # reduced from 32
+HIDDEN = 1024            # reduced from 4096
+NUM_HEADS = 8            # reduced from 32
+FFN_HIDDEN = 2816        # SwiGLU: 2/3 * 4 * 1024, rounded
 DROPOUT = 0.0
 ROPE_BASE = 10000.0
 

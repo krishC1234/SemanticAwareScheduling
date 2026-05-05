@@ -15,7 +15,7 @@ import sys
 import time
 from pathlib import Path
 
-from evaluation.metrics import MetricsCollector
+from evaluation.metrics import MetricsCollector, parse_job_runtime
 from evaluation.report import report
 from scheduler.slurm_monitor import get_total_gpus
 
@@ -89,6 +89,8 @@ def main():
                         help="Maximum delay between submissions (seconds)")
     parser.add_argument("--seed", type=int, default=None,
                         help="Random seed for reproducibility")
+    parser.add_argument("--run-dir", type=str, default=None,
+                        help="Shared output directory for this run")
     args = parser.parse_args()
 
     total_gpus = get_total_gpus()
@@ -120,11 +122,13 @@ def main():
         print(f"[{i+1}/{total_jobs}] Submitting {script.stem}...", end=" ")
         slurm_id, submit_time = sbatch_submit(script, total_gpus)
         if slurm_id:
+            log_file = LOGS_DIR / f"{script.stem}_{total_gpus}gpu.log"
             tracked[slurm_id] = {
                 "name": script.stem,
                 "gpus": total_gpus,
                 "submit_time": submit_time,
                 "enqueue_time": enqueue_time,
+                "log_file": log_file,
             }
             print(f"SLURM job {slurm_id} ({total_gpus} GPUs)")
         else:
@@ -139,26 +143,21 @@ def main():
     print(f"\n=== All jobs submitted, polling for completions ===\n")
 
     seen = set()
-    start_times = {}  # {slurm_id: time when job started running}
     while collector.pending > 0:
         active = get_active_job_ids()
-        running = get_running_job_ids()
-
-        # Track when jobs transition to RUNNING
-        for slurm_id in running:
-            if slurm_id in tracked and slurm_id not in start_times:
-                start_times[slurm_id] = time.time()
 
         for slurm_id, info in list(tracked.items()):
             if slurm_id not in active and slurm_id not in seen:
-                start = start_times.get(slurm_id, info["submit_time"])
-                run_time = time.time() - start
-                wait_time = start - info["enqueue_time"]
+                completion_time = time.time()
+                run_time = parse_job_runtime(info["log_file"])
+                if run_time is None:
+                    continue  # log not written yet, wait for next poll
+                wait_time = completion_time - info["enqueue_time"] - run_time
                 collector.record_job(
                     name=info["name"],
                     gpus=info["gpus"],
                     run_time=run_time,
-                    wait_time=wait_time,
+                    wait_time=max(0, wait_time),
                 )
                 seen.add(slurm_id)
 
@@ -169,7 +168,7 @@ def main():
             time.sleep(POLL_INTERVAL)
 
     summary = collector.stop()
-    report(summary, f"greedy_baseline_{total_gpus}gpu", max_delay=args.max_delay)
+    report(summary, f"greedy_baseline_{total_gpus}gpu", max_delay=args.max_delay, run_dir=args.run_dir)
 
 
 if __name__ == "__main__":

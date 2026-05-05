@@ -21,11 +21,11 @@ BATCH_SIZE = 1
 # === FIXED ===
 EPOCHS = 5
 NUM_SAMPLES = 400
-IMG_SIZE = 1024          # SAM input resolution
-PATCH_SIZE = 16          # ViT patch size → 64×64 patches
-EMBED_DIM = 1280         # ViT-H
-NUM_LAYERS = 32
-NUM_HEADS = 16
+IMG_SIZE = 256           # reduced for 10GB GPUs
+PATCH_SIZE = 16          # ViT patch size → 16×16 patches
+EMBED_DIM = 512          # reduced from 1280
+NUM_LAYERS = 12          # reduced from 32
+NUM_HEADS = 8            # reduced from 16
 FFN_RATIO = 4
 WINDOW_SIZE = 14
 MASK_DIM = 256           # mask decoder output dimension

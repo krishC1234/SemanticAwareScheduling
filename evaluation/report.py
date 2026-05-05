@@ -10,7 +10,7 @@ from pathlib import Path
 RESULTS_DIR = Path(__file__).parent / "test_results"
 
 
-def report(summary, label, max_delay=None):
+def report(summary, label, max_delay=None, run_dir=None):
     """Print and save an eval summary.
 
     Args:
@@ -111,9 +111,12 @@ def report(summary, label, max_delay=None):
         emit(line)
     emit(f"{'='*50}")
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    delay_str = f"{int(max_delay)}s" if max_delay is not None else "unknown"
-    run_dir = RESULTS_DIR / f"{delay_str}_{timestamp}"
+    if run_dir is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        delay_str = f"{int(max_delay)}s" if max_delay is not None else "unknown"
+        run_dir = RESULTS_DIR / f"{delay_str}_{timestamp}"
+    else:
+        run_dir = Path(run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
     out_path = run_dir / f"{label}.txt"
     out_path.write_text("\n".join(lines) + "\n")

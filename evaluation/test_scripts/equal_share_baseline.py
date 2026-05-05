@@ -19,7 +19,7 @@ import time
 from collections import deque
 from pathlib import Path
 
-from evaluation.metrics import MetricsCollector
+from evaluation.metrics import MetricsCollector, parse_job_runtime
 from evaluation.report import report
 from scheduler.slurm_monitor import get_total_gpus, get_available_gpus
 
@@ -27,13 +27,19 @@ EVAL_JOBS_DIR = Path(__file__).parent.parent / "jobs"
 POLL_INTERVAL = 10
 
 
+LOGS_DIR = EVAL_JOBS_DIR.parent.parent / "logs" / "equal_share_output"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+
 def sbatch_submit(script_path, gpu_count):
     """Submit a DDP script to SLURM via sbatch + torchrun."""
+    log_file = LOGS_DIR / f"{script_path.stem}_{gpu_count}gpu.log"
     sbatch_script = (
         "#!/bin/bash\n"
         f"#SBATCH --gres=gpu:{gpu_count}\n"
         f"#SBATCH --job-name={script_path.stem}\n"
-        "#SBATCH --output=/dev/null\n"
+        f"#SBATCH --output={log_file}\n"
+        f"#SBATCH --error={log_file}\n"
         f"torchrun --standalone --nproc_per_node={gpu_count} {script_path.resolve()}\n"
     )
     try:
@@ -85,6 +91,8 @@ def main():
                         help="Maximum delay between submissions (seconds)")
     parser.add_argument("--seed", type=int, default=None,
                         help="Random seed for reproducibility")
+    parser.add_argument("--run-dir", type=str, default=None,
+                        help="Shared output directory for this run")
     args = parser.parse_args()
 
     total_gpus = get_total_gpus()
@@ -112,7 +120,6 @@ def main():
     wait_queue = deque()
     tracked = {}
     seen = set()
-    start_times = {}
 
     # Pre-compute arrival delays
     arrival_delays = [0.0] + [rng.uniform(0, args.max_delay) for _ in range(total_jobs - 1)]
@@ -141,24 +148,20 @@ def main():
             arrivals_done = True
             print(f"\n=== All {total_jobs} jobs arrived, draining queue ===\n")
 
-        # Track when jobs transition to RUNNING
-        active = get_active_job_ids()
-        running = get_running_job_ids()
-        for slurm_id in running:
-            if slurm_id in tracked and slurm_id not in start_times:
-                start_times[slurm_id] = time.time()
-
         # Check for completed jobs
+        active = get_active_job_ids()
         for slurm_id, info in list(tracked.items()):
             if slurm_id not in active and slurm_id not in seen:
-                start = start_times.get(slurm_id, info["submit_time"])
-                run_time = time.time() - start
-                wait_time = start - info["enqueue_time"]
+                completion_time = time.time()
+                run_time = parse_job_runtime(info["log_file"])
+                if run_time is None:
+                    continue
+                wait_time = completion_time - info["enqueue_time"] - run_time
                 collector.record_job(
                     name=info["name"],
                     gpus=info["gpus"],
                     run_time=run_time,
-                    wait_time=wait_time,
+                    wait_time=max(0, wait_time),
                 )
                 seen.add(slurm_id)
                 print(f"  Completed: {info['name']} "
@@ -169,26 +172,32 @@ def main():
         available = get_available_gpus()
         if wait_queue and available > 0:
             n_pending = len(wait_queue)
-            # How many jobs can we run? At least 1 GPU each.
             n_to_submit = min(n_pending, available)
-            gpus_each = available // n_to_submit
+            base_gpus = available // n_to_submit
+            leftover = available % n_to_submit
+
+            # Randomly pick which jobs get the extra GPU
+            lucky = set(rng.sample(range(n_to_submit), leftover)) if leftover > 0 else set()
 
             print(f"  Allocating: {available} GPUs / {n_to_submit} jobs "
-                  f"= {gpus_each} GPU(s) each")
+                  f"(base={base_gpus}, {leftover} get +1)")
 
-            for _ in range(n_to_submit):
+            for j in range(n_to_submit):
                 entry = wait_queue.popleft()
                 script = entry["script"]
-                slurm_id, submit_time = sbatch_submit(script, gpus_each)
+                gpus = base_gpus + (1 if j in lucky else 0)
+                slurm_id, submit_time = sbatch_submit(script, gpus)
                 if slurm_id:
+                    log_file = LOGS_DIR / f"{script.stem}_{gpus}gpu.log"
                     tracked[slurm_id] = {
                         "name": script.stem,
-                        "gpus": gpus_each,
+                        "gpus": gpus,
                         "submit_time": submit_time,
                         "enqueue_time": entry["enqueue_time"],
+                        "log_file": log_file,
                     }
                     print(f"  Submitted: {script.stem} -> SLURM job {slurm_id} "
-                          f"({gpus_each} GPUs)")
+                          f"({gpus} GPUs)")
                 else:
                     print(f"  Failed: {script.stem}")
                     collector.pending -= 1
@@ -197,7 +206,7 @@ def main():
             time.sleep(POLL_INTERVAL)
 
     summary = collector.stop()
-    report(summary, "equal_share_baseline", max_delay=args.max_delay)
+    report(summary, "equal_share_baseline", max_delay=args.max_delay, run_dir=args.run_dir)
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ from scheduler.sbatch_wrapper import submit_allocation
 ROOT = Path(__file__).resolve().parent.parent
 BENCHMARK_CSV = ROOT / "train_data" / "benchmark.csv"
 
-POLL_INTERVAL = 60
+POLL_INTERVAL = 5
 HOST = "localhost"
 PORT = 9321
 
@@ -142,8 +142,15 @@ class Scheduler:
                     logger.debug(f"poll: {len(finished)} job(s) finished, " f"{len(active_ids)} still active")
                 for sid in finished:
                     job = self.running.pop(sid)
-                    job.run_time = time.time() - job.submit_time
-                    job.wait_time = job.submit_time - job.start_time
+                    completion_time = time.time()
+                    # Use actual runtime from job output if available
+                    parsed_time = self._parse_job_runtime(job)
+                    if parsed_time is not None:
+                        job.run_time = parsed_time
+                        job.wait_time = completion_time - job.start_time - parsed_time
+                    else:
+                        job.run_time = completion_time - job.submit_time
+                        job.wait_time = job.submit_time - job.start_time
                     self.completed.append(job)
                     logger.info(f"completed: {job.model_name} (SLURM {sid}, "
                                f"{job.assigned_gpus} GPUs, {job.run_time:.1f}s, "
@@ -183,6 +190,21 @@ class Scheduler:
                                        f"{len(self.completed)} completed")
 
             self._stop.wait(self.poll_interval)
+
+    def _parse_job_runtime(self, job):
+        """Parse total_time_sec from job's ###RESULTS### block."""
+        log_file = getattr(job, "log_file", None)
+        if not log_file or not Path(log_file).exists():
+            return None
+        try:
+            text = Path(log_file).read_text()
+            match = re.search(r"###RESULTS###\s*\n(.+?)\n\s*###END_RESULTS###", text)
+            if match:
+                results = json.loads(match.group(1))
+                return float(results.get("total_time_sec", 0))
+        except Exception:
+            pass
+        return None
 
     def _append_benchmark(self, job):
         """Parse job output log and append a row to benchmark.csv."""

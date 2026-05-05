@@ -16,7 +16,7 @@ import sys
 import time
 from pathlib import Path
 
-from evaluation.metrics import MetricsCollector
+from evaluation.metrics import MetricsCollector, parse_job_runtime
 from evaluation.report import report
 
 EVAL_JOBS_DIR = Path(__file__).parent.parent / "jobs"
@@ -24,13 +24,19 @@ POLL_INTERVAL = 30
 GPUS_PER_JOB = 1
 
 
+LOGS_DIR = EVAL_JOBS_DIR.parent.parent / "logs" / "polite_output"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+
 def sbatch_submit(script_path):
     """Submit a DDP script to SLURM via sbatch + torchrun with 1 GPU."""
+    log_file = LOGS_DIR / f"{script_path.stem}_{GPUS_PER_JOB}gpu.log"
     sbatch_script = (
         "#!/bin/bash\n"
         f"#SBATCH --gres=gpu:{GPUS_PER_JOB}\n"
         f"#SBATCH --job-name={script_path.stem}\n"
-        "#SBATCH --output=/dev/null\n"
+        f"#SBATCH --output={log_file}\n"
+        f"#SBATCH --error={log_file}\n"
         f"torchrun --standalone --nproc_per_node={GPUS_PER_JOB} {script_path.resolve()}\n"
     )
     try:
@@ -82,6 +88,8 @@ def main():
                         help="Maximum delay between submissions (seconds)")
     parser.add_argument("--seed", type=int, default=None,
                         help="Random seed for reproducibility")
+    parser.add_argument("--run-dir", type=str, default=None,
+                        help="Shared output directory for this run")
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -112,11 +120,13 @@ def main():
         print(f"[{i+1}/{total_jobs}] Submitting {script.stem}...", end=" ")
         slurm_id, submit_time = sbatch_submit(script)
         if slurm_id:
+            log_file = LOGS_DIR / f"{script.stem}_{GPUS_PER_JOB}gpu.log"
             tracked[slurm_id] = {
                 "name": script.stem,
                 "gpus": GPUS_PER_JOB,
                 "submit_time": submit_time,
                 "enqueue_time": enqueue_time,
+                "log_file": log_file,
             }
             print(f"SLURM job {slurm_id} ({GPUS_PER_JOB} GPU)")
         else:
@@ -131,25 +141,21 @@ def main():
     print(f"\n=== All jobs submitted, polling for completions ===\n")
 
     seen = set()
-    start_times = {}
     while collector.pending > 0:
         active = get_active_job_ids()
-        running = get_running_job_ids()
-
-        for slurm_id in running:
-            if slurm_id in tracked and slurm_id not in start_times:
-                start_times[slurm_id] = time.time()
 
         for slurm_id, info in list(tracked.items()):
             if slurm_id not in active and slurm_id not in seen:
-                start = start_times.get(slurm_id, info["submit_time"])
-                run_time = time.time() - start
-                wait_time = start - info["enqueue_time"]
+                completion_time = time.time()
+                run_time = parse_job_runtime(info["log_file"])
+                if run_time is None:
+                    continue
+                wait_time = completion_time - info["enqueue_time"] - run_time
                 collector.record_job(
                     name=info["name"],
                     gpus=info["gpus"],
                     run_time=run_time,
-                    wait_time=wait_time,
+                    wait_time=max(0, wait_time),
                 )
                 seen.add(slurm_id)
 
@@ -160,7 +166,7 @@ def main():
             time.sleep(POLL_INTERVAL)
 
     summary = collector.stop()
-    report(summary, "polite_baseline_1gpu", max_delay=args.max_delay)
+    report(summary, "polite_baseline_1gpu", max_delay=args.max_delay, run_dir=args.run_dir)
 
 
 if __name__ == "__main__":

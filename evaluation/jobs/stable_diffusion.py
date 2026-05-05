@@ -27,15 +27,15 @@ BATCH_SIZE = 1
 # === FIXED ===
 EPOCHS = 3
 NUM_SAMPLES = 1000
-LATENT_SIZE = 64       # SD2 VAE encodes 512x512 → 64x64
+LATENT_SIZE = 32       # reduced for 10GB GPUs
 LATENT_CH = 4          # VAE latent channels
-CONTEXT_DIM = 1024     # SD2 uses OpenCLIP ViT-H (1024-d)
+CONTEXT_DIM = 512      # reduced context dim
 CONTEXT_LEN = 77       # CLIP max token length
-BASE_CH = 320
-CH_MULT = [1, 2, 4, 4]
+BASE_CH = 128          # reduced from 320
+CH_MULT = [1, 2, 4]
 NUM_RES_BLOCKS = 2
-ATTN_RESOLUTIONS = [32, 16, 8]
-NUM_HEADS = 8
+ATTN_RESOLUTIONS = [16, 8]
+NUM_HEADS = 4
 TIMESTEPS = 1000
 
 # ---------------------------------------------------------------------------
@@ -240,10 +240,13 @@ class UNet(nn.Module):
         h = self.mid_res2(h, t_emb)
 
         # Decoder
-        for block, up in zip(self.up_blocks, self.up_samples):
+        for i, (block, up) in enumerate(zip(self.up_blocks, self.up_samples)):
             for layer in block:
                 if isinstance(layer, ResBlock):
-                    h = layer(torch.cat([h, skips.pop()], dim=1), t_emb)
+                    skip = skips.pop()
+                    if h.shape[-1] != skip.shape[-1]:
+                        h = F.interpolate(h, size=skip.shape[-2:], mode="nearest")
+                    h = layer(torch.cat([h, skip], dim=1), t_emb)
                 else:
                     h = layer(h, context)
             if not isinstance(up, nn.Identity):

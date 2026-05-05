@@ -57,6 +57,7 @@ def main():
     parser.add_argument("--max-delay", type=float, default=600, help="Maximum delay between submissions (seconds)")
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
     parser.add_argument("--port", type=int, default=PORT, help="Scheduler server port")
+    parser.add_argument("--run-dir", type=str, default=None, help="Shared output directory for this run")
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -119,7 +120,7 @@ def main():
 
     # Phase 3: Stop collection and report
     summary = collector.stop()
-    report(summary, "scheduler", max_delay=args.max_delay)
+    report(summary, "scheduler", max_delay=args.max_delay, run_dir=args.run_dir)
 
 
 if __name__ == "__main__":
