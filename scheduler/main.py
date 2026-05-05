@@ -20,7 +20,7 @@ from pathlib import Path
 from scheduler.job_profiler import JobProfiler
 from scheduler.logger import logger
 from scheduler.queue import Queue
-from scheduler.slurm_monitor import get_available_gpus, get_running_job_ids
+from scheduler.slurm_monitor import get_available_gpus, get_running_job_ids, get_total_gpus
 from scheduler.sbatch_wrapper import submit_allocation
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -174,9 +174,11 @@ class Scheduler:
             with self.lock:
                 queue_len = len(self.queue)
                 if queue_len > 0:
-                    available = get_available_gpus()
+                    used_by_running = sum(j.assigned_gpus for j in self.running.values())
+                    total = get_total_gpus()
+                    available = total - used_by_running
                     logger.debug(f"allocation check: {queue_len} queued, "
-                                 f"{available} GPUs free, {len(self.running)} running")
+                                 f"{available} GPUs free ({used_by_running} used by {len(self.running)} running)")
                     if available > 0:
                         logger.info(f"{available} GPU(s) available, allocating...")
                         allocation = self.queue.allocate(available)
