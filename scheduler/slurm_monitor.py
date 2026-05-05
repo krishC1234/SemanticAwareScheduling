@@ -51,10 +51,10 @@ def get_available_gpus():
 
 
 def get_running_job_ids():
-    """Return set of SLURM job IDs that are currently running."""
+    """Return set of SLURM job IDs that are currently running or pending."""
     try:
         out = subprocess.run(
-            ["squeue", "--Format=jobid", "--noheader", "--states=RUNNING"],
+            ["squeue", "--Format=jobid", "--noheader", "--states=RUNNING,PENDING"],
             capture_output=True, text=True, timeout=10,
         )
         return {line.strip() for line in out.stdout.strip().splitlines() if line.strip()}
