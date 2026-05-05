@@ -1,0 +1,29 @@
+2026-05-05 03:52:43  INFO      SLURM: detected 8 total GPUs
+2026-05-05 03:52:43  INFO      config: lam=0.001, poll=5s, port=42
+2026-05-05 03:52:44  INFO      === Scheduler running (poll=5s) ===
+2026-05-05 03:52:44  INFO      listening on localhost:42
+2026-05-05 03:52:53  INFO      SLURM: detected 8 total GPUs
+2026-05-05 03:52:53  INFO      config: lam=0.001, poll=5s, port=42
+2026-05-05 03:52:54  INFO      === Scheduler running (poll=5s) ===
+2026-05-05 03:52:54  INFO      listening on localhost:42
+2026-05-05 03:52:57  INFO      SLURM: detected 8 total GPUs
+2026-05-05 03:52:57  INFO      MetricsCollector: started GPU sampling
+2026-05-05 03:58:50  INFO      MetricsCollector: recorded maml (gpus=8, run=59.2s, wait=293.6s) — 21 pending
+2026-05-05 03:58:50  INFO      MetricsCollector: recorded resnext50_32x4d (gpus=8, run=231.9s, wait=111.8s) — 20 pending
+2026-05-05 04:06:20  INFO      MetricsCollector: recorded maml_omniglot (gpus=8, run=396.8s, wait=372.5s) — 19 pending
+2026-05-05 04:07:20  INFO      MetricsCollector: recorded phlippe_resnet (gpus=8, run=19.2s, wait=791.0s) — 18 pending
+2026-05-05 04:11:20  INFO      MetricsCollector: recorded speech_transformer (gpus=8, run=146.2s, wait=861.4s) — 17 pending
+2026-05-05 04:13:50  INFO      MetricsCollector: recorded stargan (gpus=8, run=143.3s, wait=984.5s) — 16 pending
+2026-05-05 04:17:50  INFO      MetricsCollector: recorded modded_nanogpt (gpus=8, run=179.2s, wait=1168.4s) — 15 pending
+2026-05-05 04:19:20  INFO      MetricsCollector: recorded gnn_sage (gpus=8, run=70.7s, wait=1349.7s) — 14 pending
+2026-05-05 04:20:20  INFO      MetricsCollector: recorded resnest (gpus=8, run=49.0s, wait=1411.8s) — 13 pending
+2026-05-05 04:21:20  INFO      MetricsCollector: recorded demucs (gpus=8, run=35.6s, wait=1462.1s) — 12 pending
+2026-05-05 04:22:20  INFO      MetricsCollector: recorded mobilenet_v2_qat (gpus=8, run=38.2s, wait=1504.6s) — 11 pending
+2026-05-05 04:38:21  INFO      MetricsCollector: recorded hf_t5_base (gpus=8, run=930.6s, wait=1557.6s) — 10 pending
+2026-05-05 04:41:21  INFO      MetricsCollector: recorded dm_nfnet_f0 (gpus=8, run=171.0s, wait=2489.4s) — 9 pending
+2026-05-05 04:42:21  INFO      MetricsCollector: recorded pyhpc_isoneutral (gpus=8, run=11.4s, wait=2699.2s) — 8 pending
+2026-05-05 04:43:51  INFO      MetricsCollector: recorded llama_tp (gpus=8, run=57.1s, wait=2735.0s) — 7 pending
+2026-05-05 04:44:21  INFO      MetricsCollector: recorded soft_actor_critic (gpus=8, run=8.0s, wait=2801.4s) — 6 pending
+2026-05-05 04:46:21  INFO      MetricsCollector: recorded hf_t5_generate (gpus=8, run=111.8s, wait=2799.2s) — 5 pending
+2026-05-05 04:48:51  INFO      MetricsCollector: recorded resnet50_qat (gpus=8, run=86.0s, wait=2942.7s) — 4 pending
+2026-05-05 05:14:21  INFO      MetricsCollector: recorded hf_bert (gpus=8, run=1486.4s, wait=3044.7s) — 3 pending

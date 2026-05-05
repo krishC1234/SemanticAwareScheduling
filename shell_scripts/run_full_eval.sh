@@ -75,6 +75,21 @@ for DELAY in "${DELAYS[@]}"; do
     echo "Scheduler started (PID $SCHEDULER_PID)"
 
     # --- Baselines ---
+    # --- Scheduler eval ---
+    echo ""
+    echo "############################################################"
+    echo "  [${DELAY}s] Running: scheduler eval"
+    echo "############################################################"
+    python3 -m evaluation.test_scripts.scheulder_eval \
+        --seed "$SEED" --max-delay "$DELAY" --port "$PORT" --run-dir "$RUN_DIR"
+
+    echo "Stopping scheduler server (PID $SCHEDULER_PID)..."
+    kill -TERM "$SCHEDULER_PID" 2>/dev/null || true
+    sleep 2
+    kill -9 "$SCHEDULER_PID" 2>/dev/null || true
+    wait "$SCHEDULER_PID" 2>/dev/null || true
+    echo "Scheduler server stopped."
+    
     echo ""
     echo "############################################################"
     echo "  [${DELAY}s] Running: greedy baseline"
@@ -95,21 +110,6 @@ for DELAY in "${DELAYS[@]}"; do
     echo "############################################################"
     python3 -m evaluation.test_scripts.equal_share_baseline \
         --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
-
-    # --- Scheduler eval ---
-    echo ""
-    echo "############################################################"
-    echo "  [${DELAY}s] Running: scheduler eval"
-    echo "############################################################"
-    python3 -m evaluation.test_scripts.scheulder_eval \
-        --seed "$SEED" --max-delay "$DELAY" --port "$PORT" --run-dir "$RUN_DIR"
-
-    echo "Stopping scheduler server (PID $SCHEDULER_PID)..."
-    kill -TERM "$SCHEDULER_PID" 2>/dev/null || true
-    sleep 2
-    kill -9 "$SCHEDULER_PID" 2>/dev/null || true
-    wait "$SCHEDULER_PID" 2>/dev/null || true
-    echo "Scheduler server stopped."
 
     echo ""
     echo "  Iteration delay=${DELAY}s complete."

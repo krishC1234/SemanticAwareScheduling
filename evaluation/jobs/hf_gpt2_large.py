@@ -14,16 +14,16 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # === VARYING ===
-BATCH_SIZE = 4
+BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
 NUM_SAMPLES = 4000
 VOCAB_SIZE = 50257      # GPT-2 BPE vocab
-SEQ_LEN = 1024          # GPT-2 default context length
-NUM_LAYERS = 36
-HIDDEN = 1280
-NUM_HEADS = 20
+SEQ_LEN = 512           # reduced for 10GB GPUs
+NUM_LAYERS = 24         # reduced from 36
+HIDDEN = 1024           # reduced from 1280
+NUM_HEADS = 16
 DROPOUT = 0.1
 
 # ---------------------------------------------------------------------------

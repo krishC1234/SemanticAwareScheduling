@@ -155,6 +155,10 @@ def main():
                 completion_time = time.time()
                 run_time = parse_job_runtime(info["log_file"])
                 if run_time is None:
+                    if Path(info["log_file"]).exists():
+                        print(f"  FAILED: {info['name']} (crashed, no results)")
+                        seen.add(slurm_id)
+                        collector.pending -= 1
                     continue
                 wait_time = completion_time - info["enqueue_time"] - run_time
                 collector.record_job(

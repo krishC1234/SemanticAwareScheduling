@@ -172,7 +172,7 @@ def main():
         print("###END_FEATURES###")
         print(f"sam | GPUs:{ws} | Batch:{BATCH_SIZE} | Params:{pc:,}")
 
-    model = DDP(model, device_ids=[rank])
+    model = DDP(model, device_ids=[rank], find_unused_parameters=True)
     ds = SyntheticSegDataset(NUM_SAMPLES)
     sampler = DistributedSampler(ds, num_replicas=ws, rank=rank, shuffle=True)
     loader = DataLoader(ds, batch_size=BATCH_SIZE, sampler=sampler,
