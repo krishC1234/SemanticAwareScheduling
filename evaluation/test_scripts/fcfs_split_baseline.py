@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Equal-share baseline — divide available GPUs evenly among pending jobs.
+"""FCFS-split baseline — divide available GPUs evenly among pending jobs.
 
 Manages its own FIFO queue. When GPUs are free, divides them equally
 among all waiting jobs and submits the batch. Each job gets at least 1
@@ -7,8 +7,8 @@ GPU; if there are more jobs than GPUs, only the first N are submitted
 and the rest wait.
 
 Usage:
-    python3 -m evaluation.test_scripts.equal_share_baseline
-    python3 -m evaluation.test_scripts.equal_share_baseline --seed 42 --max-delay 60
+    python3 -m evaluation.test_scripts.fcfs_split_baseline
+    python3 -m evaluation.test_scripts.fcfs_split_baseline --seed 42 --max-delay 60
 """
 
 import argparse
@@ -27,7 +27,7 @@ EVAL_JOBS_DIR = Path(__file__).parent.parent / "jobs"
 POLL_INTERVAL = 10
 
 
-LOGS_DIR = EVAL_JOBS_DIR.parent.parent / "logs" / "equal_share_output"
+LOGS_DIR = EVAL_JOBS_DIR.parent.parent / "logs" / "fcfs_split_output"
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -86,7 +86,7 @@ def get_running_job_ids():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Equal-share baseline: divide GPUs evenly among pending jobs")
+        description="FCFS-split baseline: divide GPUs evenly among pending jobs")
     parser.add_argument("--max-delay", type=float, default=600,
                         help="Maximum delay between submissions (seconds)")
     parser.add_argument("--seed", type=int, default=None,
@@ -105,7 +105,7 @@ def main():
     rng.shuffle(scripts)
     total_jobs = len(scripts)
 
-    print(f"=== Equal-share baseline: {total_jobs} jobs, {total_gpus} total GPUs, "
+    print(f"=== FCFS-split baseline: {total_jobs} jobs, {total_gpus} total GPUs, "
           f"delays 0-{args.max_delay}s ===\n")
     print("Submission order:")
     for i, s in enumerate(scripts, 1):
@@ -210,7 +210,7 @@ def main():
             time.sleep(POLL_INTERVAL)
 
     summary = collector.stop()
-    report(summary, "equal_share_baseline", max_delay=args.max_delay, run_dir=args.run_dir)
+    report(summary, "fcfs_split_baseline", max_delay=args.max_delay, run_dir=args.run_dir)
 
 
 if __name__ == "__main__":

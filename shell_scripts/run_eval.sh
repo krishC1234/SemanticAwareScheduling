@@ -41,9 +41,9 @@ python3 -m evaluation.test_scripts.polite_baseline \
 
 echo ""
 echo "############################################################"
-echo "  Running: equal share baseline"
+echo "  Running: FCFS split baseline"
 echo "############################################################"
-python3 -m evaluation.test_scripts.equal_share_baseline \
+python3 -m evaluation.test_scripts.fcfs_split_baseline \
     --seed "$SEED" --max-delay "$MAX_DELAY"
 
 # --- 2. Scheduler eval (needs the server) ---

@@ -106,9 +106,16 @@ for DELAY in "${DELAYS[@]}"; do
 
     echo ""
     echo "############################################################"
-    echo "  [${DELAY}s] Running: equal share baseline"
+    echo "  [${DELAY}s] Running: FCFS split baseline"
     echo "############################################################"
-    python3 -m evaluation.test_scripts.equal_share_baseline \
+    python3 -m evaluation.test_scripts.fcfs_split_baseline \
+        --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
+
+    echo ""
+    echo "############################################################"
+    echo "  [${DELAY}s] Running: size-aware baseline"
+    echo "############################################################"
+    python3 -m evaluation.test_scripts.size_aware_baseline \
         --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
 
     echo ""
