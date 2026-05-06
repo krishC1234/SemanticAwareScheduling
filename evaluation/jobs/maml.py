@@ -21,7 +21,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 400
+NUM_SAMPLES = 20
 N_WAY = 5
 K_SHOT = 5              # 5-shot (vs 1-shot in maml_omniglot)
 K_QUERY = 15

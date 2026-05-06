@@ -26,7 +26,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 1000
+NUM_SAMPLES = 50
 LATENT_SIZE = 32       # reduced for 10GB GPUs
 LATENT_CH = 4          # VAE latent channels
 CONTEXT_DIM = 512      # reduced context dim
