@@ -6,7 +6,7 @@ from scheduler.slurm_monitor import get_total_gpus
 MAX_GPU_PER_JOB = get_total_gpus()
 
 class Queue:
-    def __init__(self, lam=0.001):
+    def __init__(self, lam=0.0001):
         self.lam = lam
         self.heap = []
         self.counter = 0  # tiebreaker so heapq never compares Job objects
@@ -24,6 +24,18 @@ class Queue:
 
         Returns a list of (job, gpu_count) for jobs that got >= 1 GPU.
         """
+
+        # Re-score all jobs with current wait times before allocating
+        fresh = []
+        while self.heap:
+            _, _, job = heapq.heappop(self.heap)
+            if not getattr(job, "submitted", False):
+                fresh.append(job)
+        self.heap = []
+        for job in fresh:
+            score = self._score(job)
+            heapq.heappush(self.heap, (-score, self.counter, job))
+            self.counter += 1
 
         assigned = {}
         for _ in range(available_gpus):
