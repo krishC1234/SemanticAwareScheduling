@@ -18,7 +18,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 1200
+NUM_SAMPLES = 300
 VOCAB_SIZE = 30522       # bert-base/large-uncased vocab
 SEQ_LEN = 512
 NUM_LAYERS = 24

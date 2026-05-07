@@ -20,7 +20,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 5
-NUM_SAMPLES = 80
+NUM_SAMPLES = 20
 IMG_SIZE = 256           # reduced for 10GB GPUs
 PATCH_SIZE = 16          # ViT patch size → 16×16 patches
 EMBED_DIM = 512          # reduced from 1280

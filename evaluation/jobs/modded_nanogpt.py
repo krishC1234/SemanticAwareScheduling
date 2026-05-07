@@ -20,7 +20,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 5
-NUM_SAMPLES = 200        # fewer samples due to long seq_len
+NUM_SAMPLES = 50         # fewer samples due to long seq_len
 VOCAB_SIZE = 50257
 SEQ_LEN = 1024           # reduced for 10GB GPUs
 NUM_LAYERS = 12

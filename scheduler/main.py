@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BENCHMARK_CSV = ROOT / "train_data" / "benchmark.csv"
 
 POLL_INTERVAL = 5
-BATCH_WINDOW = 30  # seconds to wait for jobs to accumulate before allocating
+BATCH_WINDOW = 12  # seconds after last job arrival before allocating
 HOST = "localhost"
 PORT = 9321
 
@@ -43,6 +43,7 @@ class Scheduler:
         self._next_batch_id = 0
         self._batches = {}      # {batch_id: {"total": N, "done": 0, "total_time": 0, "start": time}}
         self._gpus_freed_at = None  # timestamp when GPUs last became free
+        self._last_queue_size = 0   # for detecting when queue stops growing
 
     def submit_script(self, path, batch_id=None):
         """Classify and enqueue a single script. Thread-safe."""
@@ -182,7 +183,11 @@ class Scheduler:
                     logger.debug(f"allocation check: {queue_len} queued, "
                                  f"{available} GPUs free ({used_by_running} used by {len(self.running)} running)")
                     if available > 0:
-                        if self._gpus_freed_at is None:
+                        # Reset timer whenever a new job arrives
+                        if queue_len != self._last_queue_size:
+                            self._gpus_freed_at = time.time()
+                            self._last_queue_size = queue_len
+                        elif self._gpus_freed_at is None:
                             self._gpus_freed_at = time.time()
                         waited = time.time() - self._gpus_freed_at
                         if waited >= BATCH_WINDOW:
@@ -198,6 +203,7 @@ class Scheduler:
                                            f"{len(self.queue)} queued, "
                                            f"{len(self.completed)} completed")
                             self._gpus_freed_at = None
+                            self._last_queue_size = 0
                         else:
                             logger.debug(f"batching: {waited:.1f}s / {BATCH_WINDOW}s, "
                                         f"waiting for more jobs...")
