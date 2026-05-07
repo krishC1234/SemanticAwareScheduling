@@ -39,7 +39,7 @@ SlurmctldHost=$HOST
 AuthType=auth/munge
 SchedulerType=sched/backfill
 SelectType=select/cons_tres
-SelectTypeParameters=CR_Core_Memory
+SelectTypeParameters=CR_Core
 
 ProctrackType=proctrack/linuxproc
 ReturnToService=2
