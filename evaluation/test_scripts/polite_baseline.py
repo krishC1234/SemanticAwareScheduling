@@ -90,6 +90,8 @@ def main():
                         help="Random seed for reproducibility")
     parser.add_argument("--run-dir", type=str, default=None,
                         help="Shared output directory for this run")
+    parser.add_argument("--num-jobs", type=int, default=None,
+                        help="Limit number of jobs to submit")
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -99,6 +101,8 @@ def main():
         sys.exit(1)
 
     rng.shuffle(scripts)
+    if args.num_jobs:
+        scripts = scripts[:args.num_jobs]
     total_jobs = len(scripts)
 
     print(f"=== Polite baseline: {total_jobs} jobs, {GPUS_PER_JOB} GPU/job, "

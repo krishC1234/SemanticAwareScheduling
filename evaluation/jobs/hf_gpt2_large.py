@@ -18,7 +18,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 200
+NUM_SAMPLES = 800
 VOCAB_SIZE = 50257      # GPT-2 BPE vocab
 SEQ_LEN = 512           # reduced for 10GB GPUs
 NUM_LAYERS = 24         # reduced from 36

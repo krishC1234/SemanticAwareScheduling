@@ -25,7 +25,7 @@ BATCH_SIZE = 1           # meta-batch = 1 (but each sample = 32 tasks)
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 20         # number of meta-batches
+NUM_SAMPLES = 80         # number of meta-batches
 N_WAY = 5
 K_SHOT = 1
 K_QUERY = 15

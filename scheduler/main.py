@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BENCHMARK_CSV = ROOT / "train_data" / "benchmark.csv"
 
 POLL_INTERVAL = 5
+BATCH_WINDOW = 20  # seconds to wait for jobs to accumulate before allocating
 HOST = "localhost"
 PORT = 9321
 
@@ -41,6 +42,7 @@ class Scheduler:
         self._stop = threading.Event()
         self._next_batch_id = 0
         self._batches = {}      # {batch_id: {"total": N, "done": 0, "total_time": 0, "start": time}}
+        self._gpus_freed_at = None  # timestamp when GPUs last became free
 
     def submit_script(self, path, batch_id=None):
         """Classify and enqueue a single script. Thread-safe."""

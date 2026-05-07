@@ -1,15 +1,14 @@
 #!/bin/bash
-# Run 3 iterations of the full evaluation suite with different delays.
-# Each iteration uses a random seed (shared across all 4 scripts).
-#
-# Delays: 5s, 30s, 90s
-# Results go to evaluation/test_results/<delay>s_<timestamp>/
+# Evaluate scheduling at different contention levels (jobs/GPUs ratio).
+# Runs 3 iterations with 3, 5, and 7 jobs competing for 8 GPUs.
+# Delay=0 so all jobs arrive together — scheduler must split GPUs.
 #
 # Usage:
-#   bash run_full_eval.sh              # default port 9321
-#   bash run_full_eval.sh 9100         # custom port
+#   bash run_contention_eval.sh              # default port 9321
+#   bash run_contention_eval.sh 9100         # custom port
 
 PORT=${1:-9321}
+JOB_COUNTS=(3 5 7)
 DELAYS=(0 15 30)
 
 # Ensure we're in the project root
@@ -25,7 +24,6 @@ echo "Verifying scheduler can start..."
 mkdir -p logs
 pkill -9 -f "scheduler.main" 2>/dev/null || true
 fuser -k "$PORT"/tcp 2>/dev/null || true
-fuser -k 9321/tcp 2>/dev/null || true
 sleep 3
 python3 -m scheduler.main --port "$PORT" > logs/scheduler_stdout.log 2>&1 &
 TEST_PID=$!
@@ -42,20 +40,22 @@ kill -9 "$TEST_PID" 2>/dev/null || true
 wait "$TEST_PID" 2>/dev/null || true
 
 echo "============================================================"
-echo "  FULL MULTI-DELAY EVALUATION"
+echo "  CONTENTION EVALUATION"
+echo "  Job counts: ${JOB_COUNTS[*]}"
 echo "  Delays: ${DELAYS[*]}s"
 echo "  Port: $PORT"
 echo "============================================================"
 
-for DELAY in "${DELAYS[@]}"; do
+for N_JOBS in "${JOB_COUNTS[@]}"; do
+  for DELAY in "${DELAYS[@]}"; do
     SEED=$RANDOM
     TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-    RUN_DIR="evaluation/test_results/${DELAY}s_${TIMESTAMP}"
+    RUN_DIR="evaluation/test_results/${N_JOBS}jobs_${DELAY}s_${TIMESTAMP}"
     mkdir -p "$RUN_DIR"
 
     echo ""
     echo "============================================================"
-    echo "  ITERATION: delay=${DELAY}s  seed=${SEED}"
+    echo "  ITERATION: ${N_JOBS} jobs, delay=${DELAY}s, seed=${SEED}"
     echo "  Output: $RUN_DIR"
     echo "============================================================"
 
@@ -68,20 +68,20 @@ for DELAY in "${DELAYS[@]}"; do
     sleep 5
 
     if ! kill -0 "$SCHEDULER_PID" 2>/dev/null; then
-        echo "ERROR: scheduler failed to start for delay=${DELAY}s. Skipping."
+        echo "ERROR: scheduler failed to start for ${N_JOBS} jobs/${DELAY}s. Skipping."
         cat logs/scheduler_stdout.log
         continue
     fi
     echo "Scheduler started (PID $SCHEDULER_PID)"
 
-    # --- Baselines ---
     # --- Scheduler eval ---
     echo ""
     echo "############################################################"
-    echo "  [${DELAY}s] Running: scheduler eval"
+    echo "  [${N_JOBS} jobs, ${DELAY}s] Running: scheduler eval"
     echo "############################################################"
     python3 -m evaluation.test_scripts.scheulder_eval \
-        --seed "$SEED" --max-delay "$DELAY" --port "$PORT" --run-dir "$RUN_DIR"
+        --seed "$SEED" --max-delay "$DELAY" --port "$PORT" \
+        --run-dir "$RUN_DIR" --num-jobs "$N_JOBS"
 
     echo "Stopping scheduler server (PID $SCHEDULER_PID)..."
     kill -TERM "$SCHEDULER_PID" 2>/dev/null || true
@@ -89,37 +89,46 @@ for DELAY in "${DELAYS[@]}"; do
     kill -9 "$SCHEDULER_PID" 2>/dev/null || true
     wait "$SCHEDULER_PID" 2>/dev/null || true
     echo "Scheduler server stopped."
-    
+
+    # --- Greedy ---
     echo ""
     echo "############################################################"
-    echo "  [${DELAY}s] Running: greedy baseline"
+    echo "  [${N_JOBS} jobs, ${DELAY}s] Running: greedy baseline"
     echo "############################################################"
     python3 -m evaluation.test_scripts.greedy_baseline \
-        --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
+        --seed "$SEED" --max-delay "$DELAY" \
+        --run-dir "$RUN_DIR" --num-jobs "$N_JOBS"
 
+    # --- Polite ---
     echo ""
     echo "############################################################"
-    echo "  [${DELAY}s] Running: polite baseline"
+    echo "  [${N_JOBS} jobs, ${DELAY}s] Running: polite baseline"
     echo "############################################################"
     python3 -m evaluation.test_scripts.polite_baseline \
-        --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
+        --seed "$SEED" --max-delay "$DELAY" \
+        --run-dir "$RUN_DIR" --num-jobs "$N_JOBS"
 
+    # --- FCFS Split ---
     echo ""
     echo "############################################################"
-    echo "  [${DELAY}s] Running: FCFS split baseline"
+    echo "  [${N_JOBS} jobs, ${DELAY}s] Running: FCFS split baseline"
     echo "############################################################"
     python3 -m evaluation.test_scripts.fcfs_split_baseline \
-        --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
+        --seed "$SEED" --max-delay "$DELAY" \
+        --run-dir "$RUN_DIR" --num-jobs "$N_JOBS"
 
+    # --- Size-Aware ---
     echo ""
     echo "############################################################"
-    echo "  [${DELAY}s] Running: size-aware baseline"
+    echo "  [${N_JOBS} jobs, ${DELAY}s] Running: size-aware baseline"
     echo "############################################################"
     python3 -m evaluation.test_scripts.size_aware_baseline \
-        --seed "$SEED" --max-delay "$DELAY" --run-dir "$RUN_DIR"
+        --seed "$SEED" --max-delay "$DELAY" \
+        --run-dir "$RUN_DIR" --num-jobs "$N_JOBS"
 
     echo ""
-    echo "  Iteration delay=${DELAY}s complete."
+    echo "  Iteration ${N_JOBS} jobs / ${DELAY}s delay complete."
+  done
 done
 
 echo ""

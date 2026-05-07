@@ -20,7 +20,7 @@ BATCH_SIZE = 1
 
 # === FIXED ===
 EPOCHS = 3
-NUM_SAMPLES = 20         # small due to massive model
+NUM_SAMPLES = 80         # small due to massive model
 VOCAB_SIZE = 32000       # LLaMA tokenizer
 SEQ_LEN = 512            # shortened for memory
 NUM_LAYERS = 12          # reduced from 32

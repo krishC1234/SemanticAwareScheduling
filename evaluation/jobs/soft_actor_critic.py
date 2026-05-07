@@ -22,7 +22,7 @@ BATCH_SIZE = 256
 
 # === FIXED ===
 EPOCHS = 50
-NUM_SAMPLES = 200
+NUM_SAMPLES = 800
 OBS_DIM = 17            # MuJoCo Humanoid-like observation space
 ACT_DIM = 6             # continuous action space
 HIDDEN = 256
