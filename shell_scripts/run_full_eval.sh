@@ -10,7 +10,7 @@
 #   bash run_full_eval.sh 9100         # custom port
 
 PORT=${1:-9321}
-DELAYS=(0 15 60)
+DELAYS=(0 30 90)
 
 # Ensure we're in the project root
 cd "$(dirname "$0")/.."
