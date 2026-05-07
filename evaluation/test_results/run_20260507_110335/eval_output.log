@@ -1,0 +1,1403 @@
+Verifying scheduler can start...
+Scheduler verified. Stopping test instance...
+============================================================
+  FULL MULTI-DELAY EVALUATION
+  Delays: 60 240 600s
+  Port: 9100
+============================================================
+
+============================================================
+  ITERATION: delay=60s  seed=6463
+  Output: evaluation/test_results/60s_20260507_050554
+============================================================
+Scheduler started (PID 619857)
+
+############################################################
+  [60s] Running: scheduler eval
+############################################################
+=== Eval workload: 21 jobs, delays 0-60.0s ===
+
+Submission order:
+   1. dm_nfnet_f0
+   2. soft_actor_critic
+   3. resnest
+   4. resnext50_32x4d
+   5. mobilenet_v2_qat
+   6. gnn_sage
+   7. hf_bert
+   8. speech_transformer
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. phlippe_resnet
+  13. hf_t5_base
+  14. hf_gpt2_large
+  15. maml
+  16. hf_t5_generate
+  17. stargan
+  18. llama_tp
+  19. sam
+  20. resnet50_qat
+  21. pyhpc_isoneutral
+
+[1/21] Submitting dm_nfnet_f0... queued (k=0.898)
+         waiting 14.0s before next submission...
+[2/21] Submitting soft_actor_critic... queued (k=0.595)
+         waiting 50.2s before next submission...
+[3/21] Submitting resnest... queued (k=0.874)
+         waiting 42.2s before next submission...
+[4/21] Submitting resnext50_32x4d... queued (k=0.870)
+         waiting 9.4s before next submission...
+[5/21] Submitting mobilenet_v2_qat... queued (k=0.785)
+         waiting 29.0s before next submission...
+[6/21] Submitting gnn_sage... queued (k=0.583)
+         waiting 19.3s before next submission...
+[7/21] Submitting hf_bert... queued (k=0.678)
+         waiting 26.5s before next submission...
+[8/21] Submitting speech_transformer... queued (k=0.689)
+         waiting 59.1s before next submission...
+[9/21] Submitting modded_nanogpt... queued (k=0.701)
+         waiting 55.3s before next submission...
+[10/21] Submitting demucs... queued (k=1.016)
+         waiting 15.6s before next submission...
+[11/21] Submitting maml_omniglot... queued (k=0.883)
+         waiting 54.6s before next submission...
+[12/21] Submitting phlippe_resnet... queued (k=0.584)
+         waiting 23.3s before next submission...
+[13/21] Submitting hf_t5_base... queued (k=0.694)
+         waiting 25.7s before next submission...
+[14/21] Submitting hf_gpt2_large... queued (k=0.678)
+         waiting 6.2s before next submission...
+[15/21] Submitting maml... queued (k=0.887)
+         waiting 19.7s before next submission...
+[16/21] Submitting hf_t5_generate... queued (k=0.661)
+         waiting 11.8s before next submission...
+[17/21] Submitting stargan... queued (k=0.839)
+         waiting 33.5s before next submission...
+[18/21] Submitting llama_tp... queued (k=0.678)
+         waiting 56.1s before next submission...
+[19/21] Submitting sam... queued (k=0.678)
+         waiting 33.7s before next submission...
+[20/21] Submitting resnet50_qat... queued (k=0.892)
+         waiting 10.9s before next submission...
+[21/21] Submitting pyhpc_isoneutral... queued (k=0.584)
+
+=== All 21 jobs submitted, polling for completions ===
+
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [11 pending, 4 running, 8 queued]
+  [10 pending, 7 running, 7 queued]
+  [9 pending, 7 running, 3 queued]
+  [9 pending, 7 running, 3 queued]
+  [6 pending, 6 running, 0 queued]
+  [5 pending, 5 running, 0 queued]
+  [3 pending, 3 running, 0 queued]
+  [2 pending, 2 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [0 pending, 0 running, 0 queued]
+
+Results saved to evaluation/test_results/60s_20260507_050554/scheduler.txt
+Stopping scheduler server (PID 619857)...
+Scheduler server stopped.
+
+############################################################
+  [60s] Running: greedy baseline
+############################################################
+=== Greedy baseline: 21 jobs, 8 GPU(s)/job, delays 0-60.0s ===
+
+Submission order:
+   1. dm_nfnet_f0
+   2. soft_actor_critic
+   3. resnest
+   4. resnext50_32x4d
+   5. mobilenet_v2_qat
+   6. gnn_sage
+   7. hf_bert
+   8. speech_transformer
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. phlippe_resnet
+  13. hf_t5_base
+  14. hf_gpt2_large
+  15. maml
+  16. hf_t5_generate
+  17. stargan
+  18. llama_tp
+  19. sam
+  20. resnet50_qat
+  21. pyhpc_isoneutral
+
+[1/21] Submitting dm_nfnet_f0... SLURM job 397 (8 GPUs)
+         waiting 14.0s before next submission...
+[2/21] Submitting soft_actor_critic... SLURM job 398 (8 GPUs)
+         waiting 50.2s before next submission...
+[3/21] Submitting resnest... SLURM job 399 (8 GPUs)
+         waiting 42.2s before next submission...
+[4/21] Submitting resnext50_32x4d... SLURM job 400 (8 GPUs)
+         waiting 9.4s before next submission...
+[5/21] Submitting mobilenet_v2_qat... SLURM job 401 (8 GPUs)
+         waiting 29.0s before next submission...
+[6/21] Submitting gnn_sage... SLURM job 402 (8 GPUs)
+         waiting 19.3s before next submission...
+[7/21] Submitting hf_bert... SLURM job 403 (8 GPUs)
+         waiting 26.5s before next submission...
+[8/21] Submitting speech_transformer... SLURM job 404 (8 GPUs)
+         waiting 59.1s before next submission...
+[9/21] Submitting modded_nanogpt... SLURM job 405 (8 GPUs)
+         waiting 55.3s before next submission...
+[10/21] Submitting demucs... SLURM job 406 (8 GPUs)
+         waiting 15.6s before next submission...
+[11/21] Submitting maml_omniglot... SLURM job 407 (8 GPUs)
+         waiting 54.6s before next submission...
+[12/21] Submitting phlippe_resnet... SLURM job 408 (8 GPUs)
+         waiting 23.3s before next submission...
+[13/21] Submitting hf_t5_base... SLURM job 409 (8 GPUs)
+         waiting 25.7s before next submission...
+[14/21] Submitting hf_gpt2_large... SLURM job 410 (8 GPUs)
+         waiting 6.2s before next submission...
+[15/21] Submitting maml... SLURM job 411 (8 GPUs)
+         waiting 19.7s before next submission...
+[16/21] Submitting hf_t5_generate... SLURM job 412 (8 GPUs)
+         waiting 11.8s before next submission...
+[17/21] Submitting stargan... SLURM job 413 (8 GPUs)
+         waiting 33.5s before next submission...
+[18/21] Submitting llama_tp... SLURM job 414 (8 GPUs)
+         waiting 56.1s before next submission...
+[19/21] Submitting sam... SLURM job 415 (8 GPUs)
+         waiting 33.7s before next submission...
+[20/21] Submitting resnet50_qat... SLURM job 416 (8 GPUs)
+         waiting 10.9s before next submission...
+[21/21] Submitting pyhpc_isoneutral... SLURM job 417 (8 GPUs)
+
+=== All jobs submitted, polling for completions ===
+
+  [15 pending, 15 running]
+  [14 pending, 14 running]
+  [14 pending, 14 running]
+  [13 pending, 13 running]
+  [13 pending, 13 running]
+  [12 pending, 12 running]
+  [11 pending, 11 running]
+  [11 pending, 11 running]
+  [11 pending, 11 running]
+  [11 pending, 11 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [7 pending, 7 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [4 pending, 4 running]
+  [3 pending, 3 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/60s_20260507_050554/greedy_baseline_8gpu.txt
+
+############################################################
+  [60s] Running: polite baseline
+############################################################
+=== Polite baseline: 21 jobs, 1 GPU/job, delays 0-60.0s ===
+
+Submission order:
+   1. dm_nfnet_f0
+   2. soft_actor_critic
+   3. resnest
+   4. resnext50_32x4d
+   5. mobilenet_v2_qat
+   6. gnn_sage
+   7. hf_bert
+   8. speech_transformer
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. phlippe_resnet
+  13. hf_t5_base
+  14. hf_gpt2_large
+  15. maml
+  16. hf_t5_generate
+  17. stargan
+  18. llama_tp
+  19. sam
+  20. resnet50_qat
+  21. pyhpc_isoneutral
+
+[1/21] Submitting dm_nfnet_f0... SLURM job 418 (1 GPU)
+         waiting 14.0s before next submission...
+[2/21] Submitting soft_actor_critic... SLURM job 419 (1 GPU)
+         waiting 50.2s before next submission...
+[3/21] Submitting resnest... SLURM job 420 (1 GPU)
+         waiting 42.2s before next submission...
+[4/21] Submitting resnext50_32x4d... SLURM job 421 (1 GPU)
+         waiting 9.4s before next submission...
+[5/21] Submitting mobilenet_v2_qat... SLURM job 422 (1 GPU)
+         waiting 29.0s before next submission...
+[6/21] Submitting gnn_sage... SLURM job 423 (1 GPU)
+         waiting 19.3s before next submission...
+[7/21] Submitting hf_bert... SLURM job 424 (1 GPU)
+         waiting 26.5s before next submission...
+[8/21] Submitting speech_transformer... SLURM job 425 (1 GPU)
+         waiting 59.1s before next submission...
+[9/21] Submitting modded_nanogpt... SLURM job 426 (1 GPU)
+         waiting 55.3s before next submission...
+[10/21] Submitting demucs... SLURM job 427 (1 GPU)
+         waiting 15.6s before next submission...
+[11/21] Submitting maml_omniglot... SLURM job 428 (1 GPU)
+         waiting 54.6s before next submission...
+[12/21] Submitting phlippe_resnet... SLURM job 429 (1 GPU)
+         waiting 23.3s before next submission...
+[13/21] Submitting hf_t5_base... SLURM job 430 (1 GPU)
+         waiting 25.7s before next submission...
+[14/21] Submitting hf_gpt2_large... SLURM job 431 (1 GPU)
+         waiting 6.2s before next submission...
+[15/21] Submitting maml... SLURM job 432 (1 GPU)
+         waiting 19.7s before next submission...
+[16/21] Submitting hf_t5_generate... SLURM job 433 (1 GPU)
+         waiting 11.8s before next submission...
+[17/21] Submitting stargan... SLURM job 434 (1 GPU)
+         waiting 33.5s before next submission...
+[18/21] Submitting llama_tp... SLURM job 435 (1 GPU)
+         waiting 56.1s before next submission...
+[19/21] Submitting sam... SLURM job 436 (1 GPU)
+         waiting 33.7s before next submission...
+[20/21] Submitting resnet50_qat... SLURM job 437 (1 GPU)
+         waiting 10.9s before next submission...
+[21/21] Submitting pyhpc_isoneutral... SLURM job 438 (1 GPU)
+
+=== All jobs submitted, polling for completions ===
+
+  [8 pending, 8 running]
+  [7 pending, 7 running]
+  [6 pending, 6 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/60s_20260507_050554/polite_baseline_1gpu.txt
+
+############################################################
+  [60s] Running: FCFS split baseline
+############################################################
+=== FCFS-split baseline: 21 jobs, 8 total GPUs, delays 0-60.0s ===
+
+Submission order:
+   1. dm_nfnet_f0
+   2. soft_actor_critic
+   3. resnest
+   4. resnext50_32x4d
+   5. mobilenet_v2_qat
+   6. gnn_sage
+   7. hf_bert
+   8. speech_transformer
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. phlippe_resnet
+  13. hf_t5_base
+  14. hf_gpt2_large
+  15. maml
+  16. hf_t5_generate
+  17. stargan
+  18. llama_tp
+  19. sam
+  20. resnet50_qat
+  21. pyhpc_isoneutral
+
+Starting job arrivals and queue management...
+
+[1/21] Arrived: dm_nfnet_f0 (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: dm_nfnet_f0 -> SLURM job 439 (8 GPUs)
+[2/21] Arrived: soft_actor_critic (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: soft_actor_critic -> SLURM job 440 (8 GPUs)
+  Completed: dm_nfnet_f0 (8 GPUs, run=35.1s, wait=25.0s)
+[3/21] Arrived: resnest (queued)
+  Completed: soft_actor_critic (8 GPUs, run=2.4s, wait=57.7s)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: resnest -> SLURM job 441 (8 GPUs)
+  Completed: resnest (8 GPUs, run=13.1s, wait=26.9s)
+[4/21] Arrived: resnext50_32x4d (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: resnext50_32x4d -> SLURM job 442 (8 GPUs)
+[5/21] Arrived: mobilenet_v2_qat (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: mobilenet_v2_qat -> SLURM job 443 (8 GPUs)
+[6/21] Arrived: gnn_sage (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: gnn_sage -> SLURM job 444 (8 GPUs)
+[7/21] Arrived: hf_bert (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_bert -> SLURM job 445 (8 GPUs)
+[8/21] Arrived: speech_transformer (queued)
+  Completed: resnext50_32x4d (8 GPUs, run=48.2s, wait=41.9s)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: speech_transformer -> SLURM job 446 (8 GPUs)
+  Completed: mobilenet_v2_qat (8 GPUs, run=12.0s, wait=88.1s)
+[9/21] Arrived: modded_nanogpt (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: modded_nanogpt -> SLURM job 447 (8 GPUs)
+  Completed: gnn_sage (8 GPUs, run=70.7s, wait=89.5s)
+[10/21] Arrived: demucs (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: demucs -> SLURM job 448 (8 GPUs)
+[11/21] Arrived: maml_omniglot (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: maml_omniglot -> SLURM job 449 (8 GPUs)
+[12/21] Arrived: phlippe_resnet (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: phlippe_resnet -> SLURM job 450 (8 GPUs)
+[13/21] Arrived: hf_t5_base (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_t5_base -> SLURM job 451 (8 GPUs)
+[14/21] Arrived: hf_gpt2_large (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_gpt2_large -> SLURM job 452 (8 GPUs)
+[15/21] Arrived: maml (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: maml -> SLURM job 453 (8 GPUs)
+[16/21] Arrived: hf_t5_generate (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_t5_generate -> SLURM job 454 (8 GPUs)
+[17/21] Arrived: stargan (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: stargan -> SLURM job 455 (8 GPUs)
+[18/21] Arrived: llama_tp (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: llama_tp -> SLURM job 456 (8 GPUs)
+[19/21] Arrived: sam (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: sam -> SLURM job 457 (8 GPUs)
+  Completed: hf_bert (8 GPUs, run=300.3s, wait=170.3s)
+[20/21] Arrived: resnet50_qat (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: resnet50_qat -> SLURM job 458 (8 GPUs)
+[21/21] Arrived: pyhpc_isoneutral (queued)
+
+=== All 21 jobs arrived, draining queue ===
+
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: pyhpc_isoneutral -> SLURM job 459 (8 GPUs)
+  Completed: speech_transformer (8 GPUs, run=29.8s, wait=460.9s)
+  Completed: modded_nanogpt (8 GPUs, run=36.3s, wait=464.4s)
+  Completed: demucs (8 GPUs, run=1.0s, wait=459.6s)
+  Completed: maml_omniglot (8 GPUs, run=79.6s, wait=471.1s)
+  Completed: phlippe_resnet (8 GPUs, run=4.6s, wait=526.1s)
+  Completed: hf_t5_base (8 GPUs, run=184.8s, wait=536.2s)
+  Completed: hf_gpt2_large (8 GPUs, run=211.6s, wait=719.6s)
+  Completed: maml (8 GPUs, run=12.9s, wait=938.3s)
+  Completed: hf_t5_generate (8 GPUs, run=23.4s, wait=947.9s)
+  Completed: stargan (8 GPUs, run=29.1s, wait=992.2s)
+  Completed: llama_tp (8 GPUs, run=11.3s, wait=1010.0s)
+  Completed: sam (8 GPUs, run=6.5s, wait=974.8s)
+  Completed: resnet50_qat (8 GPUs, run=17.9s, wait=963.3s)
+  Completed: pyhpc_isoneutral (8 GPUs, run=2.2s, wait=979.0s)
+
+Results saved to evaluation/test_results/60s_20260507_050554/fcfs_split_baseline.txt
+
+############################################################
+  [60s] Running: size-aware baseline
+############################################################
+  dm_nfnet_f0                          71.5M  → 4 GPU(s)
+  soft_actor_critic                     0.4M  → 1 GPU(s)
+  resnest                              10.6M  → 2 GPU(s)
+  resnext50_32x4d                      25.0M  → 2 GPU(s)
+  mobilenet_v2_qat                      3.4M  → 2 GPU(s)
+  gnn_sage                              0.3M  → 1 GPU(s)
+  hf_bert                             336.0M  → 8 GPU(s)
+  speech_transformer                  120.0M  → 4 GPU(s)
+  modded_nanogpt                       85.0M  → 4 GPU(s)
+  demucs                               64.0M  → 4 GPU(s)
+  maml_omniglot                         0.1M  → 1 GPU(s)
+  phlippe_resnet                        0.3M  → 1 GPU(s)
+  hf_t5_base                          220.0M  → 4 GPU(s)
+  hf_gpt2_large                       774.0M  → 8 GPU(s)
+  maml                                  0.0M  → 1 GPU(s)
+  hf_t5_generate                       60.0M  → 4 GPU(s)
+  stargan                              53.0M  → 4 GPU(s)
+  llama_tp                           6700.0M  → 8 GPU(s)
+  sam                                 641.0M  → 8 GPU(s)
+  resnet50_qat                         25.6M  → 2 GPU(s)
+  pyhpc_isoneutral                      0.1M  → 1 GPU(s)
+
+=== Size-aware baseline: 21 jobs, delays 0-60.0s ===
+
+[1/21] Submitting dm_nfnet_f0... SLURM job 460 (4 GPUs)
+         waiting 14.0s before next submission...
+[2/21] Submitting soft_actor_critic... SLURM job 461 (1 GPUs)
+         waiting 50.2s before next submission...
+[3/21] Submitting resnest... SLURM job 462 (2 GPUs)
+         waiting 42.2s before next submission...
+[4/21] Submitting resnext50_32x4d... SLURM job 463 (2 GPUs)
+         waiting 9.4s before next submission...
+[5/21] Submitting mobilenet_v2_qat... SLURM job 464 (2 GPUs)
+         waiting 29.0s before next submission...
+[6/21] Submitting gnn_sage... SLURM job 465 (1 GPUs)
+         waiting 19.3s before next submission...
+[7/21] Submitting hf_bert... SLURM job 466 (8 GPUs)
+         waiting 26.5s before next submission...
+[8/21] Submitting speech_transformer... SLURM job 467 (4 GPUs)
+         waiting 59.1s before next submission...
+[9/21] Submitting modded_nanogpt... SLURM job 468 (4 GPUs)
+         waiting 55.3s before next submission...
+[10/21] Submitting demucs... SLURM job 469 (4 GPUs)
+         waiting 15.6s before next submission...
+[11/21] Submitting maml_omniglot... SLURM job 470 (1 GPUs)
+         waiting 54.6s before next submission...
+[12/21] Submitting phlippe_resnet... SLURM job 471 (1 GPUs)
+         waiting 23.3s before next submission...
+[13/21] Submitting hf_t5_base... SLURM job 472 (4 GPUs)
+         waiting 25.7s before next submission...
+[14/21] Submitting hf_gpt2_large... SLURM job 473 (8 GPUs)
+         waiting 6.2s before next submission...
+[15/21] Submitting maml... SLURM job 474 (1 GPUs)
+         waiting 19.7s before next submission...
+[16/21] Submitting hf_t5_generate... SLURM job 475 (4 GPUs)
+         waiting 11.8s before next submission...
+[17/21] Submitting stargan... SLURM job 476 (4 GPUs)
+         waiting 33.5s before next submission...
+[18/21] Submitting llama_tp... SLURM job 477 (8 GPUs)
+         waiting 56.1s before next submission...
+[19/21] Submitting sam... SLURM job 478 (8 GPUs)
+         waiting 33.7s before next submission...
+[20/21] Submitting resnet50_qat... SLURM job 479 (2 GPUs)
+         waiting 10.9s before next submission...
+[21/21] Submitting pyhpc_isoneutral... SLURM job 480 (1 GPUs)
+
+=== All jobs submitted, polling for completions ===
+
+  [10 pending, 10 running]
+  [10 pending, 10 running]
+  [10 pending, 10 running]
+  [10 pending, 10 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [9 pending, 9 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [8 pending, 8 running]
+  [7 pending, 7 running]
+  [7 pending, 7 running]
+  [7 pending, 7 running]
+  [7 pending, 7 running]
+  [7 pending, 7 running]
+  [7 pending, 7 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [6 pending, 6 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [5 pending, 5 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [4 pending, 4 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/60s_20260507_050554/size_aware_baseline.txt
+
+  Iteration delay=60s complete.
+
+============================================================
+  ITERATION: delay=240s  seed=10702
+  Output: evaluation/test_results/240s_20260507_070817
+============================================================
+Scheduler started (PID 827161)
+
+############################################################
+  [240s] Running: scheduler eval
+############################################################
+=== Eval workload: 21 jobs, delays 0-240.0s ===
+
+Submission order:
+   1. soft_actor_critic
+   2. hf_t5_generate
+   3. sam
+   4. phlippe_resnet
+   5. demucs
+   6. resnext50_32x4d
+   7. modded_nanogpt
+   8. gnn_sage
+   9. pyhpc_isoneutral
+  10. maml_omniglot
+  11. speech_transformer
+  12. dm_nfnet_f0
+  13. llama_tp
+  14. resnest
+  15. stargan
+  16. mobilenet_v2_qat
+  17. maml
+  18. resnet50_qat
+  19. hf_gpt2_large
+  20. hf_bert
+  21. hf_t5_base
+
+[1/21] Submitting soft_actor_critic... queued (k=0.595)
+         waiting 82.2s before next submission...
+[2/21] Submitting hf_t5_generate... queued (k=0.661)
+         waiting 152.5s before next submission...
+[3/21] Submitting sam... queued (k=0.678)
+         waiting 113.9s before next submission...
+[4/21] Submitting phlippe_resnet... queued (k=0.584)
+         waiting 93.9s before next submission...
+[5/21] Submitting demucs... queued (k=1.016)
+         waiting 221.4s before next submission...
+[6/21] Submitting resnext50_32x4d... queued (k=0.870)
+         waiting 228.6s before next submission...
+[7/21] Submitting modded_nanogpt... queued (k=0.701)
+         waiting 103.9s before next submission...
+[8/21] Submitting gnn_sage... queued (k=0.583)
+         waiting 233.4s before next submission...
+[9/21] Submitting pyhpc_isoneutral... queued (k=0.584)
+         waiting 34.0s before next submission...
+[10/21] Submitting maml_omniglot... queued (k=0.883)
+         waiting 48.1s before next submission...
+[11/21] Submitting speech_transformer... queued (k=0.689)
+         waiting 110.2s before next submission...
+[12/21] Submitting dm_nfnet_f0... queued (k=0.898)
+         waiting 222.6s before next submission...
+[13/21] Submitting llama_tp... queued (k=0.678)
+         waiting 186.3s before next submission...
+[14/21] Submitting resnest... queued (k=0.874)
+         waiting 207.0s before next submission...
+[15/21] Submitting stargan... queued (k=0.839)
+         waiting 76.5s before next submission...
+[16/21] Submitting mobilenet_v2_qat... queued (k=0.785)
+         waiting 157.7s before next submission...
+[17/21] Submitting maml... queued (k=0.887)
+         waiting 58.2s before next submission...
+[18/21] Submitting resnet50_qat... queued (k=0.892)
+         waiting 33.4s before next submission...
+[19/21] Submitting hf_gpt2_large... queued (k=0.678)
+         waiting 160.9s before next submission...
+[20/21] Submitting hf_bert... queued (k=0.678)
+         waiting 8.3s before next submission...
+[21/21] Submitting hf_t5_base... queued (k=0.694)
+
+=== All 21 jobs submitted, polling for completions ===
+
+  [3 pending, 1 running, 2 queued]
+  [3 pending, 1 running, 2 queued]
+  [3 pending, 1 running, 2 queued]
+  [3 pending, 1 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [2 pending, 2 running, 2 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [1 pending, 1 running, 0 queued]
+  [0 pending, 0 running, 0 queued]
+
+Results saved to evaluation/test_results/240s_20260507_070817/scheduler.txt
+Stopping scheduler server (PID 827161)...
+Scheduler server stopped.
+
+############################################################
+  [240s] Running: greedy baseline
+############################################################
+=== Greedy baseline: 21 jobs, 8 GPU(s)/job, delays 0-240.0s ===
+
+Submission order:
+   1. soft_actor_critic
+   2. hf_t5_generate
+   3. sam
+   4. phlippe_resnet
+   5. demucs
+   6. resnext50_32x4d
+   7. modded_nanogpt
+   8. gnn_sage
+   9. pyhpc_isoneutral
+  10. maml_omniglot
+  11. speech_transformer
+  12. dm_nfnet_f0
+  13. llama_tp
+  14. resnest
+  15. stargan
+  16. mobilenet_v2_qat
+  17. maml
+  18. resnet50_qat
+  19. hf_gpt2_large
+  20. hf_bert
+  21. hf_t5_base
+
+[1/21] Submitting soft_actor_critic... SLURM job 502 (8 GPUs)
+         waiting 82.2s before next submission...
+[2/21] Submitting hf_t5_generate... SLURM job 503 (8 GPUs)
+         waiting 152.5s before next submission...
+[3/21] Submitting sam... SLURM job 504 (8 GPUs)
+         waiting 113.9s before next submission...
+[4/21] Submitting phlippe_resnet... SLURM job 505 (8 GPUs)
+         waiting 93.9s before next submission...
+[5/21] Submitting demucs... SLURM job 506 (8 GPUs)
+         waiting 221.4s before next submission...
+[6/21] Submitting resnext50_32x4d... SLURM job 507 (8 GPUs)
+         waiting 228.6s before next submission...
+[7/21] Submitting modded_nanogpt... SLURM job 508 (8 GPUs)
+         waiting 103.9s before next submission...
+[8/21] Submitting gnn_sage... SLURM job 509 (8 GPUs)
+         waiting 233.4s before next submission...
+[9/21] Submitting pyhpc_isoneutral... SLURM job 510 (8 GPUs)
+         waiting 34.0s before next submission...
+[10/21] Submitting maml_omniglot... SLURM job 511 (8 GPUs)
+         waiting 48.1s before next submission...
+[11/21] Submitting speech_transformer... SLURM job 512 (8 GPUs)
+         waiting 110.2s before next submission...
+[12/21] Submitting dm_nfnet_f0... SLURM job 513 (8 GPUs)
+         waiting 222.6s before next submission...
+[13/21] Submitting llama_tp... SLURM job 514 (8 GPUs)
+         waiting 186.3s before next submission...
+[14/21] Submitting resnest... SLURM job 515 (8 GPUs)
+         waiting 207.0s before next submission...
+[15/21] Submitting stargan... SLURM job 516 (8 GPUs)
+         waiting 76.5s before next submission...
+[16/21] Submitting mobilenet_v2_qat... SLURM job 517 (8 GPUs)
+         waiting 157.7s before next submission...
+[17/21] Submitting maml... SLURM job 518 (8 GPUs)
+         waiting 58.2s before next submission...
+[18/21] Submitting resnet50_qat... SLURM job 519 (8 GPUs)
+         waiting 33.4s before next submission...
+[19/21] Submitting hf_gpt2_large... SLURM job 520 (8 GPUs)
+         waiting 160.9s before next submission...
+[20/21] Submitting hf_bert... SLURM job 521 (8 GPUs)
+         waiting 8.3s before next submission...
+[21/21] Submitting hf_t5_base... SLURM job 522 (8 GPUs)
+
+=== All jobs submitted, polling for completions ===
+
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/240s_20260507_070817/greedy_baseline_8gpu.txt
+
+############################################################
+  [240s] Running: polite baseline
+############################################################
+=== Polite baseline: 21 jobs, 1 GPU/job, delays 0-240.0s ===
+
+Submission order:
+   1. soft_actor_critic
+   2. hf_t5_generate
+   3. sam
+   4. phlippe_resnet
+   5. demucs
+   6. resnext50_32x4d
+   7. modded_nanogpt
+   8. gnn_sage
+   9. pyhpc_isoneutral
+  10. maml_omniglot
+  11. speech_transformer
+  12. dm_nfnet_f0
+  13. llama_tp
+  14. resnest
+  15. stargan
+  16. mobilenet_v2_qat
+  17. maml
+  18. resnet50_qat
+  19. hf_gpt2_large
+  20. hf_bert
+  21. hf_t5_base
+
+[1/21] Submitting soft_actor_critic... SLURM job 523 (1 GPU)
+         waiting 82.2s before next submission...
+[2/21] Submitting hf_t5_generate... SLURM job 524 (1 GPU)
+         waiting 152.5s before next submission...
+[3/21] Submitting sam... SLURM job 525 (1 GPU)
+         waiting 113.9s before next submission...
+[4/21] Submitting phlippe_resnet... SLURM job 526 (1 GPU)
+         waiting 93.9s before next submission...
+[5/21] Submitting demucs... SLURM job 527 (1 GPU)
+         waiting 221.4s before next submission...
+[6/21] Submitting resnext50_32x4d... SLURM job 528 (1 GPU)
+         waiting 228.6s before next submission...
+[7/21] Submitting modded_nanogpt... SLURM job 529 (1 GPU)
+         waiting 103.9s before next submission...
+[8/21] Submitting gnn_sage... SLURM job 530 (1 GPU)
+         waiting 233.4s before next submission...
+[9/21] Submitting pyhpc_isoneutral... SLURM job 531 (1 GPU)
+         waiting 34.0s before next submission...
+[10/21] Submitting maml_omniglot... SLURM job 532 (1 GPU)
+         waiting 48.1s before next submission...
+[11/21] Submitting speech_transformer... SLURM job 533 (1 GPU)
+         waiting 110.2s before next submission...
+[12/21] Submitting dm_nfnet_f0... SLURM job 534 (1 GPU)
+         waiting 222.6s before next submission...
+[13/21] Submitting llama_tp... SLURM job 535 (1 GPU)
+         waiting 186.3s before next submission...
+[14/21] Submitting resnest... SLURM job 536 (1 GPU)
+         waiting 207.0s before next submission...
+[15/21] Submitting stargan... SLURM job 537 (1 GPU)
+         waiting 76.5s before next submission...
+[16/21] Submitting mobilenet_v2_qat... SLURM job 538 (1 GPU)
+         waiting 157.7s before next submission...
+[17/21] Submitting maml... SLURM job 539 (1 GPU)
+         waiting 58.2s before next submission...
+[18/21] Submitting resnet50_qat... SLURM job 540 (1 GPU)
+         waiting 33.4s before next submission...
+[19/21] Submitting hf_gpt2_large... SLURM job 541 (1 GPU)
+         waiting 160.9s before next submission...
+[20/21] Submitting hf_bert... SLURM job 542 (1 GPU)
+         waiting 8.3s before next submission...
+[21/21] Submitting hf_t5_base... SLURM job 543 (1 GPU)
+
+=== All jobs submitted, polling for completions ===
+
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/240s_20260507_070817/polite_baseline_1gpu.txt
+
+############################################################
+  [240s] Running: FCFS split baseline
+############################################################
+=== FCFS-split baseline: 21 jobs, 8 total GPUs, delays 0-240.0s ===
+
+Submission order:
+   1. soft_actor_critic
+   2. hf_t5_generate
+   3. sam
+   4. phlippe_resnet
+   5. demucs
+   6. resnext50_32x4d
+   7. modded_nanogpt
+   8. gnn_sage
+   9. pyhpc_isoneutral
+  10. maml_omniglot
+  11. speech_transformer
+  12. dm_nfnet_f0
+  13. llama_tp
+  14. resnest
+  15. stargan
+  16. mobilenet_v2_qat
+  17. maml
+  18. resnet50_qat
+  19. hf_gpt2_large
+  20. hf_bert
+  21. hf_t5_base
+
+Starting job arrivals and queue management...
+
+[1/21] Arrived: soft_actor_critic (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: soft_actor_critic -> SLURM job 544 (8 GPUs)
+  Completed: soft_actor_critic (8 GPUs, run=2.2s, wait=37.9s)
+[2/21] Arrived: hf_t5_generate (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_t5_generate -> SLURM job 545 (8 GPUs)
+  Completed: hf_t5_generate (8 GPUs, run=23.4s, wait=16.7s)
+[3/21] Arrived: sam (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: sam -> SLURM job 546 (8 GPUs)
+  Completed: sam (8 GPUs, run=6.2s, wait=23.8s)
+[4/21] Arrived: phlippe_resnet (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: phlippe_resnet -> SLURM job 547 (8 GPUs)
+  Completed: phlippe_resnet (8 GPUs, run=4.5s, wait=25.6s)
+[5/21] Arrived: demucs (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: demucs -> SLURM job 548 (8 GPUs)
+  Completed: demucs (8 GPUs, run=1.0s, wait=19.0s)
+[6/21] Arrived: resnext50_32x4d (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: resnext50_32x4d -> SLURM job 549 (8 GPUs)
+  Completed: resnext50_32x4d (8 GPUs, run=48.4s, wait=11.7s)
+[7/21] Arrived: modded_nanogpt (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: modded_nanogpt -> SLURM job 550 (8 GPUs)
+  Completed: modded_nanogpt (8 GPUs, run=35.2s, wait=14.9s)
+[8/21] Arrived: gnn_sage (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: gnn_sage -> SLURM job 551 (8 GPUs)
+  Completed: gnn_sage (8 GPUs, run=70.6s, wait=9.5s)
+[9/21] Arrived: pyhpc_isoneutral (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: pyhpc_isoneutral -> SLURM job 552 (8 GPUs)
+  Completed: pyhpc_isoneutral (8 GPUs, run=2.2s, wait=17.8s)
+[10/21] Arrived: maml_omniglot (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: maml_omniglot -> SLURM job 553 (8 GPUs)
+[11/21] Arrived: speech_transformer (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: speech_transformer -> SLURM job 554 (8 GPUs)
+  Completed: maml_omniglot (8 GPUs, run=81.8s, wait=38.3s)
+[12/21] Arrived: dm_nfnet_f0 (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: dm_nfnet_f0 -> SLURM job 555 (8 GPUs)
+  Completed: speech_transformer (8 GPUs, run=29.8s, wait=120.4s)
+  Completed: dm_nfnet_f0 (8 GPUs, run=35.2s, wait=54.9s)
+[13/21] Arrived: llama_tp (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: llama_tp -> SLURM job 556 (8 GPUs)
+  Completed: llama_tp (8 GPUs, run=11.4s, wait=18.6s)
+[14/21] Arrived: resnest (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: resnest -> SLURM job 557 (8 GPUs)
+  Completed: resnest (8 GPUs, run=12.9s, wait=17.2s)
+[15/21] Arrived: stargan (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: stargan -> SLURM job 558 (8 GPUs)
+  Completed: stargan (8 GPUs, run=29.0s, wait=21.0s)
+[16/21] Arrived: mobilenet_v2_qat (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: mobilenet_v2_qat -> SLURM job 559 (8 GPUs)
+  Completed: mobilenet_v2_qat (8 GPUs, run=12.4s, wait=27.7s)
+[17/21] Arrived: maml (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: maml -> SLURM job 560 (8 GPUs)
+  Completed: maml (8 GPUs, run=12.9s, wait=37.2s)
+[18/21] Arrived: resnet50_qat (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: resnet50_qat -> SLURM job 561 (8 GPUs)
+[19/21] Arrived: hf_gpt2_large (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_gpt2_large -> SLURM job 562 (8 GPUs)
+  Completed: resnet50_qat (8 GPUs, run=18.3s, wait=41.8s)
+[20/21] Arrived: hf_bert (queued)
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_bert -> SLURM job 563 (8 GPUs)
+[21/21] Arrived: hf_t5_base (queued)
+
+=== All 21 jobs arrived, draining queue ===
+
+  Allocating: 8 GPUs / 1 jobs (base=8, 0 get +1)
+  Submitted: hf_t5_base -> SLURM job 564 (8 GPUs)
+  Completed: hf_gpt2_large (8 GPUs, run=213.0s, wait=37.3s)
+  Completed: hf_bert (8 GPUs, run=300.8s, wait=109.7s)
+  Completed: hf_t5_base (8 GPUs, run=187.8s, wait=432.9s)
+
+Results saved to evaluation/test_results/240s_20260507_070817/fcfs_split_baseline.txt
+
+############################################################
+  [240s] Running: size-aware baseline
+############################################################
+  soft_actor_critic                     0.4M  → 1 GPU(s)
+  hf_t5_generate                       60.0M  → 4 GPU(s)
+  sam                                 641.0M  → 8 GPU(s)
+  phlippe_resnet                        0.3M  → 1 GPU(s)
+  demucs                               64.0M  → 4 GPU(s)
+  resnext50_32x4d                      25.0M  → 2 GPU(s)
+  modded_nanogpt                       85.0M  → 4 GPU(s)
+  gnn_sage                              0.3M  → 1 GPU(s)
+  pyhpc_isoneutral                      0.1M  → 1 GPU(s)
+  maml_omniglot                         0.1M  → 1 GPU(s)
+  speech_transformer                  120.0M  → 4 GPU(s)
+  dm_nfnet_f0                          71.5M  → 4 GPU(s)
+  llama_tp                           6700.0M  → 8 GPU(s)
+  resnest                              10.6M  → 2 GPU(s)
+  stargan                              53.0M  → 4 GPU(s)
+  mobilenet_v2_qat                      3.4M  → 2 GPU(s)
+  maml                                  0.0M  → 1 GPU(s)
+  resnet50_qat                         25.6M  → 2 GPU(s)
+  hf_gpt2_large                       774.0M  → 8 GPU(s)
+  hf_bert                             336.0M  → 8 GPU(s)
+  hf_t5_base                          220.0M  → 4 GPU(s)
+
+=== Size-aware baseline: 21 jobs, delays 0-240.0s ===
+
+[1/21] Submitting soft_actor_critic... SLURM job 565 (1 GPUs)
+         waiting 82.2s before next submission...
+[2/21] Submitting hf_t5_generate... SLURM job 566 (4 GPUs)
+         waiting 152.5s before next submission...
+[3/21] Submitting sam... SLURM job 567 (8 GPUs)
+         waiting 113.9s before next submission...
+[4/21] Submitting phlippe_resnet... SLURM job 568 (1 GPUs)
+         waiting 93.9s before next submission...
+[5/21] Submitting demucs... SLURM job 569 (4 GPUs)
+         waiting 221.4s before next submission...
+[6/21] Submitting resnext50_32x4d... SLURM job 570 (2 GPUs)
+         waiting 228.6s before next submission...
+[7/21] Submitting modded_nanogpt... SLURM job 571 (4 GPUs)
+         waiting 103.9s before next submission...
+[8/21] Submitting gnn_sage... SLURM job 572 (1 GPUs)
+         waiting 233.4s before next submission...
+[9/21] Submitting pyhpc_isoneutral... SLURM job 573 (1 GPUs)
+         waiting 34.0s before next submission...
+[10/21] Submitting maml_omniglot... SLURM job 574 (1 GPUs)
+         waiting 48.1s before next submission...
+[11/21] Submitting speech_transformer... SLURM job 575 (4 GPUs)
+         waiting 110.2s before next submission...
+[12/21] Submitting dm_nfnet_f0... SLURM job 576 (4 GPUs)
+         waiting 222.6s before next submission...
+[13/21] Submitting llama_tp... SLURM job 577 (8 GPUs)
+         waiting 186.3s before next submission...
+[14/21] Submitting resnest... SLURM job 578 (2 GPUs)
+         waiting 207.0s before next submission...
+[15/21] Submitting stargan... SLURM job 579 (4 GPUs)
+         waiting 76.5s before next submission...
+[16/21] Submitting mobilenet_v2_qat... SLURM job 580 (2 GPUs)
+         waiting 157.7s before next submission...
+[17/21] Submitting maml... SLURM job 581 (1 GPUs)
+         waiting 58.2s before next submission...
+[18/21] Submitting resnet50_qat... SLURM job 582 (2 GPUs)
+         waiting 33.4s before next submission...
+[19/21] Submitting hf_gpt2_large... SLURM job 583 (8 GPUs)
+         waiting 160.9s before next submission...
+[20/21] Submitting hf_bert... SLURM job 584 (8 GPUs)
+         waiting 8.3s before next submission...
+[21/21] Submitting hf_t5_base... SLURM job 585 (4 GPUs)
+
+=== All jobs submitted, polling for completions ===
+
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [3 pending, 3 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [1 pending, 1 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/240s_20260507_070817/size_aware_baseline.txt
+
+  Iteration delay=240s complete.
+
+============================================================
+  ITERATION: delay=600s  seed=18838
+  Output: evaluation/test_results/600s_20260507_113930
+============================================================
+Scheduler started (PID 1073442)
+
+############################################################
+  [600s] Running: scheduler eval
+############################################################
+=== Eval workload: 21 jobs, delays 0-600.0s ===
+
+Submission order:
+   1. hf_t5_generate
+   2. speech_transformer
+   3. hf_t5_base
+   4. pyhpc_isoneutral
+   5. dm_nfnet_f0
+   6. mobilenet_v2_qat
+   7. soft_actor_critic
+   8. sam
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. resnest
+  13. gnn_sage
+  14. phlippe_resnet
+  15. hf_bert
+  16. resnet50_qat
+  17. stargan
+  18. maml
+  19. hf_gpt2_large
+  20. resnext50_32x4d
+  21. llama_tp
+
+[1/21] Submitting hf_t5_generate... queued (k=0.661)
+         waiting 275.7s before next submission...
+[2/21] Submitting speech_transformer... queued (k=0.689)
+         waiting 217.9s before next submission...
+[3/21] Submitting hf_t5_base... queued (k=0.694)
+         waiting 276.4s before next submission...
+[4/21] Submitting pyhpc_isoneutral... queued (k=0.584)
+         waiting 43.3s before next submission...
+[5/21] Submitting dm_nfnet_f0... queued (k=0.898)
+         waiting 39.8s before next submission...
+[6/21] Submitting mobilenet_v2_qat... queued (k=0.785)
+         waiting 352.6s before next submission...
+[7/21] Submitting soft_actor_critic... queued (k=0.595)
+         waiting 381.5s before next submission...
+[8/21] Submitting sam... queued (k=0.678)
+         waiting 223.1s before next submission...
+[9/21] Submitting modded_nanogpt... queued (k=0.701)
+         waiting 561.4s before next submission...
+[10/21] Submitting demucs... queued (k=1.016)
+         waiting 111.2s before next submission...
+[11/21] Submitting maml_omniglot... queued (k=0.883)
+         waiting 244.8s before next submission...
+[12/21] Submitting resnest... queued (k=0.874)
+         waiting 177.8s before next submission...
+[13/21] Submitting gnn_sage... queued (k=0.583)
+         waiting 470.7s before next submission...
+[14/21] Submitting phlippe_resnet... queued (k=0.584)
+         waiting 281.7s before next submission...
+[15/21] Submitting hf_bert... queued (k=0.678)
+         waiting 229.0s before next submission...
+[16/21] Submitting resnet50_qat... queued (k=0.892)
+         waiting 340.4s before next submission...
+[17/21] Submitting stargan... queued (k=0.839)
+         waiting 484.5s before next submission...
+[18/21] Submitting maml... queued (k=0.887)
+         waiting 433.0s before next submission...
+[19/21] Submitting hf_gpt2_large... queued (k=0.678)
+         waiting 280.4s before next submission...
+[20/21] Submitting resnext50_32x4d... queued (k=0.870)
+         waiting 290.0s before next submission...
+[21/21] Submitting llama_tp... queued (k=0.678)
+
+=== All 21 jobs submitted, polling for completions ===
+
+  [1 pending, 0 running, 1 queued]
+  [1 pending, 1 running, 0 queued]
+  [0 pending, 0 running, 0 queued]
+
+Results saved to evaluation/test_results/600s_20260507_113930/scheduler.txt
+Stopping scheduler server (PID 1073442)...
+Scheduler server stopped.
+
+############################################################
+  [600s] Running: greedy baseline
+############################################################
+=== Greedy baseline: 21 jobs, 8 GPU(s)/job, delays 0-600.0s ===
+
+Submission order:
+   1. hf_t5_generate
+   2. speech_transformer
+   3. hf_t5_base
+   4. pyhpc_isoneutral
+   5. dm_nfnet_f0
+   6. mobilenet_v2_qat
+   7. soft_actor_critic
+   8. sam
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. resnest
+  13. gnn_sage
+  14. phlippe_resnet
+  15. hf_bert
+  16. resnet50_qat
+  17. stargan
+  18. maml
+  19. hf_gpt2_large
+  20. resnext50_32x4d
+  21. llama_tp
+
+[1/21] Submitting hf_t5_generate... SLURM job 607 (8 GPUs)
+         waiting 275.7s before next submission...
+[2/21] Submitting speech_transformer... SLURM job 608 (8 GPUs)
+         waiting 217.9s before next submission...
+[3/21] Submitting hf_t5_base... SLURM job 609 (8 GPUs)
+         waiting 276.4s before next submission...
+[4/21] Submitting pyhpc_isoneutral... SLURM job 610 (8 GPUs)
+         waiting 43.3s before next submission...
+[5/21] Submitting dm_nfnet_f0... SLURM job 611 (8 GPUs)
+         waiting 39.8s before next submission...
+[6/21] Submitting mobilenet_v2_qat... SLURM job 612 (8 GPUs)
+         waiting 352.6s before next submission...
+[7/21] Submitting soft_actor_critic... SLURM job 613 (8 GPUs)
+         waiting 381.5s before next submission...
+[8/21] Submitting sam... SLURM job 623 (8 GPUs)
+         waiting 223.1s before next submission...
+[9/21] Submitting modded_nanogpt... SLURM job 627 (8 GPUs)
+         waiting 561.4s before next submission...
+[10/21] Submitting demucs... SLURM job 637 (8 GPUs)
+         waiting 111.2s before next submission...
+[11/21] Submitting maml_omniglot... SLURM job 638 (8 GPUs)
+         waiting 244.8s before next submission...
+[12/21] Submitting resnest... SLURM job 639 (8 GPUs)
+         waiting 177.8s before next submission...
+[13/21] Submitting gnn_sage... SLURM job 643 (8 GPUs)
+         waiting 470.7s before next submission...
+[14/21] Submitting phlippe_resnet... SLURM job 647 (8 GPUs)
+         waiting 281.7s before next submission...
+[15/21] Submitting hf_bert... SLURM job 648 (8 GPUs)
+         waiting 229.0s before next submission...
+[16/21] Submitting resnet50_qat... SLURM job 649 (8 GPUs)
+         waiting 340.4s before next submission...
+[17/21] Submitting stargan... SLURM job 650 (8 GPUs)
+         waiting 484.5s before next submission...
+[18/21] Submitting maml... SLURM job 654 (8 GPUs)
+         waiting 433.0s before next submission...
+[19/21] Submitting hf_gpt2_large... SLURM job 655 (8 GPUs)
+         waiting 280.4s before next submission...
+[20/21] Submitting resnext50_32x4d... SLURM job 659 (8 GPUs)
+         waiting 290.0s before next submission...
+[21/21] Submitting llama_tp... SLURM job 660 (8 GPUs)
+
+=== All jobs submitted, polling for completions ===
+
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [2 pending, 2 running]
+  [1 pending, 1 running]
+  [0 pending, 0 running]
+
+Results saved to evaluation/test_results/600s_20260507_113930/greedy_baseline_8gpu.txt
+
+############################################################
+  [600s] Running: polite baseline
+############################################################
+=== Polite baseline: 21 jobs, 1 GPU/job, delays 0-600.0s ===
+
+Submission order:
+   1. hf_t5_generate
+   2. speech_transformer
+   3. hf_t5_base
+   4. pyhpc_isoneutral
+   5. dm_nfnet_f0
+   6. mobilenet_v2_qat
+   7. soft_actor_critic
+   8. sam
+   9. modded_nanogpt
+  10. demucs
+  11. maml_omniglot
+  12. resnest
+  13. gnn_sage
+  14. phlippe_resnet
+  15. hf_bert
+  16. resnet50_qat
+  17. stargan
+  18. maml
+  19. hf_gpt2_large
+  20. resnext50_32x4d
+  21. llama_tp
+
+[1/21] Submitting hf_t5_generate... SLURM job 664 (1 GPU)
+         waiting 275.7s before next submission...
+[2/21] Submitting speech_transformer... SLURM job 668 (1 GPU)
+         waiting 217.9s before next submission...

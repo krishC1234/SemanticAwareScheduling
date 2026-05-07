@@ -47,10 +47,13 @@ echo "  Port: $PORT"
 echo "============================================================"
 
 for N_JOBS in "${JOB_COUNTS[@]}"; do
+  TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+  JOBS_DIR="evaluation/test_results/${N_JOBS}jobs_${TIMESTAMP}"
+  mkdir -p "$JOBS_DIR"
+
   for DELAY in "${DELAYS[@]}"; do
     SEED=$RANDOM
-    TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-    RUN_DIR="evaluation/test_results/${N_JOBS}jobs_${DELAY}s_${TIMESTAMP}"
+    RUN_DIR="${JOBS_DIR}/${DELAY}s"
     mkdir -p "$RUN_DIR"
 
     echo ""

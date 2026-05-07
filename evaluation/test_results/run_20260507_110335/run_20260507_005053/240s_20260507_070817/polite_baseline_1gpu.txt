@@ -1,0 +1,50 @@
+
+==================================================
+  POLITE_BASELINE_1GPU SUMMARY
+==================================================
+  Jobs completed:    21
+  Wall-clock time:   3193.0s (53.2m)
+  Makespan:          3193.0s (53.2m)
+  Total run time:    3887.2s
+  Total wait time:   22294.8s
+  Avg run time:      185.1s
+  Avg wait time:     1061.7s
+  Avg Job Completion Time:           1246.8s
+  Max wait time:     2524.1s
+  Jain's fairness:   0.6238
+  Avg slowdown:      36.18x
+  Max slowdown:      286.20x
+
+  GPU Utilization:
+    Avg GPU util:    9.7%
+    Avg mem util:    5.6%
+    Peak mem used:   2938 MB
+    Avg mem used:    692 MB
+    Avg power draw:  38.9 W
+    Samples:         1514
+
+  GPU-hours wasted:  0.98h (1.08h allocated, 0.10h useful)
+
+  Per-job breakdown:
+    soft_actor_critic               1 GPUs  run=    8.8s  wait=2524.1s
+    hf_t5_generate                  1 GPUs  run=   97.8s  wait=2353.0s
+    sam                             1 GPUs  run=   21.9s  wait=2276.4s
+    phlippe_resnet                  1 GPUs  run=   31.8s  wait=2152.6s
+    demucs                          1 GPUs  run=   42.9s  wait=2047.6s
+    resnext50_32x4d                 1 GPUs  run=  303.1s  wait=1565.9s
+    modded_nanogpt                  1 GPUs  run=  105.4s  wait=1535.0s
+    gnn_sage                        1 GPUs  run=  354.3s  wait=1182.3s
+    pyhpc_isoneutral                1 GPUs  run=   14.5s  wait=1288.7s
+    maml_omniglot                   1 GPUs  run=  648.9s  wait= 620.3s
+    speech_transformer              1 GPUs  run=   41.8s  wait=1179.2s
+    dm_nfnet_f0                     1 GPUs  run=  148.8s  wait= 962.1s
+    llama_tp                        1 GPUs  run=   22.2s  wait= 866.1s
+    resnest                         1 GPUs  run=   59.6s  wait= 642.4s
+    stargan                         1 GPUs  run=  152.8s  wait= 342.1s
+    mobilenet_v2_qat                1 GPUs  run=   49.9s  wait= 368.6s
+    maml                            1 GPUs  run=   91.3s  wait= 169.5s
+    resnet50_qat                    1 GPUs  run=  105.6s  wait=  97.0s
+    hf_gpt2_large                   1 GPUs  run=  409.5s  wait=  59.7s
+    hf_bert                         1 GPUs  run=  551.5s  wait=  26.9s
+    hf_t5_base                      1 GPUs  run=  624.8s  wait=  35.4s
+==================================================

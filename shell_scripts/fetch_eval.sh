@@ -9,6 +9,9 @@ SSH_USER=root
 SSH_HOST=209.146.116.50
 REMOTE_DIR=/workspace/SemanticAwareScheduling
 
+rm -rf logs/*
+rm -rf evaluation/test_results/*
+
 
 RUN_DIR="./evaluation/test_results/run_$(date +%Y%m%d_%H%M%S)"
 

@@ -196,6 +196,7 @@ def main():
                 gpus = base_gpus + (1 if j in lucky else 0)
                 slurm_id, submit_time = sbatch_submit(script, gpus)
                 if slurm_id:
+                    collector.record_allocation()
                     log_file = LOGS_DIR / f"{script.stem}_{gpus}gpu.log"
                     tracked[slurm_id] = {
                         "name": script.stem,

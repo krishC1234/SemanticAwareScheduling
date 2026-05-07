@@ -124,6 +124,7 @@ def main():
         print(f"[{i+1}/{total_jobs}] Submitting {script.stem}...", end=" ")
         slurm_id, submit_time = sbatch_submit(script)
         if slurm_id:
+            collector.record_allocation()
             log_file = LOGS_DIR / f"{script.stem}_{GPUS_PER_JOB}gpu.log"
             tracked[slurm_id] = {
                 "name": script.stem,

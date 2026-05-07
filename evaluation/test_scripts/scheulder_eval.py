@@ -116,6 +116,8 @@ def main():
                 )
         running = status.get("running", [])
         queued = status.get("queued", 0)
+        if running:
+            collector.record_allocation()
         print(f"  [{collector.pending} pending, {len(running)} running, {queued} queued]")
 
         if collector.pending > 0:

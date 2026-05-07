@@ -39,6 +39,7 @@ class MetricsCollector:
         self.pending = 0
         self._seen_jobs = set()
         self._first_submit_time = None
+        self._first_allocation_time = None
         self._last_completion_time = None
         self._start_time = None
         self._stop_event = threading.Event()
@@ -66,6 +67,11 @@ class MetricsCollector:
         t = submit_time or time.time()
         if self._first_submit_time is None or t < self._first_submit_time:
             self._first_submit_time = t
+
+    def record_allocation(self):
+        """Record that a job was allocated/started. Call on first job start."""
+        if self._first_allocation_time is None:
+            self._first_allocation_time = time.time()
 
     def record_job(self, name, gpus, run_time, wait_time, k=None):
         """Record a completed job's stats."""
@@ -112,6 +118,7 @@ class MetricsCollector:
                             count += 1
                     if count > 0:
                         self.gpu_samples.append({
+                            "timestamp": time.time(),
                             "gpu_util_pct": gpu_util_sum / count,
                             "mem_util_pct": mem_util_sum / count,
                             "mem_used_mb": mem_used_sum / count,
@@ -124,8 +131,10 @@ class MetricsCollector:
 
     def _summarize(self, wall_time):
         """Build the full summary dict."""
-        # Makespan: first submission to last completion
-        if self._first_submit_time and self._last_completion_time:
+        # Makespan: first allocation to last completion
+        if self._first_allocation_time and self._last_completion_time:
+            makespan = round(self._last_completion_time - self._first_allocation_time, 1)
+        elif self._first_submit_time and self._last_completion_time:
             makespan = round(self._last_completion_time - self._first_submit_time, 1)
         else:
             makespan = None
@@ -146,15 +155,18 @@ class MetricsCollector:
             summary["avg_wait_time"] = round(total_wait / len(self.jobs), 1)
             summary["avg_run_time"] = round(total_run / len(self.jobs), 1)
 
-        # GPU aggregates
-        if self.gpu_samples:
-            n = len(self.gpu_samples)
+        # GPU aggregates (only samples after first allocation)
+        samples = self.gpu_samples
+        if self._first_allocation_time:
+            samples = [s for s in samples if s["timestamp"] >= self._first_allocation_time]
+        if samples:
+            n = len(samples)
             summary["gpu"] = {
-                "avg_gpu_util_pct": round(sum(s["gpu_util_pct"] for s in self.gpu_samples) / n, 1),
-                "avg_mem_util_pct": round(sum(s["mem_util_pct"] for s in self.gpu_samples) / n, 1),
-                "peak_mem_used_mb": round(max(s["mem_used_mb"] for s in self.gpu_samples)),
-                "avg_mem_used_mb": round(sum(s["mem_used_mb"] for s in self.gpu_samples) / n),
-                "avg_power_w": round(sum(s["power_w"] for s in self.gpu_samples) / n, 1),
+                "avg_gpu_util_pct": round(sum(s["gpu_util_pct"] for s in samples) / n, 1),
+                "avg_mem_util_pct": round(sum(s["mem_util_pct"] for s in samples) / n, 1),
+                "peak_mem_used_mb": round(max(s["mem_used_mb"] for s in samples)),
+                "avg_mem_used_mb": round(sum(s["mem_used_mb"] for s in samples) / n),
+                "avg_power_w": round(sum(s["power_w"] for s in samples) / n, 1),
                 "num_samples": n,
             }
 

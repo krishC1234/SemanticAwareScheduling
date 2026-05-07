@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BENCHMARK_CSV = ROOT / "train_data" / "benchmark.csv"
 
 POLL_INTERVAL = 5
-BATCH_WINDOW = 20  # seconds to wait for jobs to accumulate before allocating
+BATCH_WINDOW = 30  # seconds to wait for jobs to accumulate before allocating
 HOST = "localhost"
 PORT = 9321
 
@@ -172,7 +172,7 @@ class Scheduler:
                             logger.info(f"===========================")
                             del self._batches[job.batch_id]
 
-            # Allocate idle GPUs to waiting jobs
+            # Allocate GPUs to waiting jobs (with batching window)
             with self.lock:
                 queue_len = len(self.queue)
                 if queue_len > 0:
@@ -182,16 +182,27 @@ class Scheduler:
                     logger.debug(f"allocation check: {queue_len} queued, "
                                  f"{available} GPUs free ({used_by_running} used by {len(self.running)} running)")
                     if available > 0:
-                        logger.info(f"{available} GPU(s) available, allocating...")
-                        allocation = self.queue.allocate(available)
-                        if allocation:
-                            for job, gpus in allocation:
-                                logger.info(f"allocated {gpus} GPU(s) to {job.model_name} (k={job.k:.3f})")
-                            submitted = submit_allocation(allocation)
-                            self.running.update(submitted)
-                            logger.info(f"state: {len(self.running)} running, "
-                                       f"{len(self.queue)} queued, "
-                                       f"{len(self.completed)} completed")
+                        if self._gpus_freed_at is None:
+                            self._gpus_freed_at = time.time()
+                        waited = time.time() - self._gpus_freed_at
+                        if waited >= BATCH_WINDOW:
+                            logger.info(f"{available} GPU(s) available (batched {waited:.1f}s), "
+                                       f"allocating {queue_len} queued jobs...")
+                            allocation = self.queue.allocate(available)
+                            if allocation:
+                                for job, gpus in allocation:
+                                    logger.info(f"allocated {gpus} GPU(s) to {job.model_name} (k={job.k:.3f})")
+                                submitted = submit_allocation(allocation)
+                                self.running.update(submitted)
+                                logger.info(f"state: {len(self.running)} running, "
+                                           f"{len(self.queue)} queued, "
+                                           f"{len(self.completed)} completed")
+                            self._gpus_freed_at = None
+                        else:
+                            logger.debug(f"batching: {waited:.1f}s / {BATCH_WINDOW}s, "
+                                        f"waiting for more jobs...")
+                    else:
+                        self._gpus_freed_at = None
 
             self._stop.wait(self.poll_interval)
 
