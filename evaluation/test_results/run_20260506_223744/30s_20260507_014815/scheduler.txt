@@ -1,0 +1,53 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    22
+  Wall-clock time:   559.3s (9.3m)
+  Makespan:          559.3s (9.3m)
+  Total run time:    1077.7s
+  Total wait time:   1104.8s
+  Avg run time:      49.0s
+  Avg wait time:     50.2s
+  Avg Job Completion Time:           99.2s
+  Max wait time:     114.2s
+  Jain's fairness:   0.7414
+  Avg slowdown:      8.19x
+  Max slowdown:      40.79x
+
+  GPU Utilization:
+    Avg GPU util:    28.1%
+    Avg mem util:    7.4%
+    Peak mem used:   6615 MB
+    Avg mem used:    2055 MB
+    Avg power draw:  77.2 W
+    Samples:         263
+
+  GPU-hours wasted:  0.38h (0.53h allocated, 0.15h useful)
+
+  Avg GPU efficiency: 90.85%
+
+  Per-job breakdown:
+    mobilenet_v2_qat                8 GPUs  run=    1.4s  wait=  14.8s    eff=64%
+    hf_t5_base                      8 GPUs  run=   48.9s  wait=  38.4s    eff=53%
+    stable_diffusion                1 GPUs  run=   37.1s  wait=   5.1s    eff=100%
+    llama_tp                        1 GPUs  run=    5.9s  wait=  91.1s    eff=100%
+    sam                             1 GPUs  run=    6.0s  wait=  75.7s    eff=100%
+    phlippe_resnet                  1 GPUs  run=   10.7s  wait=  98.9s    eff=100%
+    speech_transformer              1 GPUs  run=   10.0s  wait=  74.8s    eff=100%
+    dm_nfnet_f0                     2 GPUs  run=   27.8s  wait= 114.2s    eff=93%
+    soft_actor_critic               1 GPUs  run=    1.4s  wait=  55.7s    eff=100%
+    resnext50_32x4d                 2 GPUs  run=   40.0s  wait=  16.5s    eff=91%
+    resnest                         2 GPUs  run=   12.4s  wait=  40.7s    eff=92%
+    demucs                          4 GPUs  run=    1.0s  wait=  30.4s    eff=102%
+    pyhpc_isoneutral                2 GPUs  run=    2.1s  wait=  28.0s    eff=75%
+    maml_omniglot                   1 GPUs  run=  143.3s  wait= 103.5s    eff=100%
+    stargan                         2 GPUs  run=   23.4s  wait=  42.8s    eff=89%
+    maml                            1 GPUs  run=   25.8s  wait=  38.0s    eff=100%
+    hf_gpt2_large                   2 GPUs  run=  141.1s  wait=  46.3s    eff=80%
+    modded_nanogpt                  1 GPUs  run=   32.0s  wait=  29.1s    eff=100%
+    resnet50_qat                    3 GPUs  run=   14.4s  wait=  41.4s    eff=89%
+    hf_t5_generate                  1 GPUs  run=   27.9s  wait=  57.3s    eff=100%
+    hf_bert                         3 GPUs  run=  102.6s  wait=  34.3s    eff=70%
+    gnn_sage                        1 GPUs  run=  362.5s  wait=  27.8s    eff=100%
+==================================================

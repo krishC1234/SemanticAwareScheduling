@@ -1,0 +1,50 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    21
+  Wall-clock time:   810.7s (13.5m)
+  Makespan:          810.7s (13.5m)
+  Total run time:    922.2s
+  Total wait time:   5924.0s
+  Avg run time:      43.9s
+  Avg wait time:     282.1s
+  Avg Job Completion Time:           326.0s
+  Max wait time:     808.1s
+  Jain's fairness:   0.6443
+  Avg slowdown:      52.02x
+  Max slowdown:      400.36x
+
+  GPU Utilization:
+    Avg GPU util:    27.5%
+    Avg mem util:    4.9%
+    Peak mem used:   8619 MB
+    Avg mem used:    2098 MB
+    Avg power draw:  71.4 W
+    Samples:         381
+
+  GPU-hours wasted:  0.48h (0.67h allocated, 0.18h useful)
+
+  Per-job breakdown:
+    mobilenet_v2_qat                2 GPUs  run=   12.1s  wait=  28.1s
+    soft_actor_critic               1 GPUs  run=    1.8s  wait=  58.3s
+    resnext50_32x4d                 2 GPUs  run=   40.4s  wait=  29.8s
+    maml                            1 GPUs  run=   22.1s  wait=  58.1s
+    hf_t5_generate                  4 GPUs  run=   10.9s  wait=  89.3s
+    hf_t5_base                      4 GPUs  run=   85.5s  wait=  34.7s
+    modded_nanogpt                  4 GPUs  run=   17.5s  wait= 122.7s
+    llama_tp                        8 GPUs  run=    3.7s  wait= 146.5s
+    hf_bert                         8 GPUs  run=   75.2s  wait= 215.1s
+    stargan                         4 GPUs  run=    9.4s  wait= 330.9s
+    resnet50_qat                    2 GPUs  run=   17.5s  wait= 322.8s
+    demucs                          4 GPUs  run=    0.9s  wait= 359.4s
+    resnest                         2 GPUs  run=   12.0s  wait= 358.3s
+    pyhpc_isoneutral                1 GPUs  run=    6.0s  wait= 384.3s
+    phlippe_resnet                  1 GPUs  run=   12.4s  wait= 387.9s
+    speech_transformer              4 GPUs  run=   13.6s  wait= 396.8s
+    dm_nfnet_f0                     4 GPUs  run=   16.1s  wait= 414.3s
+    maml_omniglot                   1 GPUs  run=  153.7s  wait= 326.6s
+    gnn_sage                        1 GPUs  run=  356.3s  wait= 324.2s
+    hf_gpt2_large                   8 GPUs  run=   52.8s  wait= 727.8s
+    sam                             8 GPUs  run=    2.5s  wait= 808.1s
+==================================================

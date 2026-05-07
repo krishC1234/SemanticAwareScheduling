@@ -6,4 +6,3 @@ __pycache__/
 temp.py
 quickstart.sh
 logs/
-/evaluation/test_results/
