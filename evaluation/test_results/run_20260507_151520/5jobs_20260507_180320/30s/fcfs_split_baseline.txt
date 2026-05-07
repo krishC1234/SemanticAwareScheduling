@@ -1,0 +1,34 @@
+
+==================================================
+  FCFS_SPLIT_BASELINE SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   190.3s (3.2m)
+  Makespan:          190.2s (3.2m)
+  Total run time:    38.3s
+  Total wait time:   392.3s
+  Avg run time:      7.7s
+  Avg wait time:     78.5s
+  Avg Job Completion Time:           86.2s
+  Max wait time:     116.8s
+  Jain's fairness:   0.8954
+  Avg slowdown:      31.50x
+  Max slowdown:      56.82x
+
+  GPU Utilization:
+    Avg GPU util:    4.8%
+    Avg mem util:    1.2%
+    Peak mem used:   3865 MB
+    Avg mem used:    384 MB
+    Avg power draw:  44.1 W
+    Samples:         90
+
+  GPU-hours wasted:  0.08h (0.09h allocated, 0.00h useful)
+
+  Per-job breakdown:
+    maml_omniglot                   8 GPUs  run=   24.5s  wait=  35.6s
+    mobilenet_v2_qat                8 GPUs  run=    1.4s  wait=  68.7s
+    stargan                         8 GPUs  run=    1.4s  wait=  78.7s
+    resnet50_qat                    8 GPUs  run=    7.6s  wait=  92.5s
+    maml                            8 GPUs  run=    3.4s  wait= 116.8s
+==================================================

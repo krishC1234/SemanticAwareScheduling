@@ -1,0 +1,36 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   220.2s (3.7m)
+  Makespan:          180.0s (3.0m)
+  Total run time:    234.5s
+  Total wait time:   175.0s
+  Avg run time:      46.9s
+  Avg wait time:     35.0s
+  Avg Job Completion Time:           81.9s
+  Max wait time:     39.5s
+  Jain's fairness:   0.9948
+  Avg slowdown:      3.53x
+  Max slowdown:      7.58x
+
+  GPU Utilization:
+    Avg GPU util:    16.8%
+    Avg mem util:    8.2%
+    Peak mem used:   3458 MB
+    Avg mem used:    1124 MB
+    Avg power draw:  48.1 W
+    Samples:         85
+
+  GPU-hours wasted:  0.07h (0.08h allocated, 0.01h useful)
+
+  Avg GPU efficiency: 93.03%
+
+  Per-job breakdown:
+    llama_tp                        1 GPUs  run=    6.0s  wait=  39.5s    eff=100%
+    maml                            2 GPUs  run=    9.9s  wait=  31.9s    eff=92%
+    modded_nanogpt                  2 GPUs  run=   20.2s  wait=  35.0s    eff=81%
+    resnext50_32x4d                 2 GPUs  run=   38.6s  wait=  35.0s    eff=91%
+    hf_bert                         1 GPUs  run=  159.8s  wait=  33.6s    eff=100%
+==================================================

@@ -1,0 +1,32 @@
+
+==================================================
+  POLITE_BASELINE_1GPU SUMMARY
+==================================================
+  Jobs completed:    3
+  Wall-clock time:   60.0s (1.0m)
+  Makespan:          60.0s (1.0m)
+  Total run time:    68.7s
+  Total wait time:   111.4s
+  Avg run time:      22.9s
+  Avg wait time:     37.1s
+  Avg Job Completion Time:           60.0s
+  Max wait time:     47.6s
+  Jain's fairness:   0.9567
+  Avg slowdown:      3.06x
+  Max slowdown:      4.84x
+
+  GPU Utilization:
+    Avg GPU util:    11.4%
+    Avg mem util:    5.9%
+    Peak mem used:   1027 MB
+    Avg mem used:    471 MB
+    Avg power draw:  40.1 W
+    Samples:         29
+
+  GPU-hours wasted:  0.02h (0.02h allocated, 0.00h useful)
+
+  Per-job breakdown:
+    hf_t5_generate                  1 GPUs  run=   24.8s  wait=  35.3s
+    phlippe_resnet                  1 GPUs  run=   12.4s  wait=  47.6s
+    modded_nanogpt                  1 GPUs  run=   31.5s  wait=  28.5s
+==================================================

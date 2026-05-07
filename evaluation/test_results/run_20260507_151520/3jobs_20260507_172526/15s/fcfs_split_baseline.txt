@@ -1,0 +1,32 @@
+
+==================================================
+  FCFS_SPLIT_BASELINE SUMMARY
+==================================================
+  Jobs completed:    3
+  Wall-clock time:   100.2s (1.7m)
+  Makespan:          100.1s (1.7m)
+  Total run time:    25.1s
+  Total wait time:   155.2s
+  Avg run time:      8.4s
+  Avg wait time:     51.7s
+  Avg Job Completion Time:           60.1s
+  Max wait time:     65.6s
+  Jain's fairness:   0.9590
+  Avg slowdown:      8.76x
+  Max slowdown:      15.54x
+
+  GPU Utilization:
+    Avg GPU util:    19.1%
+    Avg mem util:    4.6%
+    Peak mem used:   4201 MB
+    Avg mem used:    986 MB
+    Avg power draw:  64.3 W
+    Samples:         48
+
+  GPU-hours wasted:  0.05h (0.06h allocated, 0.01h useful)
+
+  Per-job breakdown:
+    dm_nfnet_f0                     8 GPUs  run=   10.5s  wait=  39.6s
+    modded_nanogpt                  8 GPUs  run=   10.1s  wait=  50.0s
+    phlippe_resnet                  8 GPUs  run=    4.5s  wait=  65.6s
+==================================================

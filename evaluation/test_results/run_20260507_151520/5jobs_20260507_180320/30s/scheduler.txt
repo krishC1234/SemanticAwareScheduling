@@ -1,0 +1,36 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   147.4s (2.5m)
+  Makespan:          90.0s (1.5m)
+  Total run time:    86.5s
+  Total wait time:   236.7s
+  Avg run time:      17.3s
+  Avg wait time:     47.3s
+  Avg Job Completion Time:           64.6s
+  Max wait time:     64.1s
+  Jain's fairness:   0.9593
+  Avg slowdown:      4.14x
+  Max slowdown:      6.53x
+
+  GPU Utilization:
+    Avg GPU util:    13.1%
+    Avg mem util:    6.2%
+    Peak mem used:   4342 MB
+    Avg mem used:    823 MB
+    Avg power draw:  50.8 W
+    Samples:         43
+
+  GPU-hours wasted:  0.08h (0.09h allocated, 0.01h useful)
+
+  Avg GPU efficiency: 87.86%
+
+  Per-job breakdown:
+    maml_omniglot                   8 GPUs  run=   23.6s  wait=  36.5s    eff=78%
+    mobilenet_v2_qat                2 GPUs  run=   11.6s  wait=  64.1s    eff=86%
+    maml                            2 GPUs  run=   10.5s  wait=  39.8s    eff=92%
+    resnet50_qat                    2 GPUs  run=   16.5s  wait=  45.1s    eff=93%
+    stargan                         2 GPUs  run=   24.3s  wait=  51.2s    eff=89%
+==================================================

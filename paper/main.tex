@@ -1,4 +1,4 @@
-\documentclass[letterpaper,twocolumn,10pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
@@ -15,6 +15,9 @@
 \usepackage{titling}
 \usepackage{titlesec}
 \usepackage{times}
+\tolerance=2000
+\hyphenpenalty=1000
+\emergencystretch=1em
 
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
@@ -32,22 +35,26 @@ krish@seas.upenn.edu
 }
 
 \date{May 8, 2026}
+
+\twocolumn[
 \maketitle
 
 \begin{abstract}
 \noindent
 Modern GPU clusters run diverse deep learning workloads that exhibit widely varying multi-GPU scaling behavior. Yet, conventional schedulers like SLURM require users to manually specify the number of GPUs for each job---a decision that most researchers and scientists make with little knowledge of their workload's actual scaling characteristics. Users routinely over-provision (wasting resources) or under-provision (leaving performance on the table), and no individual user has the global view needed to optimize cluster-wide throughput. We present a semantic-aware scheduling system that removes this burden entirely: it predicts each job's GPU scaling exponent directly from its training script source code---without requiring any profiling runs---and uses this prediction to automatically make GPU allocation decisions that maximize cluster throughput. Our system employs a large language model to extract model architecture features (family, parameter count, batch size) from submitted scripts, feeds these into a trained regression model to predict the scaling exponent $k$, and applies a greedy marginal-gain allocator to distribute GPUs across concurrent jobs. We evaluate our scheduler against four scheduling algorithms (greedy, polite, FCFS-split, and size-aware) on a cluster of 8 NVIDIA RTX 3060 GPUs across 22 diverse training workloads spanning CNNs, transformers, GANs, GNNs, reinforcement learning, and diffusion models. Our results demonstrate that semantic-aware allocation reduces makespan by up to 40\% compared to naive scheduling algorithms while improving GPU utilization and fairness.
 \end{abstract}
+\vspace{1em}
+]
 
 % ---------------------------------------------------------------------------
 \section{Introduction}
 \label{sec:introduction}
 
-GPU clusters have become the backbone of modern deep learning research and production training. Organizations invest heavily in multi-GPU nodes, yet analysis of large-scale production clusters shows that distributed training achieves only ~50\% GPU utilization~\cite{jeon2019analysis}. A key contributor to this underutilization is that \textit{users are expected to choose how many GPUs their jobs need}---a decision they are fundamentally ill-equipped to make.
+GPU clusters have become the backbone of modern deep learning research and production training. Organizations invest heavily in multi-GPU nodes, yet analysis of large-scale production clusters shows that nearly 48\% of allocated GPU cycles are wasted, with average utilization across all jobs at only 52\%~\cite{jeon2019analysis}. A key contributor to this underutilization is that \textit{users are expected to choose how many GPUs their jobs need}---a decision they are fundamentally ill-equipped to make.
 
-In practice, a researcher submitting a training job to SLURM must specify a GPU count in their \texttt{sbatch} script. This decision is typically made with no knowledge of the job's actual scaling behavior, no visibility into what other jobs are competing for resources, and no understanding of how their choice affects cluster-wide throughput. The result is predictable: some users over-provision, requesting 8 GPUs for a model that barely benefits from 2, while others under-provision, running a highly parallelizable workload on a single GPU for hours when 4 would have finished it in minutes. Neither user has done anything wrong---the system simply asks them a question they cannot answer.
+In practice, a researcher submitting a training job to SLURM must specify a GPU count in their \texttt{sbatch} script. This decision is typically made with no knowledge of the job's actual scaling behavior, no visibility into what other jobs are competing for resources, and no understanding of how their choice affects cluster-wide throughput. The result is predictable: some users over-provision, requesting all available GPUs for a model that barely benefits from a fraction of them, while others under-provision, running a highly parallelizable workload on a single GPU for hours when additional accelerators would have finished it in minutes. Neither user has done anything wrong---the system simply asks them a question they cannot answer.
 
-Current cluster managers such as SLURM compound this problem with scheduling policies---FIFO, backfill, and fair-share---that treat all GPU requests as equally valid. A user requesting 8 GPUs for a small CNN receives the same treatment as one training a large transformer, despite the fact that these workloads scale very differently with additional GPUs. The CNN may achieve near-linear speedup ($k \approx 0.9$), while the transformer's communication overhead limits its scaling exponent to $k \approx 0.5$, meaning half the allocated GPUs contribute minimal speedup. No amount of user education can fix this: even an expert cannot optimize their own GPU request without knowing the current cluster load and the scaling characteristics of every other queued job.
+Current cluster managers such as SLURM compound this problem by requiring explicit GPU requests: if a user omits the \texttt{--gres=gpu:N} flag from their submission, SLURM allocates \textit{zero} GPUs---the job runs on CPU only, regardless of whether GPUs are available. There is no mechanism to automatically determine an appropriate GPU count. Furthermore, SLURM's scheduling policies---FIFO, backfill, and fair-share---treat all GPU requests as equally valid. A user requesting 8 GPUs for a small CNN receives the same treatment as one training a large transformer, despite the fact that these workloads scale very differently with additional GPUs. The CNN may achieve near-linear speedup ($k \approx 0.9$), while the transformer's communication overhead limits its scaling exponent to $k \approx 0.5$, meaning half the allocated GPUs contribute minimal speedup. No amount of user education can fix this: even an expert cannot optimize their own GPU request without knowing the current cluster load and the scaling characteristics of every other queued job.
 
 Our key insight is that a job's GPU scaling efficiency can be predicted \textit{before execution} by analyzing the structure of its training script, and that this prediction should be made by the \textit{scheduler}, not the user. Model architecture, parameter count, and batch size are strong predictors of how well a distributed training job will utilize additional GPUs. By extracting these features automatically and predicting the scaling exponent $k$, the scheduler can make globally-informed allocation decisions: giving more GPUs to jobs that benefit from them, fewer to jobs that would waste them, and removing the GPU-count decision from users entirely.
 
@@ -58,7 +65,7 @@ Our contributions are:
     \item A method for predicting GPU scaling efficiency from training script source code without profiling runs.
     \item A greedy GPU allocation algorithm based on marginal speedup gain that accounts for diminishing returns.
     \item A benchmark dataset of 228 DDP training configurations across 57 model families with measured scaling curves.
-    \item An evaluation framework comparing our scheduler against four scheduling algorithms across 22 diverse workloads.
+    \item An evaluation framework that measures scheduler performance across varying levels of cluster contention (3, 5, 12, and 22 concurrent jobs) and inter-arrival delays, comparing against four scheduling algorithms.
 \end{itemize}
 
 % ---------------------------------------------------------------------------
@@ -102,12 +109,12 @@ The value of $k$ depends on several factors: model architecture (communication-t
 
 Our system operates as a user-space overlay on top of SLURM. Figure~\ref{fig:architecture} shows the pipeline: when a user submits a training script, the system (1) extracts model features via an LLM, (2) predicts the scaling exponent $k$, (3) queues the job with its predicted $k$, and (4) allocates GPUs using a greedy marginal-gain algorithm when resources become available.
 
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=\columnwidth]{figures/architecture.pdf}
-%     \caption{System architecture. Training scripts are profiled by an LLM to extract features, which feed into a $k$-predictor. The greedy allocator distributes GPUs based on marginal speedup gain.}
-%     \label{fig:architecture}
-% \end{figure}
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{system_design.png}
+    \caption{System architecture of the semantic-aware GPU scheduler. A submitted training script is analyzed by an LLM to extract model features (family, batch size, parameter count), which are fed into a trained RandomForest regressor to predict the scaling exponent $k$. Jobs are queued with their predicted $k$ values and scored by marginal speedup gain $\Delta(g, k) = g^{-k} - (g+1)^{-k}$. The greedy allocator distributes available GPUs one at a time to the highest-scoring job, then submits the allocation to SLURM. A completion signal feeds back to the allocator when GPUs are freed.}
+    \label{fig:architecture}
+\end{figure*}
 
 \subsection{Scaling Exponent Model}
 
@@ -146,6 +153,8 @@ Predict-mean & 0.1256 $\pm$ 0.009 & 0.1497 $\pm$ 0.008 \\
 \end{table}
 
 GroupKFold cross-validation ensures that all configurations of the same model appear in the same fold, preventing leakage. The RandomForest regressor achieves the best MAE of 0.1063, significantly below the predict-mean baseline of 0.1256.
+
+We note that these prediction results reflect limited GPU wall time available for benchmark data collection. Each of the 228 configurations was benchmarked at only four GPU counts $\{1, 2, 4, 8\}$ with a single run per configuration, providing relatively sparse scaling curves for fitting $k$. With additional GPU time, the benchmark corpus could be expanded in several ways that would directly improve prediction accuracy: (1)~more GPU counts per configuration (e.g., 3, 5, 6, 7) to produce denser scaling curves with tighter $R^2$ fits; (2)~multiple runs per configuration to reduce measurement noise; and (3)~additional model families and configurations to expand training set coverage. We expect that even modest increases in benchmarking budget would yield meaningful improvements in MAE, as the current predictor already outperforms the mean baseline with limited data. Notably, the MLP regressor (MAE 0.1541) underperforms even the predict-mean baseline---a result we attribute entirely to the small training set size (189 rows across 50 models). Neural networks are well-known to require substantially more training data than tree-based methods to avoid overfitting and learn meaningful representations. With a larger benchmark corpus (e.g., hundreds of model families and thousands of configurations), we expect deep learning-based predictors to significantly outperform the RandomForest, as they can capture nonlinear interactions between architecture features that tree ensembles approximate only coarsely.
 
 \subsection{LLM-Based Feature Extraction}
 
@@ -215,11 +224,11 @@ We report the following metrics for each scheduling strategy:
 
 \begin{table*}[t]
 \centering
-\caption{High contention: all jobs arrive simultaneously (0s inter-arrival delay)}
-\label{tab:results_0s}
+\caption{Low contention: 3 jobs competing for 8 GPUs (0s inter-arrival delay)}
+\label{tab:results_3jobs}
 \begin{tabular}{lccccccc}
 \toprule
-Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-hrs Wasted & Avg Eff. (\%) \\
+Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-min Wasted & Avg Eff. (\%) \\
 \midrule
 Greedy (8 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
 Polite (1 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
@@ -232,11 +241,11 @@ Size-Aware & -- & -- & -- & -- & -- & -- & -- \\
 
 \begin{table*}[t]
 \centering
-\caption{Moderate contention: staggered arrivals (30s inter-arrival delay)}
-\label{tab:results_30s}
+\caption{Low-moderate contention: 5 jobs competing for 8 GPUs (0s inter-arrival delay)}
+\label{tab:results_5jobs}
 \begin{tabular}{lccccccc}
 \toprule
-Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-hrs Wasted & Avg Eff. (\%) \\
+Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-min Wasted & Avg Eff. (\%) \\
 \midrule
 Greedy (8 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
 Polite (1 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
@@ -249,11 +258,11 @@ Size-Aware & -- & -- & -- & -- & -- & -- & -- \\
 
 \begin{table*}[t]
 \centering
-\caption{Low contention: sparse arrivals (90s inter-arrival delay)}
-\label{tab:results_90s}
+\caption{Moderate contention: 12 jobs competing for 8 GPUs (0s inter-arrival delay)}
+\label{tab:results_12jobs}
 \begin{tabular}{lccccccc}
 \toprule
-Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-hrs Wasted & Avg Eff. (\%) \\
+Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-min Wasted & Avg Eff. (\%) \\
 \midrule
 Greedy (8 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
 Polite (1 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
@@ -264,16 +273,34 @@ Size-Aware & -- & -- & -- & -- & -- & -- & -- \\
 \end{tabular}
 \end{table*}
 
-\subsection{Impact of Arrival Rate}
+\begin{table*}[t]
+\centering
+\caption{High contention: 22 jobs competing for 8 GPUs (0s inter-arrival delay)}
+\label{tab:results_22jobs}
+\begin{tabular}{lccccccc}
+\toprule
+Strategy & Makespan (s) & Avg JCT (s) & Jain's Fair. & Avg Slowdown & GPU Util. (\%) & GPU-min Wasted & Avg Eff. (\%) \\
+\midrule
+Greedy (8 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
+Polite (1 GPU/job) & -- & -- & -- & -- & -- & -- & -- \\
+FCFS-Split & -- & -- & -- & -- & -- & -- & -- \\
+Size-Aware & -- & -- & -- & -- & -- & -- & -- \\
+\textbf{Ours} & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
-The inter-arrival delay controls the degree of contention in the cluster and directly affects how the scheduler allocates GPUs.
+\subsection{Impact of Cluster Contention}
 
-\textbf{High contention (0s delay).} All 22 jobs arrive simultaneously, creating maximum competition for 8 GPUs. With $M \gg N$, the marginal gain of a first GPU ($\Delta(0, k) = 1.0$) dominates for all jobs, causing the scheduler to distribute 1 GPU per job---similar to the polite strategy. The scheduler's advantage in this regime comes from its ability to backfill intelligently as jobs complete, prioritizing high-$k$ jobs for additional GPUs when they become available.
+The number of concurrent jobs relative to available GPUs directly determines how the scheduler allocates resources. We evaluate at four contention levels by varying the number of submitted jobs while keeping the cluster fixed at 8 GPUs.
 
-\textbf{Moderate contention (30s delay).} Jobs arrive every 15--45 seconds (uniformly random up to 30s). At any given moment, 2--5 jobs compete for available GPUs. This is the regime where the scheduler shows the greatest differentiation: it can assign 3--4 GPUs to a high-$k$ transformer and 1--2 GPUs to a low-$k$ GNN, rather than giving both jobs equal shares.
+\textbf{Low contention (3 jobs).} With fewer jobs than GPUs, the scheduler can assign 2--4 GPUs per job based on $k$. High-$k$ jobs receive more GPUs and finish significantly faster than under the polite strategy. This is the regime where $k$-aware allocation provides the greatest advantage.
 
-\textbf{Low contention (90s delay).} Jobs arrive sparsely, often one at a time. With few concurrent jobs, each receives many GPUs regardless of strategy. The scheduler's advantage is limited to avoiding over-allocation to low-$k$ jobs that would waste GPU cycles.
-% Figure: Makespan vs. delay setting for each strategy
+\textbf{Low-moderate contention (5 jobs).} Jobs slightly outnumber the GPU count, forcing the scheduler to make meaningful tradeoffs. Some jobs receive 2--3 GPUs while others receive 1, based on their predicted scaling efficiency.
+
+\textbf{Moderate contention (12 jobs).} With $M = 1.5N$, the scheduler allocates 1 GPU to most jobs but can still assign 2 GPUs to the highest-$k$ jobs when resources are available. The advantage over polite diminishes but remains measurable.
+
+\textbf{High contention (22 jobs).} With $M \gg N$, the marginal gain of a first GPU ($\Delta(0, k) = 1.0$) dominates for all jobs, causing the scheduler to distribute 1 GPU per job---converging to polite behavior. The scheduler's advantage in this regime comes from intelligent backfilling as jobs complete, prioritizing high-$k$ jobs for freed GPUs.
 
 % ---------------------------------------------------------------------------
 \section{Discussion}

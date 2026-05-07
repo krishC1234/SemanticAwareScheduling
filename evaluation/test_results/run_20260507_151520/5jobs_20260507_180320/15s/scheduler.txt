@@ -1,0 +1,36 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   449.5s (7.5m)
+  Makespan:          390.0s (6.5m)
+  Total run time:    427.0s
+  Total wait time:   256.2s
+  Avg run time:      85.4s
+  Avg wait time:     51.2s
+  Avg Job Completion Time:           136.6s
+  Max wait time:     64.9s
+  Jain's fairness:   0.9705
+  Avg slowdown:      4.07x
+  Max slowdown:      6.81x
+
+  GPU Utilization:
+    Avg GPU util:    4.0%
+    Avg mem util:    1.0%
+    Peak mem used:   3846 MB
+    Avg mem used:    218 MB
+    Avg power draw:  32.2 W
+    Samples:         185
+
+  GPU-hours wasted:  0.13h (0.14h allocated, 0.01h useful)
+
+  Avg GPU efficiency: 90.40%
+
+  Per-job breakdown:
+    phlippe_resnet                  1 GPUs  run=   11.9s  wait=  46.6s    eff=100%
+    llama_tp                        2 GPUs  run=    8.1s  wait=  47.1s    eff=80%
+    speech_transformer              2 GPUs  run=   13.0s  wait=  57.8s    eff=81%
+    resnext50_32x4d                 2 GPUs  run=   40.9s  wait=  39.8s    eff=91%
+    gnn_sage                        1 GPUs  run=  353.1s  wait=  64.9s    eff=100%
+==================================================

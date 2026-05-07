@@ -1,0 +1,34 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    3
+  Wall-clock time:   80.9s (1.3m)
+  Makespan:          30.0s (0.5m)
+  Total run time:    45.9s
+  Total wait time:   128.4s
+  Avg run time:      15.3s
+  Avg wait time:     42.8s
+  Avg Job Completion Time:           58.1s
+  Max wait time:     52.9s
+  Jain's fairness:   0.9673
+  Avg slowdown:      5.31x
+  Max slowdown:      9.43x
+
+  GPU Utilization:
+    Avg GPU util:    48.9%
+    Avg mem util:    15.6%
+    Peak mem used:   2922 MB
+    Avg mem used:    2143 MB
+    Avg power draw:  118.1 W
+    Samples:         14
+
+  GPU-hours wasted:  0.02h (0.04h allocated, 0.02h useful)
+
+  Avg GPU efficiency: 78.79%
+
+  Per-job breakdown:
+    phlippe_resnet                  2 GPUs  run=    4.0s  wait=  33.7s    eff=75%
+    dm_nfnet_f0                     3 GPUs  run=   22.2s  wait=  52.9s    eff=89%
+    modded_nanogpt                  3 GPUs  run=   19.7s  wait=  41.8s    eff=72%
+==================================================

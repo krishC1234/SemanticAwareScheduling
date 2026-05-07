@@ -1,0 +1,32 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    3
+  Wall-clock time:   394.3s (6.6m)
+  Makespan:          394.3s (6.6m)
+  Total run time:    377.1s
+  Total wait time:   108.9s
+  Avg run time:      125.7s
+  Avg wait time:     36.3s
+  Avg Job Completion Time:           162.0s
+  Max wait time:     50.3s
+  Jain's fairness:   0.9305
+  Avg slowdown:      3.05x
+  Max slowdown:      4.65x
+
+  GPU Utilization:
+    Avg GPU util:    3.1%
+    Avg mem util:    0.4%
+    Peak mem used:   4840 MB
+    Avg mem used:    240 MB
+    Avg power draw:  28.1 W
+    Samples:         187
+
+  GPU-hours wasted:  0.12h (0.12h allocated, 0.00h useful)
+
+  Per-job breakdown:
+    resnest                         2 GPUs  run=   12.2s  wait=  29.4s
+    speech_transformer              4 GPUs  run=   13.8s  wait=  50.3s
+    gnn_sage                        1 GPUs  run=  351.1s  wait=  29.1s
+==================================================

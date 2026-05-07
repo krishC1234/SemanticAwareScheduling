@@ -82,7 +82,10 @@ def report(summary, label, max_delay=None, run_dir=None):
         total_gpu_sec = sum(j["gpus"] * j["run_time"] for j in summary["jobs"])
         idle_frac = 1.0 - (summary["gpu"]["avg_gpu_util_pct"] / 100.0)
         wasted_gpu_sec = total_gpu_sec * idle_frac
-        emit(f"\n  GPU-hours wasted:  {wasted_gpu_sec / 3600:.2f}h "
+        emit(f"\n  GPU-minutes wasted: {wasted_gpu_sec / 60:.1f}m "
+             f"({total_gpu_sec / 60:.1f}m allocated, "
+             f"{(total_gpu_sec - wasted_gpu_sec) / 60:.1f}m useful)")
+        emit(f"  GPU-hours wasted:  {wasted_gpu_sec / 3600:.2f}h "
              f"({total_gpu_sec / 3600:.2f}h allocated, "
              f"{(total_gpu_sec - wasted_gpu_sec) / 3600:.2f}h useful)")
 

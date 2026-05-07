@@ -1,0 +1,34 @@
+
+==================================================
+  POLITE_BASELINE_1GPU SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   180.1s (3.0m)
+  Makespan:          180.1s (3.0m)
+  Total run time:    275.9s
+  Total wait time:   144.3s
+  Avg run time:      55.2s
+  Avg wait time:     28.9s
+  Avg Job Completion Time:           84.1s
+  Max wait time:     40.5s
+  Jain's fairness:   0.9139
+  Avg slowdown:      2.36x
+  Max slowdown:      4.90x
+
+  GPU Utilization:
+    Avg GPU util:    14.9%
+    Avg mem util:    8.8%
+    Peak mem used:   2560 MB
+    Avg mem used:    1043 MB
+    Avg power draw:  51.5 W
+    Samples:         85
+
+  GPU-hours wasted:  0.07h (0.08h allocated, 0.01h useful)
+
+  Per-job breakdown:
+    llama_tp                        1 GPUs  run=    6.1s  wait=  23.9s
+    maml                            1 GPUs  run=   24.4s  wait=  35.6s
+    modded_nanogpt                  1 GPUs  run=   30.9s  wait=  29.1s
+    resnext50_32x4d                 1 GPUs  run=   74.8s  wait=  15.2s
+    hf_bert                         1 GPUs  run=  139.6s  wait=  40.5s
+==================================================

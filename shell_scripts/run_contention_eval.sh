@@ -8,7 +8,7 @@
 #   bash run_contention_eval.sh 9100         # custom port
 
 PORT=${1:-9321}
-JOB_COUNTS=(3 5 7)
+JOB_COUNTS=(12 22)
 DELAYS=(0 15 30)
 
 # Ensure we're in the project root

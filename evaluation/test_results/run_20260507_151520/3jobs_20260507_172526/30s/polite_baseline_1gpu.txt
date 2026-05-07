@@ -1,0 +1,32 @@
+
+==================================================
+  POLITE_BASELINE_1GPU SUMMARY
+==================================================
+  Jobs completed:    3
+  Wall-clock time:   404.1s (6.7m)
+  Makespan:          404.1s (6.7m)
+  Total run time:    373.5s
+  Total wait time:   152.3s
+  Avg run time:      124.5s
+  Avg wait time:     50.8s
+  Avg Job Completion Time:           175.3s
+  Max wait time:     63.1s
+  Jain's fairness:   0.9708
+  Avg slowdown:      3.77x
+  Max slowdown:      6.78x
+
+  GPU Utilization:
+    Avg GPU util:    1.1%
+    Avg mem util:    0.4%
+    Peak mem used:   1436 MB
+    Avg mem used:    99 MB
+    Avg power draw:  24.4 W
+    Samples:         192
+
+  GPU-hours wasted:  0.10h (0.10h allocated, 0.00h useful)
+
+  Per-job breakdown:
+    speech_transformer              1 GPUs  run=   10.9s  wait=  63.1s
+    resnest                         1 GPUs  run=   18.1s  wait=  43.5s
+    gnn_sage                        1 GPUs  run=  344.4s  wait=  45.7s
+==================================================

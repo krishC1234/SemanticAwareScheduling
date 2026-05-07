@@ -1,0 +1,34 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   210.2s (3.5m)
+  Makespan:          210.2s (3.5m)
+  Total run time:    158.6s
+  Total wait time:   391.9s
+  Avg run time:      31.7s
+  Avg wait time:     78.4s
+  Avg Job Completion Time:           110.1s
+  Max wait time:     134.9s
+  Jain's fairness:   0.8739
+  Avg slowdown:      5.91x
+  Max slowdown:      14.35x
+
+  GPU Utilization:
+    Avg GPU util:    45.6%
+    Avg mem util:    8.3%
+    Peak mem used:   8183 MB
+    Avg mem used:    3446 MB
+    Avg power draw:  94.9 W
+    Samples:         99
+
+  GPU-hours wasted:  0.12h (0.22h allocated, 0.10h useful)
+
+  Per-job breakdown:
+    llama_tp                        8 GPUs  run=    3.5s  wait=  46.6s
+    maml                            1 GPUs  run=   22.1s  wait=  68.0s
+    modded_nanogpt                  4 GPUs  run=   15.8s  wait=  74.3s
+    resnext50_32x4d                 2 GPUs  run=   42.0s  wait=  68.2s
+    hf_bert                         8 GPUs  run=   75.3s  wait= 134.9s
+==================================================

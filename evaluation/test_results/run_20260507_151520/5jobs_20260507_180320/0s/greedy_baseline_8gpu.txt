@@ -1,0 +1,34 @@
+
+==================================================
+  GREEDY_BASELINE_8GPU SUMMARY
+==================================================
+  Jobs completed:    5
+  Wall-clock time:   240.1s (4.0m)
+  Makespan:          240.1s (4.0m)
+  Total run time:    107.4s
+  Total wait time:   432.8s
+  Avg run time:      21.5s
+  Avg wait time:     86.6s
+  Avg Job Completion Time:           108.1s
+  Max wait time:     164.1s
+  Jain's fairness:   0.7610
+  Avg slowdown:      10.06x
+  Max slowdown:      22.80x
+
+  GPU Utilization:
+    Avg GPU util:    41.2%
+    Avg mem util:    7.2%
+    Peak mem used:   8183 MB
+    Avg mem used:    3092 MB
+    Avg power draw:  91.2 W
+    Samples:         112
+
+  GPU-hours wasted:  0.14h (0.24h allocated, 0.10h useful)
+
+  Per-job breakdown:
+    llama_tp                        8 GPUs  run=    3.6s  wait=  26.4s
+    resnext50_32x4d                 8 GPUs  run=   13.5s  wait=  46.5s
+    maml                            8 GPUs  run=    4.0s  wait=  86.1s
+    modded_nanogpt                  8 GPUs  run=   10.3s  wait= 109.8s
+    hf_bert                         8 GPUs  run=   76.0s  wait= 164.1s
+==================================================
