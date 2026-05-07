@@ -183,11 +183,12 @@ class Scheduler:
                     logger.debug(f"allocation check: {queue_len} queued, "
                                  f"{available} GPUs free ({used_by_running} used by {len(self.running)} running)")
                     if available > 0:
-                        # Reset timer whenever a new job arrives
-                        if queue_len != self._last_queue_size:
+                        # Reset timer whenever a new job arrives (queue grows)
+                        if queue_len > self._last_queue_size:
                             self._gpus_freed_at = time.time()
-                            self._last_queue_size = queue_len
-                        elif self._gpus_freed_at is None:
+                            logger.debug(f"batching: new job arrived (queue {self._last_queue_size}->{queue_len}), resetting timer")
+                        self._last_queue_size = queue_len
+                        if self._gpus_freed_at is None:
                             self._gpus_freed_at = time.time()
                         waited = time.time() - self._gpus_freed_at
                         if waited >= BATCH_WINDOW:
@@ -209,6 +210,7 @@ class Scheduler:
                                         f"waiting for more jobs...")
                     else:
                         self._gpus_freed_at = None
+                        self._last_queue_size = 0
 
             self._stop.wait(self.poll_interval)
 
