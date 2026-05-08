@@ -138,7 +138,3 @@ At low contention (3 jobs, 8 GPUs), the scheduler achieves:
 - **0.998 Jain's fairness** (near-perfect)
 
 ```
-
-## Author
-
-Krish Chaudhary -- University of Pennsylvania
