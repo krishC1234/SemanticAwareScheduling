@@ -1,6 +1,6 @@
 # Semantic-Aware Resource Scheduling on Clusters
 
-A GPU cluster scheduler that predicts each job's multi-GPU scaling efficiency from its training script source code and uses this prediction to make informed GPU allocation decisions -- without requiring any profiling runs.
+A GPU cluster scheduler that predicts each job's multi-GPU scaling efficiency from its training script source code and uses this prediction to make informed GPU allocation decisions.
 
 ## Overview
 
