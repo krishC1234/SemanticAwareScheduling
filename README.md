@@ -137,12 +137,6 @@ At low contention (3 jobs, 8 GPUs), the scheduler achieves:
 - **28% lower avg JCT** vs polite baseline
 - **0.998 Jain's fairness** (near-perfect)
 
-## Paper
-
-The research paper is in `paper/main.tex`. Compile with:
-```bash
-cd paper
-pdflatex main && bibtex main && pdflatex main && pdflatex main
 ```
 
 ## Author
