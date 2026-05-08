@@ -1,0 +1,42 @@
+
+==================================================
+  GREEDY_BASELINE_8GPU SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   614.5s (10.2m)
+  Makespan:          614.5s (10.2m)
+  Total run time:    275.8s
+  Total wait time:   3176.6s
+  Avg run time:      23.0s
+  Avg wait time:     264.7s
+  Avg Job Completion Time:           287.7s
+  Max wait time:     417.8s
+  Jain's fairness:   0.8820
+  Avg slowdown:      46.47x
+  Max slowdown:      184.26x
+
+  GPU Utilization:
+    Avg GPU util:    34.1%
+    Avg mem util:    4.8%
+    Peak mem used:   8619 MB
+    Avg mem used:    2247 MB
+    Avg power draw:  82.8 W
+    Samples:         288
+
+  GPU-minutes wasted: 24.2m (36.8m allocated, 12.5m useful)
+  GPU-hours wasted:  0.40h (0.61h allocated, 0.21h useful)
+
+  Per-job breakdown:
+    hf_bert                         8 GPUs  run=   75.0s  wait= 119.4s
+    soft_actor_critic               8 GPUs  run=    2.3s  wait= 172.1s
+    mobilenet_v2_qat                8 GPUs  run=    1.5s  wait= 149.8s
+    gnn_sage                        8 GPUs  run=   70.0s  wait= 162.5s
+    dm_nfnet_f0                     8 GPUs  run=    9.7s  wait= 230.4s
+    speech_transformer              8 GPUs  run=    7.7s  wait= 244.4s
+    hf_gpt2_large                   8 GPUs  run=   52.5s  wait= 264.9s
+    resnet50_qat                    8 GPUs  run=    7.3s  wait= 329.6s
+    modded_nanogpt                  8 GPUs  run=   10.1s  wait= 333.4s
+    maml_omniglot                   8 GPUs  run=   24.0s  wait= 362.9s
+    resnext50_32x4d                 8 GPUs  run=   13.3s  wait= 389.4s
+    pyhpc_isoneutral                8 GPUs  run=    2.3s  wait= 417.8s
+==================================================

@@ -1,0 +1,51 @@
+
+==================================================
+  FCFS_SPLIT_BASELINE SUMMARY
+==================================================
+  Jobs completed:    21
+  Wall-clock time:   901.3s (15.0m)
+  Makespan:          901.3s (15.0m)
+  Total run time:    354.4s
+  Total wait time:   6595.5s
+  Avg run time:      16.9s
+  Avg wait time:     314.1s
+  Avg Job Completion Time:           331.0s
+  Max wait time:     538.1s
+  Jain's fairness:   0.7911
+  Avg slowdown:      79.22x
+  Max slowdown:      288.92x
+
+  GPU Utilization:
+    Avg GPU util:    30.5%
+    Avg mem util:    4.0%
+    Peak mem used:   8619 MB
+    Avg mem used:    2016 MB
+    Avg power draw:  78.8 W
+    Samples:         421
+
+  GPU-minutes wasted: 32.8m (47.3m allocated, 14.4m useful)
+  GPU-hours wasted:  0.55h (0.79h allocated, 0.24h useful)
+
+  Per-job breakdown:
+    pyhpc_isoneutral                8 GPUs  run=    2.3s  wait=  27.8s
+    phlippe_resnet                  8 GPUs  run=    4.3s  wait=  45.8s
+    hf_bert                         8 GPUs  run=   75.2s  wait=  75.0s
+    resnet50_qat                    8 GPUs  run=    7.1s  wait= 163.1s
+    modded_nanogpt                  8 GPUs  run=   10.2s  wait= 170.1s
+    mobilenet_v2_qat                8 GPUs  run=    1.4s  wait= 168.8s
+    hf_gpt2_large                   8 GPUs  run=   52.6s  wait= 187.8s
+    maml_omniglot                   8 GPUs  run=   24.8s  wait= 255.6s
+    demucs                          8 GPUs  run=    1.0s  wait= 299.4s
+    maml                            8 GPUs  run=    3.8s  wait= 296.7s
+    resnest                         8 GPUs  run=    6.5s  wait= 314.0s
+    gnn_sage                        8 GPUs  run=   69.6s  wait= 331.0s
+    stargan                         8 GPUs  run=    1.6s  wait= 399.0s
+    speech_transformer              8 GPUs  run=    7.9s  wait= 422.7s
+    llama_tp                        8 GPUs  run=    3.5s  wait= 417.1s
+    hf_t5_base                      8 GPUs  run=   47.1s  wait= 443.6s
+    resnext50_32x4d                 8 GPUs  run=   13.2s  wait= 487.5s
+    soft_actor_critic               8 GPUs  run=    2.2s  wait= 508.4s
+    hf_t5_generate                  8 GPUs  run=    7.8s  wait= 512.9s
+    dm_nfnet_f0                     8 GPUs  run=    9.6s  wait= 531.1s
+    sam                             8 GPUs  run=    2.6s  wait= 538.1s
+==================================================

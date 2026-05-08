@@ -1,0 +1,42 @@
+
+==================================================
+  FCFS_SPLIT_BASELINE SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   600.8s (10.0m)
+  Makespan:          600.8s (10.0m)
+  Total run time:    275.8s
+  Total wait time:   2678.1s
+  Avg run time:      23.0s
+  Avg wait time:     223.2s
+  Avg Job Completion Time:           246.2s
+  Max wait time:     348.3s
+  Jain's fairness:   0.8512
+  Avg slowdown:      40.34x
+  Max slowdown:      161.49x
+
+  GPU Utilization:
+    Avg GPU util:    33.7%
+    Avg mem util:    5.0%
+    Peak mem used:   8619 MB
+    Avg mem used:    2317 MB
+    Avg power draw:  85.0 W
+    Samples:         281
+
+  GPU-minutes wasted: 24.4m (36.8m allocated, 12.4m useful)
+  GPU-hours wasted:  0.41h (0.61h allocated, 0.21h useful)
+
+  Per-job breakdown:
+    hf_bert                         8 GPUs  run=   75.6s  wait=  34.6s
+    soft_actor_critic               8 GPUs  run=    2.3s  wait= 127.9s
+    mobilenet_v2_qat                8 GPUs  run=    1.4s  wait= 128.8s
+    gnn_sage                        8 GPUs  run=   71.1s  wait= 149.3s
+    dm_nfnet_f0                     8 GPUs  run=    9.7s  wait= 210.6s
+    speech_transformer              8 GPUs  run=    7.9s  wait= 222.4s
+    hf_gpt2_large                   8 GPUs  run=   52.9s  wait= 227.5s
+    resnet50_qat                    8 GPUs  run=    7.1s  wait= 293.3s
+    modded_nanogpt                  8 GPUs  run=   10.2s  wait= 290.2s
+    maml_omniglot                   8 GPUs  run=   22.3s  wait= 308.1s
+    resnext50_32x4d                 8 GPUs  run=   13.2s  wait= 337.2s
+    pyhpc_isoneutral                8 GPUs  run=    2.2s  wait= 348.3s
+==================================================

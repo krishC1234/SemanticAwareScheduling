@@ -1,0 +1,51 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    21
+  Wall-clock time:   790.1s (13.2m)
+  Makespan:          790.1s (13.2m)
+  Total run time:    930.0s
+  Total wait time:   4672.9s
+  Avg run time:      44.3s
+  Avg wait time:     222.5s
+  Avg Job Completion Time:           266.8s
+  Max wait time:     627.0s
+  Jain's fairness:   0.6677
+  Avg slowdown:      41.08x
+  Max slowdown:      242.00x
+
+  GPU Utilization:
+    Avg GPU util:    28.2%
+    Avg mem util:    5.2%
+    Peak mem used:   8619 MB
+    Avg mem used:    2158 MB
+    Avg power draw:  73.0 W
+    Samples:         370
+
+  GPU-minutes wasted: 28.8m (40.2m allocated, 11.3m useful)
+  GPU-hours wasted:  0.48h (0.67h allocated, 0.19h useful)
+
+  Per-job breakdown:
+    hf_t5_base                      4 GPUs  run=   84.7s  wait=  85.0s
+    maml                            1 GPUs  run=   23.8s  wait= 129.1s
+    resnet50_qat                    2 GPUs  run=   16.7s  wait= 128.1s
+    speech_transformer              4 GPUs  run=   13.6s  wait= 123.0s
+    hf_t5_generate                  4 GPUs  run=   11.1s  wait= 123.2s
+    hf_gpt2_large                   8 GPUs  run=   53.5s  wait= 141.6s
+    resnest                         2 GPUs  run=   12.1s  wait= 192.0s
+    dm_nfnet_f0                     4 GPUs  run=   15.9s  wait= 196.9s
+    soft_actor_critic               1 GPUs  run=    2.3s  wait= 185.9s
+    resnext50_32x4d                 2 GPUs  run=   41.1s  wait= 177.8s
+    phlippe_resnet                  1 GPUs  run=   12.2s  wait= 112.0s
+    mobilenet_v2_qat                2 GPUs  run=   12.3s  wait= 188.6s
+    demucs                          4 GPUs  run=    1.0s  wait= 191.9s
+    pyhpc_isoneutral                1 GPUs  run=    6.7s  wait= 133.4s
+    stargan                         4 GPUs  run=    9.1s  wait= 212.5s
+    modded_nanogpt                  4 GPUs  run=   16.1s  wait= 220.6s
+    maml_omniglot                   1 GPUs  run=  167.4s  wait= 145.5s
+    gnn_sage                        1 GPUs  run=  349.1s  wait= 200.3s
+    hf_bert                         8 GPUs  run=   75.0s  wait= 541.3s
+    sam                             8 GPUs  run=    2.6s  wait= 617.0s
+    llama_tp                        8 GPUs  run=    3.7s  wait= 627.0s
+==================================================

@@ -1,0 +1,42 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   512.9s (8.5m)
+  Makespan:          512.9s (8.5m)
+  Total run time:    781.5s
+  Total wait time:   1475.4s
+  Avg run time:      65.1s
+  Avg wait time:     123.0s
+  Avg Job Completion Time:           188.1s
+  Max wait time:     427.7s
+  Jain's fairness:   0.4524
+  Avg slowdown:      19.20x
+  Max slowdown:      168.08x
+
+  GPU Utilization:
+    Avg GPU util:    28.8%
+    Avg mem util:    5.2%
+    Peak mem used:   8183 MB
+    Avg mem used:    2224 MB
+    Avg power draw:  76.2 W
+    Samples:         240
+
+  GPU-minutes wasted: 21.0m (29.4m allocated, 8.5m useful)
+  GPU-hours wasted:  0.35h (0.49h allocated, 0.14h useful)
+
+  Per-job breakdown:
+    resnet50_qat                    2 GPUs  run=   17.0s  wait=  53.2s
+    hf_t5_generate                  4 GPUs  run=   11.0s  wait=  54.3s
+    resnest                         2 GPUs  run=   11.9s  wait=  45.7s
+    mobilenet_v2_qat                2 GPUs  run=   12.4s  wait=  28.6s
+    speech_transformer              4 GPUs  run=   13.2s  wait=  75.5s
+    modded_nanogpt                  4 GPUs  run=   16.7s  wait=  62.6s
+    hf_t5_base                      4 GPUs  run=   83.4s  wait=  93.5s
+    maml_omniglot                   1 GPUs  run=  155.1s  wait=  21.0s
+    stargan                         4 GPUs  run=    9.2s  wait= 195.1s
+    gnn_sage                        1 GPUs  run=  373.9s  wait=  28.9s
+    hf_bert                         8 GPUs  run=   75.1s  wait= 389.4s
+    sam                             8 GPUs  run=    2.6s  wait= 427.7s
+==================================================

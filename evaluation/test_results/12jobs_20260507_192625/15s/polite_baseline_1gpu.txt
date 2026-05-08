@@ -1,0 +1,42 @@
+
+==================================================
+  POLITE_BASELINE_1GPU SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   412.7s (6.9m)
+  Makespan:          412.7s (6.9m)
+  Total run time:    1015.6s
+  Total wait time:   550.4s
+  Avg run time:      84.6s
+  Avg wait time:     45.9s
+  Avg Job Completion Time:           130.5s
+  Max wait time:     68.1s
+  Jain's fairness:   0.9315
+  Avg slowdown:      3.07x
+  Max slowdown:      9.73x
+
+  GPU Utilization:
+    Avg GPU util:    14.0%
+    Avg mem util:    7.2%
+    Peak mem used:   4134 MB
+    Avg mem used:    1109 MB
+    Avg power draw:  54.8 W
+    Samples:         195
+
+  GPU-minutes wasted: 14.6m (16.9m allocated, 2.4m useful)
+  GPU-hours wasted:  0.24h (0.28h allocated, 0.04h useful)
+
+  Per-job breakdown:
+    resnet50_qat                    1 GPUs  run=   29.7s  wait=  40.4s
+    speech_transformer              1 GPUs  run=   10.8s  wait=  47.9s
+    resnest                         1 GPUs  run=   19.0s  wait=  38.6s
+    hf_t5_generate                  1 GPUs  run=   27.2s  wait=  68.1s
+    mobilenet_v2_qat                1 GPUs  run=   18.9s  wait=  32.1s
+    modded_nanogpt                  1 GPUs  run=   27.0s  wait=  62.3s
+    stargan                         1 GPUs  run=   40.1s  wait=  34.2s
+    sam                             1 GPUs  run=    6.2s  wait=  53.9s
+    hf_bert                         1 GPUs  run=  162.4s  wait=  31.8s
+    maml_omniglot                   1 GPUs  run=  132.0s  wait=  34.0s
+    hf_t5_base                      1 GPUs  run=  174.3s  wait=  62.5s
+    gnn_sage                        1 GPUs  run=  367.9s  wait=  44.7s
+==================================================

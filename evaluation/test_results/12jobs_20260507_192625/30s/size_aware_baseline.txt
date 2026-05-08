@@ -1,0 +1,42 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   574.7s (9.6m)
+  Makespan:          574.7s (9.6m)
+  Total run time:    768.0s
+  Total wait time:   1354.3s
+  Avg run time:      64.0s
+  Avg wait time:     112.9s
+  Avg Job Completion Time:           176.9s
+  Max wait time:     403.5s
+  Jain's fairness:   0.5764
+  Avg slowdown:      12.35x
+  Max slowdown:      88.54x
+
+  GPU Utilization:
+    Avg GPU util:    29.6%
+    Avg mem util:    4.4%
+    Peak mem used:   8619 MB
+    Avg mem used:    2320 MB
+    Avg power draw:  70.8 W
+    Samples:         271
+
+  GPU-minutes wasted: 22.0m (31.3m allocated, 9.3m useful)
+  GPU-hours wasted:  0.37h (0.52h allocated, 0.15h useful)
+
+  Per-job breakdown:
+    hf_bert                         8 GPUs  run=   75.1s  wait= 119.4s
+    soft_actor_critic               1 GPUs  run=    2.0s  wait= 172.5s
+    mobilenet_v2_qat                2 GPUs  run=   12.3s  wait= 138.9s
+    dm_nfnet_f0                     4 GPUs  run=   16.1s  wait= 104.0s
+    speech_transformer              4 GPUs  run=   12.7s  wait=  89.4s
+    resnet50_qat                    2 GPUs  run=   17.2s  wait=  49.6s
+    modded_nanogpt                  4 GPUs  run=   16.0s  wait=  67.4s
+    pyhpc_isoneutral                1 GPUs  run=    6.7s  wait=  43.3s
+    resnext50_32x4d                 2 GPUs  run=   41.1s  wait=  31.5s
+    maml_omniglot                   1 GPUs  run=  165.4s  wait=  41.5s
+    gnn_sage                        1 GPUs  run=  349.3s  wait=  93.4s
+    hf_gpt2_large                   8 GPUs  run=   54.1s  wait= 403.5s
+==================================================

@@ -1,0 +1,44 @@
+
+==================================================
+  SCHEDULER SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   585.2s (9.8m)
+  Makespan:          360.0s (6.0m)
+  Total run time:    782.2s
+  Total wait time:   1043.8s
+  Avg run time:      65.2s
+  Avg wait time:     87.0s
+  Avg Job Completion Time:           152.2s
+  Max wait time:     171.8s
+  Jain's fairness:   0.8077
+  Avg slowdown:      10.53x
+  Max slowdown:      82.81x
+
+  GPU Utilization:
+    Avg GPU util:    6.7%
+    Avg mem util:    2.9%
+    Peak mem used:   2499 MB
+    Avg mem used:    429 MB
+    Avg power draw:  40.7 W
+    Samples:         170
+
+  GPU-minutes wasted: 22.7m (24.3m allocated, 1.6m useful)
+  GPU-hours wasted:  0.38h (0.40h allocated, 0.03h useful)
+
+  Avg GPU efficiency: 94.00%
+
+  Per-job breakdown:
+    hf_bert                         8 GPUs  run=   75.2s  wait=  49.5s    eff=51%
+    soft_actor_critic               1 GPUs  run=    2.1s  wait= 171.8s    eff=100%
+    speech_transformer              1 GPUs  run=   11.5s  wait=  90.9s    eff=100%
+    mobilenet_v2_qat                1 GPUs  run=   19.3s  wait= 144.9s    eff=100%
+    dm_nfnet_f0                     2 GPUs  run=   24.4s  wait= 109.3s    eff=93%
+    resnet50_qat                    1 GPUs  run=   31.1s  wait=  45.9s    eff=100%
+    pyhpc_isoneutral                1 GPUs  run=    7.3s  wait=  32.9s    eff=100%
+    modded_nanogpt                  1 GPUs  run=   27.5s  wait=  84.3s    eff=100%
+    hf_gpt2_large                   1 GPUs  run=   99.0s  wait=  66.8s    eff=100%
+    resnext50_32x4d                 2 GPUs  run=   41.2s  wait=  49.0s    eff=91%
+    maml_omniglot                   2 GPUs  run=   83.5s  wait=  64.8s    eff=92%
+    gnn_sage                        1 GPUs  run=  360.1s  wait= 133.7s    eff=100%
+==================================================

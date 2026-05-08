@@ -1,0 +1,42 @@
+
+==================================================
+  SIZE_AWARE_BASELINE SUMMARY
+==================================================
+  Jobs completed:    12
+  Wall-clock time:   520.5s (8.7m)
+  Makespan:          520.4s (8.7m)
+  Total run time:    641.4s
+  Total wait time:   1860.8s
+  Avg run time:      53.4s
+  Avg wait time:     155.1s
+  Avg Job Completion Time:           208.5s
+  Max wait time:     444.9s
+  Jain's fairness:   0.6035
+  Avg slowdown:      14.35x
+  Max slowdown:      58.94x
+
+  GPU Utilization:
+    Avg GPU util:    30.1%
+    Avg mem util:    6.3%
+    Peak mem used:   8183 MB
+    Avg mem used:    2144 MB
+    Avg power draw:  76.1 W
+    Samples:         244
+
+  GPU-minutes wasted: 19.6m (28.0m allocated, 8.4m useful)
+  GPU-hours wasted:  0.33h (0.47h allocated, 0.14h useful)
+
+  Per-job breakdown:
+    sam                             8 GPUs  run=    2.6s  wait=  17.5s
+    demucs                          4 GPUs  run=    0.8s  wait=  49.3s
+    resnest                         2 GPUs  run=   11.9s  wait=  48.2s
+    mobilenet_v2_qat                2 GPUs  run=   12.2s  wait=  77.9s
+    resnext50_32x4d                 2 GPUs  run=   42.1s  wait= 108.0s
+    hf_t5_base                      4 GPUs  run=   87.2s  wait=  83.0s
+    stargan                         4 GPUs  run=    9.3s  wait= 200.9s
+    hf_t5_generate                  4 GPUs  run=   11.2s  wait= 229.0s
+    dm_nfnet_f0                     4 GPUs  run=   16.3s  wait= 263.9s
+    modded_nanogpt                  4 GPUs  run=   16.9s  wait= 293.3s
+    gnn_sage                        1 GPUs  run=  355.3s  wait=  45.0s
+    hf_bert                         8 GPUs  run=   75.5s  wait= 444.9s
+==================================================
